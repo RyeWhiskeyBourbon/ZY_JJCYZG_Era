@@ -334,11 +334,11 @@
     [self.findButton addSubview:self.itemNoticeView];
 //    [self refreshMessageData:nil];
     //创建菜单栏
-    UMComHorizonCollectionView *collectionMenuView = [[UMComHorizonCollectionView alloc]initWithFrame:CGRectMake(40, 0, self.view.frame.size.width - 80, 44) itemCount:4];
+    UMComHorizonCollectionView *collectionMenuView = [[UMComHorizonCollectionView alloc]initWithFrame:CGRectMake(50, 0, self.view.frame.size.width - 80, 44) itemCount:4];
     collectionMenuView.cellDelegate = self;
     collectionMenuView.indicatorLineHeight = 2;
     collectionMenuView.indicatorLineWidth = UMComWidthScaleBetweenCurentScreenAndiPhone6Screen(35.f);
-    collectionMenuView.scrollIndicatorView.backgroundColor = UMComColorWithColorValueString(FontColorBlue);
+    collectionMenuView.scrollIndicatorView.backgroundColor = UMComColorWithColorValueString(@"#FFFFFF");
     collectionMenuView.backgroundColor = [UIColor clearColor];
     [self.navigationController.navigationBar addSubview:collectionMenuView];
     self.menuView = collectionMenuView;
@@ -358,7 +358,7 @@
         cell.label.text = UMComLocalizedString(@"um_com_topic",@"话题");
     }
     if (indexPath.row == collectionView.currentIndex) {
-        cell.label.textColor = UMComColorWithColorValueString(@"#178DE7");
+        cell.label.textColor = UMComColorWithColorValueString(@"#00FFFF");
     }else{
         cell.label.textColor = UMComColorWithColorValueString(@"#FFFFFF");
     }

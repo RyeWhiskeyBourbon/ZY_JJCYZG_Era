@@ -51,6 +51,9 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self InsertBackgroungView];
+    
     if (self.registerError) {
         [UMComShowToast showFetchResultTipWithError:self.registerError];
     }
@@ -98,10 +101,21 @@
     } else {
         self.pushStatus.text = UMComLocalizedString(@"um_com_message_status_close",@"已关闭");
     }
-    
+    _logoutButton.layer.cornerRadius = 6;
     _logoutButton.layer.borderColor = UMComColorWithColorValueString(@"FF9D0F").CGColor;
+    _logoutButton.backgroundColor = [UIColor redColor];
 }
-
+- (void)InsertBackgroungView
+{
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"textBack.png"]];
+    
+    imgView.frame = self.view.bounds;
+    
+    [imgView sizeToFit];
+    
+    [self.view insertSubview:imgView atIndex:0];
+    
+}
 - (void)setGender:(NSInteger)gender
 {
     if (gender == 0) {
