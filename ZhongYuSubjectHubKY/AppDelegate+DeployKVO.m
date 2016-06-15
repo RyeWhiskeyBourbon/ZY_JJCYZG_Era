@@ -21,7 +21,7 @@
     {
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         
-        [deployManager setDeployValue:CLOCK_ON forKey:CLOCK];
+        [deployManager setDeployValue:CLOCK_OFF forKey:CLOCK];
         
         [deployManager setDeployValue:@[@"提醒1"] forKey:CLOCK_NAMES];
         
