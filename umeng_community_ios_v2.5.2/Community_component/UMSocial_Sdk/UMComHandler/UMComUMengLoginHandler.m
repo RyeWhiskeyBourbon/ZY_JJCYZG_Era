@@ -11,7 +11,7 @@
 #import "UMSocialSinaSSOHandler.h"
 #import "UMComNavigationController.h"
 #import "RWLoginViewController.h"
-
+#import "RWRegisterViewController.h"
 @interface UMComUMengLoginHandler()<UMSocialUIDelegate>
 
 
@@ -44,15 +44,12 @@ static UMComUMengLoginHandler *_instance = nil;
 - (void)presentLoginViewController:(UIViewController *)viewController finishResponse:(void (^)(id, NSError *))completion
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-//        UMComLoginViewController *loginViewController = [[UMComLoginViewController alloc] initWithNibName:@"UMComLoginViewController" bundle:nil];
-//        UMComNavigationController *navigationController = [[UMComNavigationController alloc] initWithRootViewController:loginViewController];
-        
-        RWLoginViewController *login = [[RWLoginViewController alloc]init];
-        UMComNavigationController *navigationController = [[UMComNavigationController alloc] initWithRootViewController:login];
 
-        [viewController presentViewController:navigationController animated:YES completion:^{
+    RWRegisterViewController *registerView = [[RWRegisterViewController alloc]init];
+    [viewController presentViewController:registerView animated:YES completion:^{
         }];
-    });
+        
+     });
 }
 
 @end

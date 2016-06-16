@@ -18,7 +18,7 @@
 #import "RWWebViewController.h"
 #import "RWFeedbackViewController.h"
 #import "RWRecommendController.h"
-
+#import "UMComLoginManager.h"
 @interface RWMoreViewController ()
 
 <
@@ -358,6 +358,10 @@ static NSString *const viewListButton = @"viewListButton";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
+                           
+                           
+                           [UMComLoginManager userLogout];
+                           [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
                            
                            RWDeployManager *deploy = [RWDeployManager defaultManager];
                            
