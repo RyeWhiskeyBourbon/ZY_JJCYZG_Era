@@ -460,7 +460,7 @@
     }else{
         [_menuList addObject:UMComLocalizedString(@"um_com_collect", @"收藏")];
     }
-    [_menuList addObject:UMComLocalizedString(@"um_com_share", @"分享")];
+//    [_menuList addObject:UMComLocalizedString(@"um_com_share", @"分享")];
     
     if ([self checkNeedReportCreatorWithFeed:feed]) {
         [_menuList addObject:UMComLocalizedString(@"um_com_spamUser", @"举报用户")];
