@@ -10,7 +10,8 @@
 #import "RWLoginTableViewCell.h"
 #import <SXColorGradientView.h>
 #import "RWRequsetManager+UserLogin.h"
-
+#import "UMComPushRequest.h"
+#import "UMComUserAccount.h"
 @interface RWPhoneVerificationController ()
 
 <
@@ -552,6 +553,27 @@ static NSString *const buttonCell = @"buttonCell";
     if ([AdministratorID isEqualToString:@"94664985426982802"]&&
         [AdministratorPassword isEqualToString:@"7939447539"])
     {
+        
+#warning 友盟登录
+        UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
+        userAccount.usid = AdministratorID;
+        userAccount.name = AdministratorID;
+        userAccount.icon_url = @"http://xxxx.jpg"; //登录用户头像
+        ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
+        [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
+            
+            NSLog(@"res = %@",responseObject);
+            
+            if(!error){
+                //登录成功
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                
+            }else{
+                //登录失败
+                NSLog(@"登录失败");
+            }
+        }];
+        
         [self obtainDeployManager];
         
         [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];

@@ -172,11 +172,22 @@ typedef void(^LoadFinishBlock)(NSError *error);
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
+- (void)initBar
+{
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.translucent = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    MAIN_NAV
+    [self initBar];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }

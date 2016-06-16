@@ -111,7 +111,7 @@
     
     imgView.frame = self.view.bounds;
     
-    [imgView sizeToFit];
+    imgView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     
     [self.view insertSubview:imgView atIndex:0];
     

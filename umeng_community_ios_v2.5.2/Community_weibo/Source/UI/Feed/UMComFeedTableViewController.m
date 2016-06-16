@@ -102,6 +102,7 @@
 
 - (void)viewDidLoad
 {
+    MAIN_NAV
     [self.tableView registerNib:[UINib nibWithNibName:@"UMComFeedsTableViewCell" bundle:nil] forCellReuseIdentifier:@"FeedsTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [super viewDidLoad];
