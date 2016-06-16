@@ -297,6 +297,29 @@
 		12F23BC01CE970170086A699 /* RWRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F23BBF1CE970170086A699 /* RWRecommendController.m */; };
 		12F23BC41CE977E40086A699 /* recommend.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F23BC31CE977E40086A699 /* recommend.png */; };
 		12F445A61D12359500511336 /* Um.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F445A51D12359500511336 /* Um.png */; };
+		12F445FD1D1299DC00511336 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12F445EF1D1299DC00511336 /* bg.jpg */; };
+		12F445FE1D1299DC00511336 /* mountains1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F01D1299DC00511336 /* mountains1.png */; };
+		12F445FF1D1299DC00511336 /* mountains2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F11D1299DC00511336 /* mountains2.png */; };
+		12F446001D1299DC00511336 /* skyline.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F21D1299DC00511336 /* skyline.png */; };
+		12F446011D1299DC00511336 /* exitButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F31D1299DC00511336 /* exitButton2.png */; };
+		12F446021D1299DC00511336 /* RWAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F445F51D1299DC00511336 /* RWAnimations.m */; };
+		12F446031D1299DC00511336 /* fireworks.html in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F61D1299DC00511336 /* fireworks.html */; };
+		12F446041D1299DC00511336 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F71D1299DC00511336 /* index.js */; };
+		12F446051D1299DC00511336 /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F81D1299DC00511336 /* reset.css */; };
+		12F446061D1299DC00511336 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 12F445F91D1299DC00511336 /* style.css */; };
+		12F446071D1299DC00511336 /* dat.gui.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 12F445FA1D1299DC00511336 /* dat.gui.min.js */; };
+		12F446081D1299DC00511336 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = 12F445FB1D1299DC00511336 /* jquery.js */; };
+		12F446091D1299DC00511336 /* prefixfree.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 12F445FC1D1299DC00511336 /* prefixfree.min.js */; };
+		12F446151D129A1C00511336 /* Lv1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F4460B1D129A1C00511336 /* Lv1.png */; };
+		12F446161D129A1C00511336 /* Lv10.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F4460C1D129A1C00511336 /* Lv10.png */; };
+		12F446171D129A1C00511336 /* Lv2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F4460D1D129A1C00511336 /* Lv2.png */; };
+		12F446181D129A1C00511336 /* Lv3.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F4460E1D129A1C00511336 /* Lv3.png */; };
+		12F446191D129A1C00511336 /* Lv4.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F4460F1D129A1C00511336 /* Lv4.png */; };
+		12F4461A1D129A1C00511336 /* Lv5.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F446101D129A1C00511336 /* Lv5.png */; };
+		12F4461B1D129A1C00511336 /* Lv6.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F446111D129A1C00511336 /* Lv6.png */; };
+		12F4461C1D129A1C00511336 /* Lv7.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F446121D129A1C00511336 /* Lv7.png */; };
+		12F4461D1D129A1C00511336 /* Lv8.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F446131D129A1C00511336 /* Lv8.png */; };
+		12F4461E1D129A1C00511336 /* Lv9.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F446141D129A1C00511336 /* Lv9.png */; };
 		12F5671E1D07D6E30059E20F /* RWSubjectCatalogueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F5671D1D07D6E30059E20F /* RWSubjectCatalogueController.m */; };
 		12F6EB301CD9FA1900CBA632 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F6EB2F1CD9FA1900CBA632 /* WebKit.framework */; };
 		12F6EB331CD9FA3E00CBA632 /* RWWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F6EB321CD9FA3E00CBA632 /* RWWebViewController.m */; };
@@ -920,6 +943,30 @@
 		12F23BBF1CE970170086A699 /* RWRecommendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRecommendController.m; sourceTree = "<group>"; };
 		12F23BC31CE977E40086A699 /* recommend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recommend.png; sourceTree = "<group>"; };
 		12F445A51D12359500511336 /* Um.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Um.png; sourceTree = "<group>"; };
+		12F445EF1D1299DC00511336 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		12F445F01D1299DC00511336 /* mountains1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountains1.png; sourceTree = "<group>"; };
+		12F445F11D1299DC00511336 /* mountains2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountains2.png; sourceTree = "<group>"; };
+		12F445F21D1299DC00511336 /* skyline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyline.png; sourceTree = "<group>"; };
+		12F445F31D1299DC00511336 /* exitButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButton2.png; sourceTree = "<group>"; };
+		12F445F41D1299DC00511336 /* RWAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAnimations.h; sourceTree = "<group>"; };
+		12F445F51D1299DC00511336 /* RWAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAnimations.m; sourceTree = "<group>"; };
+		12F445F61D1299DC00511336 /* fireworks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = fireworks.html; sourceTree = "<group>"; };
+		12F445F71D1299DC00511336 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = index.js; sourceTree = "<group>"; };
+		12F445F81D1299DC00511336 /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
+		12F445F91D1299DC00511336 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		12F445FA1D1299DC00511336 /* dat.gui.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dat.gui.min.js; sourceTree = "<group>"; };
+		12F445FB1D1299DC00511336 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		12F445FC1D1299DC00511336 /* prefixfree.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = prefixfree.min.js; sourceTree = "<group>"; };
+		12F4460B1D129A1C00511336 /* Lv1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv1.png; sourceTree = "<group>"; };
+		12F4460C1D129A1C00511336 /* Lv10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv10.png; sourceTree = "<group>"; };
+		12F4460D1D129A1C00511336 /* Lv2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv2.png; sourceTree = "<group>"; };
+		12F4460E1D129A1C00511336 /* Lv3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv3.png; sourceTree = "<group>"; };
+		12F4460F1D129A1C00511336 /* Lv4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv4.png; sourceTree = "<group>"; };
+		12F446101D129A1C00511336 /* Lv5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv5.png; sourceTree = "<group>"; };
+		12F446111D129A1C00511336 /* Lv6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv6.png; sourceTree = "<group>"; };
+		12F446121D129A1C00511336 /* Lv7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv7.png; sourceTree = "<group>"; };
+		12F446131D129A1C00511336 /* Lv8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv8.png; sourceTree = "<group>"; };
+		12F446141D129A1C00511336 /* Lv9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lv9.png; sourceTree = "<group>"; };
 		12F5671C1D07D6E30059E20F /* RWSubjectCatalogueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSubjectCatalogueController.h; sourceTree = "<group>"; };
 		12F5671D1D07D6E30059E20F /* RWSubjectCatalogueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSubjectCatalogueController.m; sourceTree = "<group>"; };
 		12F6EB2F1CD9FA1900CBA632 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -2314,6 +2361,44 @@
 			path = KYImages;
 			sourceTree = "<group>";
 		};
+		12F445EE1D12999E00511336 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				12F445F41D1299DC00511336 /* RWAnimations.h */,
+				12F445F51D1299DC00511336 /* RWAnimations.m */,
+				12F445EF1D1299DC00511336 /* bg.jpg */,
+				12F445F01D1299DC00511336 /* mountains1.png */,
+				12F445F11D1299DC00511336 /* mountains2.png */,
+				12F445F21D1299DC00511336 /* skyline.png */,
+				12F445F31D1299DC00511336 /* exitButton2.png */,
+				12F445F61D1299DC00511336 /* fireworks.html */,
+				12F445F71D1299DC00511336 /* index.js */,
+				12F445F81D1299DC00511336 /* reset.css */,
+				12F445F91D1299DC00511336 /* style.css */,
+				12F445FA1D1299DC00511336 /* dat.gui.min.js */,
+				12F445FB1D1299DC00511336 /* jquery.js */,
+				12F445FC1D1299DC00511336 /* prefixfree.min.js */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
+		12F4460A1D129A1C00511336 /* LvImage */ = {
+			isa = PBXGroup;
+			children = (
+				12F4460B1D129A1C00511336 /* Lv1.png */,
+				12F4460C1D129A1C00511336 /* Lv10.png */,
+				12F4460D1D129A1C00511336 /* Lv2.png */,
+				12F4460E1D129A1C00511336 /* Lv3.png */,
+				12F4460F1D129A1C00511336 /* Lv4.png */,
+				12F446101D129A1C00511336 /* Lv5.png */,
+				12F446111D129A1C00511336 /* Lv6.png */,
+				12F446121D129A1C00511336 /* Lv7.png */,
+				12F446131D129A1C00511336 /* Lv8.png */,
+				12F446141D129A1C00511336 /* Lv9.png */,
+			);
+			path = LvImage;
+			sourceTree = "<group>";
+		};
 		12F567181D07D06C0059E20F /* SubjectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2431,6 +2516,8 @@
 			isa = PBXGroup;
 			children = (
 				125D99991CD0B56F00871ED4 /* Macro.pch */,
+				12F4460A1D129A1C00511336 /* LvImage */,
+				12F445EE1D12999E00511336 /* Animation */,
 				1263F69D1CDB33DF0089EC9F /* SMS_SDK */,
 				047C987D1CDC225B0080F8F1 /* UMAnalytics_Sdk_3.6.6 */,
 				120025601CE76D3800B203D4 /* RWWelcomeController.h */,
@@ -2721,6 +2808,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F4461C1D129A1C00511336 /* Lv7.png in Resources */,
+				12F446191D129A1C00511336 /* Lv4.png in Resources */,
 				12A2ADBA1CDDEAC30027DD3B /* Updata.png in Resources */,
 				12EFFD631CD8A0C00030C74F /* Previos_un.png in Resources */,
 				12F445A61D12359500511336 /* Um.png in Resources */,
@@ -2728,9 +2817,11 @@
 				125EC7CE1CFA98CD00F893BA /* iPad_App_iOS5-6_72pt@2x.png in Resources */,
 				125EC7DA1CFA98CD00F893BA /* iPhone_App_iOS7-9_60pt@2x.png in Resources */,
 				12A2ADBB1CDDEAC30027DD3B /* Usage.png in Resources */,
+				12F446061D1299DC00511336 /* style.css in Resources */,
 				1261697E1D10FAF70055438B /* UMComProfileSettingController.xib in Resources */,
 				126168FB1D10FAF70055438B /* UMComLoginViewController.xib in Resources */,
 				125EC7CC1CFA98CD00F893BA /* CarPlay_60pt@3x.png in Resources */,
+				12F446051D1299DC00511336 /* reset.css in Resources */,
 				12EC88591CF825F40078E9FD /* Star1.png in Resources */,
 				1263F6BD1CDB4BF20089EC9F /* Login.png in Resources */,
 				126169231D10FAF70055438B /* UMComCommentInput.xib in Resources */,
@@ -2741,50 +2832,64 @@
 				125EC7D91CFA98CD00F893BA /* iPhone_App_iOS5-6_57pt@2x.png in Resources */,
 				12D1C9631CF6F7FA0082F638 /* exitButton.png in Resources */,
 				12EFFD641CD8A0C00030C74F /* Previous.png in Resources */,
+				12F445FD1D1299DC00511336 /* bg.jpg in Resources */,
 				1263F66A1CDB215E0089EC9F /* error_s.png in Resources */,
 				125EC7D31CFA98CD00F893BA /* iPad_Settings_iOS5-9_29pt@2x.png in Resources */,
 				12EFFD681CD8A0C00030C74F /* UnCollect.png in Resources */,
+				12F446011D1299DC00511336 /* exitButton2.png in Resources */,
 				1263F6691CDB215E0089EC9F /* set_s.png in Resources */,
+				12F4461E1D129A1C00511336 /* Lv9.png in Resources */,
 				12D1C9611CF6F7F50082F638 /* countDownback.jpg in Resources */,
 				12EFFD621CD8A0C00030C74F /* Next_un.png in Resources */,
 				125EC7DB1CFA98CD00F893BA /* iPhone_App_iOS7-9_60pt@3x.png in Resources */,
 				126168FE1D10FAF70055438B /* UMSocialLocalizable.strings in Resources */,
 				126169031D10FAF70055438B /* UMSCommentInputControlleriPad.xib in Resources */,
 				12BCD7E61D0E42A0008DA5DC /* communityHome.png in Resources */,
+				12F446001D1299DC00511336 /* skyline.png in Resources */,
 				1263F6631CDB215E0089EC9F /* noti.png in Resources */,
 				12F776751CF2FB1B00F3561A /* drawerView.png in Resources */,
+				12F445FF1D1299DC00511336 /* mountains2.png in Resources */,
+				12F446031D1299DC00511336 /* fireworks.html in Resources */,
 				1261694F1D10FAF70055438B /* UMComEditTopicsTableViewCell.xib in Resources */,
 				125EC7DC1CFA98CD00F893BA /* iPhone_Settings_iOS5-9_29pt@2x.png in Resources */,
 				126169011D10FAF70055438B /* UMSCommentDetailController.xib in Resources */,
 				125EC7D41CFA98CD00F893BA /* iPad_Spotlight_iOS5-6_50pt.png in Resources */,
 				126169571D10FAF70055438B /* UMComLocationTableViewCell.xib in Resources */,
 				125EC7D11CFA98CD00F893BA /* iPad_Pro_App_iOS9_83.5pt@2x.png in Resources */,
+				12F446071D1299DC00511336 /* dat.gui.min.js in Resources */,
 				128F40C41CFBEAE70095F69B /* GGWelcome.png in Resources */,
 				12BA9EB91CE614AA004B5C77 /* ClockSound.mp3 in Resources */,
+				12F4461A1D129A1C00511336 /* Lv5.png in Resources */,
 				126169041D10FAF70055438B /* UMShareEditViewController.xib in Resources */,
+				12F445FE1D1299DC00511336 /* mountains1.png in Resources */,
 				12A2ADB81CDDEAC30027DD3B /* News.png in Resources */,
 				125EC7D51CFA98CD00F893BA /* iPad_Spotlight_iOS5-6_50pt@2x.png in Resources */,
 				1263F6651CDB215E0089EC9F /* main.png in Resources */,
 				12A2ADBD1CDDEBDA0027DD3B /* Assets.xcassets in Resources */,
+				12F446161D129A1C00511336 /* Lv10.png in Resources */,
 				125EC7D81CFA98CD00F893BA /* iPhone_App_iOS5-6_57pt.png in Resources */,
 				1263F5C01CDAF9A80089EC9F /* zhongyuEDU.png in Resources */,
 				12EFFD671CD8A0C00030C74F /* Show.png in Resources */,
 				126169531D10FAF70055438B /* UMComFriendTableViewCell.xib in Resources */,
 				1261695C1D10FAF70055438B /* UMComFeedsTableViewCell.xib in Resources */,
 				1263F6681CDB215E0089EC9F /* noti_s.png in Resources */,
+				12F446081D1299DC00511336 /* jquery.js in Resources */,
 				125EC7D61CFA98CD00F893BA /* iPad_Spotlight_iOS7-9_40pt.png in Resources */,
 				125EC7CB1CFA98CD00F893BA /* CarPlay_60pt@2x.png in Resources */,
 				125EC7E21CFA9E9500F893BA /* admin_gg.png in Resources */,
 				1263F6641CDB215E0089EC9F /* set.png in Resources */,
 				126169251D10FAF70055438B /* UMComTableViewCell.xib in Resources */,
 				126169081D10FAF70055438B /* UMSShareListController.xib in Resources */,
+				12F446041D1299DC00511336 /* index.js in Resources */,
 				125EC7D21CFA98CD00F893BA /* iPad_Settings_iOS5-9_29pt.png in Resources */,
 				12EFFD6A1CD8A0C00030C74F /* UnShare.png in Resources */,
 				12EFFD611CD8A0C00030C74F /* Next.png in Resources */,
+				12F446151D129A1C00511336 /* Lv1.png in Resources */,
 				125EC7E01CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@3x.png in Resources */,
 				12F23BC41CE977E40086A699 /* recommend.png in Resources */,
 				12EFFD5F1CD8A0C00030C74F /* Collect.png in Resources */,
 				126169101D10FAF70055438B /* FZLanTingHei-L-GBK-M.TTF in Resources */,
+				12F4461D1D129A1C00511336 /* Lv8.png in Resources */,
 				12EFFD651CD8A0C00030C74F /* Select.png in Resources */,
 				126169861D10FAF70055438B /* UMComUserTableViewCell.xib in Resources */,
 				1263F6661CDB215E0089EC9F /* mian_s.png in Resources */,
@@ -2802,6 +2907,7 @@
 				125EC7CD1CFA98CD00F893BA /* iPad_App_iOS5-6_72pt.png in Resources */,
 				125EC7D71CFA98CD00F893BA /* iPad_Spotlight_iOS7-9_40pt@2x.png in Resources */,
 				126169071D10FAF70055438B /* UMSnsAccountViewController.xib in Resources */,
+				12F446091D1299DC00511336 /* prefixfree.min.js in Resources */,
 				126169681D10FAF70055438B /* UMComCommentTableViewCell.xib in Resources */,
 				126169491D10FAF70055438B /* UMComFindTableViewCell.xib in Resources */,
 				12A2ADBF1CDDF3B20027DD3B /* banner-lqzlbg.png in Resources */,
@@ -2812,11 +2918,14 @@
 				12F07DAA1D10E48900EB3EA2 /* media_s.png in Resources */,
 				12A2ADB61CDDEAC30027DD3B /* Advise.png in Resources */,
 				1261690A1D10FAF70055438B /* WeiboSDK.bundle in Resources */,
+				12F446181D129A1C00511336 /* Lv3.png in Resources */,
 				1263F6C01CDB4BF20089EC9F /* PassWord.png in Resources */,
+				12F446171D129A1C00511336 /* Lv2.png in Resources */,
 				12EFFD601CD8A0C00030C74F /* Navbar.png in Resources */,
 				125EC7DF1CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@2x.png in Resources */,
 				04E62ADB1D11549A001BFE37 /* textBack.png in Resources */,
 				1263F6671CDB215E0089EC9F /* error.png in Resources */,
+				12F4461B1D129A1C00511336 /* Lv6.png in Resources */,
 				1263F6A31CDB34090089EC9F /* disclosureIndicator.png in Resources */,
 				12EFFD6B1CD8A0C00030C74F /* Unshow.png in Resources */,
 				12EFFD6F1CD8AA6A0030C74F /* right.png in Resources */,
@@ -3081,6 +3190,7 @@
 				126169611D10FAF70055438B /* UMComHorizontalTableView.m in Sources */,
 				1261695D1D10FAF70055438B /* UMComFeedStyle.m in Sources */,
 				12EE61D01CE1DAE200ADCC51 /* RWSetPasswordController.m in Sources */,
+				12F446021D1299DC00511336 /* RWAnimations.m in Sources */,
 				126169211D10FAF70055438B /* UMComButton.m in Sources */,
 				12FFF1241CCF3C63003F58E2 /* MagicalImportFunctions.m in Sources */,
 				12FFF1331CCF3C63003F58E2 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
