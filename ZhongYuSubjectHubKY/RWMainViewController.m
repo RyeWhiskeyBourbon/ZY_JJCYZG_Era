@@ -13,7 +13,6 @@
 #import "RWWelcomeController.h"
 #import "RWMainViewController+Drawer.h"
 #import "RWMainViewController+CountDownView.h"
-
 @interface RWMainViewController ()
 
 <
@@ -33,6 +32,7 @@
 
 - (void)initBar
 {
+    
     self.navigationItem.title = @"基金从业资讯";
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.tabBarController.tabBar.translucent = NO;

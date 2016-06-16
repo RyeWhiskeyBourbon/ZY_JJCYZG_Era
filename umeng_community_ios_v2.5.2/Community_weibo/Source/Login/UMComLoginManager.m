@@ -82,12 +82,16 @@ static UMComLoginManager *_instance = nil;
         if (completion) {
             completion([UMComSession sharedInstance].loginUser,nil);
         }
-    }else if ([self shareInstance].loginHandler) {
+    }else if ([self shareInstance].loginHandler || ![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
+                                                     isEqualToString:DID_LOGIN]) {
+        
+        
         [self shareInstance].currentViewController = viewController;
         //设置登录登录回调
         [self shareInstance].loginCompletion = completion;
         //弹出登录页面
         [[self shareInstance].loginHandler presentLoginViewController:viewController finishResponse:nil];
+        
     }else{
         UMLog(@"There is no implement login delegate method");
     }

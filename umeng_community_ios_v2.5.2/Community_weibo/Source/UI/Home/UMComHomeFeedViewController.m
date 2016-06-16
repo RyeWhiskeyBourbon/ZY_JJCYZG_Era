@@ -358,7 +358,7 @@
         cell.label.text = UMComLocalizedString(@"um_com_topic",@"话题");
     }
     if (indexPath.row == collectionView.currentIndex) {
-        cell.label.textColor = UMComColorWithColorValueString(@"#00FFFF");
+        cell.label.textColor = UMComColorWithColorValueString(@"#FFFFFF");
     }else{
         cell.label.textColor = UMComColorWithColorValueString(@"#FFFFFF");
     }
