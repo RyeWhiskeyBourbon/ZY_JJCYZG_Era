@@ -41,7 +41,7 @@
 /**
  *  登录返回信息
  *
- *  @param isSuccessed 是否注册成功
+ *  @param isSuccessed 是否登录成功
  *  @param reason      失败原因
  */
 - (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;

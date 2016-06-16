@@ -35,6 +35,7 @@
 @end
 
 
+
 @interface RWButtonCell : UITableViewCell
 
 @property (assign ,nonatomic)id<RWButtonCellDelegate> delegate;
@@ -43,7 +44,32 @@
 
 @property (nonatomic,strong)UIButton *button;
 
+//@property(nonatomic,strong)UIButton *LoginButton;
+
 @end
+
+/**
+ *  生成登录界面的两个button
+ */
+@protocol RWLoginCellDelegate <NSObject>
+-(void)buttonWithLogin:(UIButton *)button;
+-(void)buttonWithRegister;
+@end
+
+
+@interface RwLoginButtonsCell : UITableViewCell
+
+
+@property(assign,nonatomic)id<RWLoginCellDelegate> delegate;
+
+@property(nonatomic,strong)UIView *brankgroudView;
+
+@property(nonatomic,strong)UIButton *buttonLogin;
+
+@property(nonatomic,strong)UIButton *registerButton;
+
+@end
+
 
 @interface RWTextViewCell :UITableViewCell
 

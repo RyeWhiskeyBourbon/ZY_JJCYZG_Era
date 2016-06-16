@@ -45,9 +45,7 @@
 {
     backView = [[UIView alloc]init];
     
-    backView.backgroundColor = [UIColor whiteColor];
-    
-    backView.layer.cornerRadius = 10;
+    backView.backgroundColor = [UIColor lightGrayColor];
     
     [self addSubview:backView];
     
@@ -57,7 +55,11 @@
     
     textFiled = [[UITextField alloc]init];
     
+    textFiled.backgroundColor=[UIColor clearColor];
+    
     textFiled.delegate = self;
+    
+    backView.backgroundColor=[UIColor colorWithWhite:0.f alpha:0.2];
     
     [backView addSubview:textFiled];
 }
@@ -73,10 +75,10 @@
     
     [backView mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(self.mas_left).offset(40);
-        make.right.equalTo(self.mas_right).offset(-40);
-        make.top.equalTo(self.mas_top).offset(5);
-        make.bottom.equalTo(self.mas_bottom).offset(-5);
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.top.equalTo(self.mas_top).offset(3);
+        make.bottom.equalTo(self.mas_bottom).offset(-3);
     }];
     
     [header mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -89,8 +91,8 @@
     
     [textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(header.mas_right).offset(10);
-        make.right.equalTo(backView.mas_right).offset(-10);
+        make.left.equalTo(header.mas_right).offset(0);
+        make.right.equalTo(backView.mas_right).offset(0);
         make.top.equalTo(backView.mas_top).offset(10);
         make.bottom.equalTo(backView.mas_bottom).offset(-10);
     }];
@@ -117,6 +119,7 @@
 
 @synthesize button;
 
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -140,6 +143,7 @@
         [self addSubview:button];
         
         [button addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+
     }
     
     return self;
@@ -165,9 +169,11 @@
        
         make.left.equalTo(self.mas_left).offset(40);
         make.right.equalTo(self.mas_right).offset(-40);
-        make.top.equalTo(self.mas_top).offset(7);
-        make.bottom.equalTo(self.mas_bottom).offset(-7);
+        make.top.equalTo(self.mas_top).offset(5);
+        make.bottom.equalTo(self.mas_bottom).offset(-5);
     }];
+    
+    
 }
 
 @end
@@ -300,6 +306,94 @@
         make.bottom.equalTo(residueChar.mas_top).offset(0);
     }];
 }
+@end
+@implementation RwLoginButtonsCell
 
+@synthesize brankgroudView;
+
+@synthesize buttonLogin;
+
+@synthesize registerButton;
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        
+        buttonLogin = [[UIButton alloc]init];
+        
+        buttonLogin.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5];
+
+         buttonLogin.clipsToBounds = YES;
+        buttonLogin.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+        [buttonLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [self addSubview:buttonLogin];
+        
+        [buttonLogin addTarget:self action:@selector(btnClickLogin:) forControlEvents:UIControlEventTouchUpInside];
+
+     
+        
+        
+        self.backgroundColor = [UIColor clearColor];
+        
+        registerButton = [[UIButton alloc]init];
+        
+        registerButton.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.5];
+    
+
+        
+        registerButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        
+        [registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [self addSubview:registerButton];
+        
+        [registerButton addTarget:self action:@selector(btnClickRegister) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    
+    
+    
+    return self;
+}
+-(void)btnClickLogin:(UIButton *) button{
+    
+    
+    [self.delegate buttonWithLogin:button];
+    
+    
+    
+}
+-(void)btnClickRegister{
+    
+    [self.delegate buttonWithRegister];
+}
+
+
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    
+    [buttonLogin mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(-self.frame.size.width/2-1);
+        make.top.equalTo(self.mas_top).offset(7);
+        make.bottom.equalTo(self.mas_bottom).offset(-7);
+    }];
+    [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(buttonLogin.mas_right).offset(1);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.top.equalTo(self.mas_top).offset(7);
+        make.bottom.equalTo(self.mas_bottom).offset(-7);
+    }];
+//
+ 
+}
 
 @end
+
+
