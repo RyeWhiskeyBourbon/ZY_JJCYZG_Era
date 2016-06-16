@@ -19,6 +19,7 @@
 #import "RWFeedbackViewController.h"
 #import "RWRecommendController.h"
 #import "UMComLoginManager.h"
+
 @interface RWMoreViewController ()
 
 <
@@ -79,9 +80,7 @@ static NSString *const viewListButton = @"viewListButton";
 
 - (void)initDatas
 {
-    dataSource = @[@{@"title" :@"最新资讯",
-                     @"icon" : @"News"},
-                   @{@"title"     :@"我的收藏",
+    dataSource = @[@{@"title"     :@"我的收藏",
                      @"icon" : @"MySave"},
                    @{@"title"     :@"更新数据库",
                      @"icon" : @"Updata"},
@@ -198,43 +197,39 @@ static NSString *const viewListButton = @"viewListButton";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
-        {
-            [self toInformationView];
-        }
-            break;
-        case 1:
         {
             [self toCollectView];
         }
             break;
-        case 2:
+        case 1:
         {
             [self updateDatabase];
         }
             break;
-        case 3:
+        case 2:
         {
             [self toAlarmClockView];
         }
             break;
-        case 4:
+        case 3:
         {
             [self toInstructions];
         }
             break;
-        case 5:
+        case 4:
         {
             [self toRecommendViewController];
         }
             break;
-        case 6:
+        case 5:
         {
             [self toCommentsAndSuggestionsView];
         }
             break;
-        case 7:
+        case 6:
         {
             [self toAboutUsViewController];
         }
@@ -321,11 +316,6 @@ static NSString *const viewListButton = @"viewListButton";
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)exitLogin
 {
     NSString *header, *message, *responcedTitle, *cancelTitle;
@@ -380,14 +370,6 @@ static NSString *const viewListButton = @"viewListButton";
     
     [self presentViewController:alert animated:YES completion:nil];
 
-}
-
-
--(void)toInformationView
-{
-    RWInformationController *information = [[RWInformationController alloc] init];
-    
-    [self.navigationController pushViewController:information animated:YES];
 }
 
 -(void)toCollectView

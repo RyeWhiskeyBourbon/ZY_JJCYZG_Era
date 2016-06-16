@@ -97,6 +97,8 @@ static NSString *const wrongListCell = @"wrongListCell";
 {
     MAIN_NAV
     
+    
+    
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -105,6 +107,10 @@ static NSString *const wrongListCell = @"wrongListCell";
         self.navigationItem.title = @"收藏";
         
         HIDDEN_TABBAR
+    }
+    else
+    {
+        self.navigationItem.hidesBackButton = YES;
     }
 }
 

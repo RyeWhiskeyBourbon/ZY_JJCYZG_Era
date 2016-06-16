@@ -296,13 +296,11 @@
     
 }
 
-- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
+- (void)subjectHubDownLoadDidFinish:(NSArray *)subjectHubs
 {
     [SVProgressHUD dismiss];
     
-    [RWRequsetManager warningToViewController:self
-                                        Title:@"网络连接失败,请检查网络"
-                                        Click:^{}];
+    [RWRequsetManager warningToViewController:self Title:@"更新成功" Click:nil];
 }
 
 - (void)toAboutUsViewController

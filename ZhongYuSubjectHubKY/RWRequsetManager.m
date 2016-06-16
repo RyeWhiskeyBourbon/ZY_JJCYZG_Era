@@ -56,7 +56,10 @@
         
             [self.delegate subjectHubDownLoadDidFinish:[baseManager obtainHubClassNames]];
         }
-        
+        else
+        {
+            [self.delegate requestError:nil Task:nil];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
