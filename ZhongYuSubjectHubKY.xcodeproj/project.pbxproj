@@ -223,6 +223,11 @@
 		1268F1B61CE0388D0040AB2F /* RWClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1268F1B51CE0388D0040AB2F /* RWClassListCell.m */; };
 		1268F1B91CE0482D0040AB2F /* RWClassListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1268F1B81CE0482D0040AB2F /* RWClassListModel.m */; };
 		128F40C41CFBEAE70095F69B /* GGWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 128F40C31CFBEAE70095F69B /* GGWelcome.png */; };
+		129724471D139EA10095D209 /* RWAboutLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1297243E1D139EA10095D209 /* RWAboutLoginViewController.m */; };
+		129724481D139EA10095D209 /* RWForGotPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129724401D139EA10095D209 /* RWForGotPWViewController.m */; };
+		129724491D139EA10095D209 /* RWNewRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129724421D139EA10095D209 /* RWNewRegisterViewController.m */; };
+		1297244A1D139EA10095D209 /* RWPhoneVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129724441D139EA10095D209 /* RWPhoneVerificationController.m */; };
+		1297244B1D139EA10095D209 /* RWUpdtePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129724461D139EA10095D209 /* RWUpdtePWViewController.m */; };
 		129B65611CD98220007A7224 /* corr.png in Resources */ = {isa = PBXBuildFile; fileRef = 129B655F1CD98220007A7224 /* corr.png */; };
 		129B65621CD98220007A7224 /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 129B65601CD98220007A7224 /* mark.png */; };
 		129B656A1CD9DF4C007A7224 /* RWBanners+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B65671CD9DF4C007A7224 /* RWBanners+CoreDataProperties.m */; };
@@ -246,11 +251,6 @@
 		12D1C9611CF6F7F50082F638 /* countDownback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12D1C9601CF6F7F50082F638 /* countDownback.jpg */; };
 		12D1C9631CF6F7FA0082F638 /* exitButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D1C9621CF6F7FA0082F638 /* exitButton.png */; };
 		12DFC63D1D138D8F00C73FDF /* RWRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC6321D138D8F00C73FDF /* RWRegisterViewController.m */; };
-		12DFC63E1D138D8F00C73FDF /* RWPhoneVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC6341D138D8F00C73FDF /* RWPhoneVerificationController.m */; };
-		12DFC63F1D138D8F00C73FDF /* RWForGotPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC6361D138D8F00C73FDF /* RWForGotPWViewController.m */; };
-		12DFC6401D138D8F00C73FDF /* RWUpdtePWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC6381D138D8F00C73FDF /* RWUpdtePWViewController.m */; };
-		12DFC6411D138D8F00C73FDF /* RWNewRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC63A1D138D8F00C73FDF /* RWNewRegisterViewController.m */; };
-		12DFC6421D138D8F00C73FDF /* RWAboutLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC63C1D138D8F00C73FDF /* RWAboutLoginViewController.m */; };
 		12DFC6451D138E5200C73FDF /* RWLoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DFC6441D138E5200C73FDF /* RWLoginTableViewCell.m */; };
 		12DFC6471D138F3900C73FDF /* textBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DFC6461D138F3900C73FDF /* textBack.png */; };
 		12EA05371CEAF9E2003FF30C /* RWRegisterNowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA05361CEAF9E2003FF30C /* RWRegisterNowView.m */; };
@@ -846,6 +846,16 @@
 		1268F1B71CE0482D0040AB2F /* RWClassListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWClassListModel.h; sourceTree = "<group>"; };
 		1268F1B81CE0482D0040AB2F /* RWClassListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWClassListModel.m; sourceTree = "<group>"; };
 		128F40C31CFBEAE70095F69B /* GGWelcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GGWelcome.png; sourceTree = "<group>"; };
+		1297243D1D139EA10095D209 /* RWAboutLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAboutLoginViewController.h; sourceTree = "<group>"; };
+		1297243E1D139EA10095D209 /* RWAboutLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAboutLoginViewController.m; sourceTree = "<group>"; };
+		1297243F1D139EA10095D209 /* RWForGotPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWForGotPWViewController.h; sourceTree = "<group>"; };
+		129724401D139EA10095D209 /* RWForGotPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWForGotPWViewController.m; sourceTree = "<group>"; };
+		129724411D139EA10095D209 /* RWNewRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNewRegisterViewController.h; sourceTree = "<group>"; };
+		129724421D139EA10095D209 /* RWNewRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNewRegisterViewController.m; sourceTree = "<group>"; };
+		129724431D139EA10095D209 /* RWPhoneVerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWPhoneVerificationController.h; sourceTree = "<group>"; };
+		129724441D139EA10095D209 /* RWPhoneVerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWPhoneVerificationController.m; sourceTree = "<group>"; };
+		129724451D139EA10095D209 /* RWUpdtePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUpdtePWViewController.h; sourceTree = "<group>"; };
+		129724461D139EA10095D209 /* RWUpdtePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUpdtePWViewController.m; sourceTree = "<group>"; };
 		129B655F1CD98220007A7224 /* corr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corr.png; sourceTree = "<group>"; };
 		129B65601CD98220007A7224 /* mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mark.png; sourceTree = "<group>"; };
 		129B65661CD9DF4C007A7224 /* RWBanners+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWBanners+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -876,16 +886,6 @@
 		12D1C9621CF6F7FA0082F638 /* exitButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitButton.png; sourceTree = "<group>"; };
 		12DFC6311D138D8E00C73FDF /* RWRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRegisterViewController.h; sourceTree = "<group>"; };
 		12DFC6321D138D8F00C73FDF /* RWRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRegisterViewController.m; sourceTree = "<group>"; };
-		12DFC6331D138D8F00C73FDF /* RWPhoneVerificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWPhoneVerificationController.h; sourceTree = "<group>"; };
-		12DFC6341D138D8F00C73FDF /* RWPhoneVerificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWPhoneVerificationController.m; sourceTree = "<group>"; };
-		12DFC6351D138D8F00C73FDF /* RWForGotPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWForGotPWViewController.h; sourceTree = "<group>"; };
-		12DFC6361D138D8F00C73FDF /* RWForGotPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWForGotPWViewController.m; sourceTree = "<group>"; };
-		12DFC6371D138D8F00C73FDF /* RWUpdtePWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUpdtePWViewController.h; sourceTree = "<group>"; };
-		12DFC6381D138D8F00C73FDF /* RWUpdtePWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUpdtePWViewController.m; sourceTree = "<group>"; };
-		12DFC6391D138D8F00C73FDF /* RWNewRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNewRegisterViewController.h; sourceTree = "<group>"; };
-		12DFC63A1D138D8F00C73FDF /* RWNewRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNewRegisterViewController.m; sourceTree = "<group>"; };
-		12DFC63B1D138D8F00C73FDF /* RWAboutLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAboutLoginViewController.h; sourceTree = "<group>"; };
-		12DFC63C1D138D8F00C73FDF /* RWAboutLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWAboutLoginViewController.m; sourceTree = "<group>"; };
 		12DFC6431D138E5200C73FDF /* RWLoginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWLoginTableViewCell.h; sourceTree = "<group>"; };
 		12DFC6441D138E5200C73FDF /* RWLoginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWLoginTableViewCell.m; sourceTree = "<group>"; };
 		12DFC6461D138F3900C73FDF /* textBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textBack.png; sourceTree = "<group>"; };
@@ -1354,16 +1354,16 @@
 			children = (
 				12DFC6311D138D8E00C73FDF /* RWRegisterViewController.h */,
 				12DFC6321D138D8F00C73FDF /* RWRegisterViewController.m */,
-				12DFC6331D138D8F00C73FDF /* RWPhoneVerificationController.h */,
-				12DFC6341D138D8F00C73FDF /* RWPhoneVerificationController.m */,
-				12DFC6351D138D8F00C73FDF /* RWForGotPWViewController.h */,
-				12DFC6361D138D8F00C73FDF /* RWForGotPWViewController.m */,
-				12DFC6371D138D8F00C73FDF /* RWUpdtePWViewController.h */,
-				12DFC6381D138D8F00C73FDF /* RWUpdtePWViewController.m */,
-				12DFC6391D138D8F00C73FDF /* RWNewRegisterViewController.h */,
-				12DFC63A1D138D8F00C73FDF /* RWNewRegisterViewController.m */,
-				12DFC63B1D138D8F00C73FDF /* RWAboutLoginViewController.h */,
-				12DFC63C1D138D8F00C73FDF /* RWAboutLoginViewController.m */,
+				1297243D1D139EA10095D209 /* RWAboutLoginViewController.h */,
+				1297243E1D139EA10095D209 /* RWAboutLoginViewController.m */,
+				1297243F1D139EA10095D209 /* RWForGotPWViewController.h */,
+				129724401D139EA10095D209 /* RWForGotPWViewController.m */,
+				129724411D139EA10095D209 /* RWNewRegisterViewController.h */,
+				129724421D139EA10095D209 /* RWNewRegisterViewController.m */,
+				129724431D139EA10095D209 /* RWPhoneVerificationController.h */,
+				129724441D139EA10095D209 /* RWPhoneVerificationController.m */,
+				129724451D139EA10095D209 /* RWUpdtePWViewController.h */,
+				129724461D139EA10095D209 /* RWUpdtePWViewController.m */,
 				122385E91CF3DB2D003F98FB /* Abandoned */,
 			);
 			name = LoginRegisterView;
@@ -3048,7 +3048,6 @@
 				126169331D10FAF70055438B /* UMAssetsCollectionCheckMarkView.m in Sources */,
 				1261692A1D10FAF70055438B /* UMImageProgressView.m in Sources */,
 				120025651CE76E1300B203D4 /* RWWelcomeImageCell.m in Sources */,
-				12DFC6421D138D8F00C73FDF /* RWAboutLoginViewController.m in Sources */,
 				126169271D10FAF70055438B /* UMComGridView.m in Sources */,
 				12FFF0BA1CCF1A3A003F58E2 /* RWErrorSubjectsController.m in Sources */,
 				126169481D10FAF70055438B /* UMComFindTableViewCell.m in Sources */,
@@ -3061,6 +3060,7 @@
 				126169181D10FAF70055438B /* UIViewController+UMComAddition.m in Sources */,
 				126169451D10FAF70055438B /* UMComWebView.m in Sources */,
 				BAF3C59E1CD49F6E00D66B03 /* RWCollectModel.m in Sources */,
+				129724471D139EA10095D209 /* RWAboutLoginViewController.m in Sources */,
 				126169581D10FAF70055438B /* UMComLocationView.m in Sources */,
 				1268F1B61CE0388D0040AB2F /* RWClassListCell.m in Sources */,
 				126169661D10FAF70055438B /* UMComTopicFeedViewController.m in Sources */,
@@ -3098,6 +3098,7 @@
 				126169131D10FAF70055438B /* UMCommunity.m in Sources */,
 				12EDD83C1CE368D300C9FBB8 /* RWClockSwitchCell.m in Sources */,
 				122386341CF56144003F98FB /* RWDeployManager+DateProcess.m in Sources */,
+				1297244B1D139EA10095D209 /* RWUpdtePWViewController.m in Sources */,
 				126169461D10FAF70055438B /* UMComImageView.m in Sources */,
 				12FFF1251CCF3C63003F58E2 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				12EE61C41CE1BCEA00ADCC51 /* RWRegisterController.m in Sources */,
@@ -3114,7 +3115,6 @@
 				126169521D10FAF70055438B /* UMComFriendTableViewCell.m in Sources */,
 				12FFF09D1CCF18FF003F58E2 /* main.m in Sources */,
 				12EDD8381CE3372600C9FBB8 /* RWAlarmClockController.m in Sources */,
-				12DFC63E1D138D8F00C73FDF /* RWPhoneVerificationController.m in Sources */,
 				12F23BC01CE970170086A699 /* RWRecommendController.m in Sources */,
 				1261693E1D10FAF70055438B /* UMComGridTableViewCell.m in Sources */,
 				BAF4EF621CD1B20500C3931B /* RWAnswerViewController.m in Sources */,
@@ -3153,6 +3153,7 @@
 				1261698B1D10FAF70055438B /* UMComConfigFile.m in Sources */,
 				126169441D10FAF70055438B /* UMComProgressHUD.m in Sources */,
 				126168F91D10FAF70055438B /* UMComUMengMessageHandler.m in Sources */,
+				1297244A1D139EA10095D209 /* RWPhoneVerificationController.m in Sources */,
 				12FFF13C1CCF3C63003F58E2 /* MagicalRecord+Setup.m in Sources */,
 				125D99771CD0B46800871ED4 /* RWChooseSubViewController.m in Sources */,
 				126168FC1D10FAF70055438B /* UMComShareDelegateHandler.m in Sources */,
@@ -3192,14 +3193,12 @@
 				1261697F1D10FAF70055438B /* UMComCommonTopicTableViewCell.m in Sources */,
 				12FFF0E21CCF3691003F58E2 /* RWDataBaseManager.m in Sources */,
 				12EE61C01CE181AD00ADCC51 /* NSData+Base64.m in Sources */,
-				12DFC6411D138D8F00C73FDF /* RWNewRegisterViewController.m in Sources */,
 				126169471D10FAF70055438B /* UMComDiscoverViewController.m in Sources */,
 				12BCD7E91D0EA93B008DA5DC /* RWProgressCell.m in Sources */,
 				126169371D10FAF70055438B /* UMImagePickerController.m in Sources */,
 				BAF3C5971CD49F4300D66B03 /* RWCollectHub.m in Sources */,
 				12FFF13A1CCF3C63003F58E2 /* MagicalRecord+iCloud.m in Sources */,
 				126169821D10FAF70055438B /* UMComUserCenterViewController.m in Sources */,
-				12DFC6401D138D8F00C73FDF /* RWUpdtePWViewController.m in Sources */,
 				126169651D10FAF70055438B /* UMComTopFeedTableViewHelper.m in Sources */,
 				126169871D10FAF70055438B /* UMComUserTableViewController.m in Sources */,
 				BA8C56781CD0F1C900CB33B8 /* RWCarouselImageCell.m in Sources */,
@@ -3215,12 +3214,13 @@
 				129B656E1CD9DF74007A7224 /* RWBannersModel.m in Sources */,
 				1261692F1D10FAF70055438B /* UMComMutiStyleTextView.m in Sources */,
 				12F6EB331CD9FA3E00CBA632 /* RWWebViewController.m in Sources */,
+				129724491D139EA10095D209 /* RWNewRegisterViewController.m in Sources */,
 				126169611D10FAF70055438B /* UMComHorizontalTableView.m in Sources */,
 				1261695D1D10FAF70055438B /* UMComFeedStyle.m in Sources */,
 				12EE61D01CE1DAE200ADCC51 /* RWSetPasswordController.m in Sources */,
 				12F446021D1299DC00511336 /* RWAnimations.m in Sources */,
+				129724481D139EA10095D209 /* RWForGotPWViewController.m in Sources */,
 				126169211D10FAF70055438B /* UMComButton.m in Sources */,
-				12DFC63F1D138D8F00C73FDF /* RWForGotPWViewController.m in Sources */,
 				12FFF1241CCF3C63003F58E2 /* MagicalImportFunctions.m in Sources */,
 				12FFF1331CCF3C63003F58E2 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				12F814F81CE42E3400D6DEE9 /* RWClockPickView.m in Sources */,

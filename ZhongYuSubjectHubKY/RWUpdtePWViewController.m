@@ -10,16 +10,14 @@
 #import "RWLoginTableViewCell.h"
 #import "RWRequsetManager+UserLogin.h"
 #import "RWPhoneVerificationController.h"
-
 @interface RWUpdtePWViewController ()
-
 <
-    UITableViewDelegate,
-    UITableViewDataSource,
-    RWRequsetDelegate,
-    RWTextFiledCellDelegate,
-    RWButtonCellDelegate,
-    UITextFieldDelegate
+UITableViewDelegate,
+UITableViewDataSource,
+RWRequsetDelegate,
+RWTextFiledCellDelegate,
+RWButtonCellDelegate,
+UITextFieldDelegate
 >
 
 @property (strong, nonatomic)UITableView *viewList;
@@ -56,7 +54,6 @@ static NSString *const buttonCell = @"buttonCell";
 @synthesize viewCenter;
 @synthesize facePlaceHolder;
 @synthesize contrast;
-@synthesize userPassword;
 
 #pragma mark AutoSize Keyboard
 
@@ -178,7 +175,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
     
     [self.view addSubview:viewList];
     [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -318,6 +315,12 @@ static NSString *const buttonCell = @"buttonCell";
     
     MAIN_NAV
     
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor =[UIColor whiteColor];
+    self.title = @"修改密码";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
     contrast = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     
     contrast.backgroundColor = [UIColor blackColor];
@@ -326,15 +329,6 @@ static NSString *const buttonCell = @"buttonCell";
     
     countDown = 60;
     
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.view.backgroundColor =[UIColor whiteColor];
-    self.title = @"登录";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    
-    
     [self registerForKeyboardNotifications];
     [self initViewList];
     [self addTapGesture];
@@ -342,12 +336,12 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     self.navigationController.navigationBarHidden=YES;
+    self.navigationController.navigationBarHidden=YES;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
-     self.navigationController.navigationBarHidden=NO;
+    self.navigationController.navigationBarHidden=NO;
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -380,21 +374,15 @@ static NSString *const buttonCell = @"buttonCell";
     __block RWTextFiledCell *verCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     
     NSString *secondPassWord=verCell.textFiled.text;
-    
-    
-    
     if ([requestManager verificationPassword:firstPassWord]) {
         
     if ([firstPassWord isEqualToString:secondPassWord]) {
         
-        [requestManager replacePasswordWithUsername:userPassword AndPassword:firstPassWord];
-//                     [SVProgressHUD dismiss];
-//        RWPhoneVerificationController * PVC=[[RWPhoneVerificationController alloc]init];
+        [requestManager replacePasswordWithUsername:_userPassword AndPassword:firstPassWord];
+
+
+        [self.navigationController popToRootViewControllerAnimated:YES];
         
-        
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        
-            
             
             
         }else{
@@ -412,31 +400,37 @@ static NSString *const buttonCell = @"buttonCell";
 
         }
     }else{
-        
         [RWRequsetManager warningToViewController:self
          
                                             Title:@"密码格式不正确"
          
-                                            Click:^
-        {
+                                            Click:^{
                                                 
-                textCell.textFiled.text = nil;
-                verCell.textFiled.text=nil;
-                [textCell.textFiled becomeFirstResponder];
-        }];
-    }
- 
+                                                textCell.textFiled.text = nil;
+                                                verCell.textFiled.text=nil;
+                                                [textCell.textFiled
+                                                 becomeFirstResponder];
+                                            }];
+        
+           }
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+    
+    
 }
 
 - (void)dealloc {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification
-                                                    name:nil
-                                                  object:self];
-    
-    [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification
-                                                     name:nil
-                                                   object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];
+    [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification name:nil object:self];
 }
 
 @end

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RWUpdtePWViewController : UIViewController
-@property (nonatomic, strong) NSString * userPassword;
+@property (nonatomic, copy) NSString * userPassword;
 
 @end

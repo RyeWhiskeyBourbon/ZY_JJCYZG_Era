@@ -182,7 +182,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
     
     [self.view addSubview:viewList];
      [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -384,7 +384,11 @@ static NSString *const buttonCell = @"buttonCell";
     [super viewDidLoad];
     
     MAIN_NAV
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor =[UIColor whiteColor];
+    self.title = @"注册手机号";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     contrast = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     
     contrast.backgroundColor = [UIColor blackColor];
@@ -392,12 +396,6 @@ static NSString *const buttonCell = @"buttonCell";
     viewCenter = self.navigationController.view.center;
     
     countDown = 60;
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.view.backgroundColor =[UIColor whiteColor];
-    self.title = @"登录";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     
     [self registerForKeyboardNotifications];
@@ -407,12 +405,12 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  self.navigationController.navigationBarHidden=YES;
+    self.navigationController.navigationBarHidden=YES;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
- self.navigationController.navigationBarHidden=NO;
+    self.navigationController.navigationBarHidden=NO;
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -532,11 +530,7 @@ static NSString *const buttonCell = @"buttonCell";
 -(void)verificationCodeWithCode{
     
     
-    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-    
-    [SVProgressHUD show];
+
     
     [_timer setFireDate:[NSDate distantFuture]];
     
@@ -551,15 +545,14 @@ static NSString *const buttonCell = @"buttonCell";
                                          PhoneNumber:phoneNumberCell.textFiled.text
                                             Complate:^(BOOL isSuccessed) {
                                                 
-                                                [SVProgressHUD dismiss];
+//                                                [SVProgressHUD dismiss];
                                                 
                                                 if (isSuccessed)
                                                 {
-                                                    [self obtainDeployManager];
+                                        
                                                     
                                                     RWAboutLoginViewController *ALVC=[[RWAboutLoginViewController alloc]init];
                                                     ALVC.userPassword=phoneNumberCell.textFiled.text;
-                                                    NSLog(@"%@",phoneNumberCell.textFiled.text);
                                                     [self.navigationController pushViewController:ALVC animated:YES];
                                                     
                                                 }

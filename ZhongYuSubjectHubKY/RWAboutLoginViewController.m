@@ -8,16 +8,14 @@
 #import "RWAboutLoginViewController.h"
 
 #import "RWPhoneVerificationController.h"
-
 @interface RWAboutLoginViewController ()
-
 <
-    UITableViewDelegate,
-    UITableViewDataSource,
-    RWRequsetDelegate,
-    RWTextFiledCellDelegate,
-    RWButtonCellDelegate,
-    UITextFieldDelegate
+UITableViewDelegate,
+UITableViewDataSource,
+RWRequsetDelegate,
+RWTextFiledCellDelegate,
+RWButtonCellDelegate,
+UITextFieldDelegate
 >
 
 @property (strong, nonatomic)UITableView *viewList;
@@ -55,7 +53,7 @@ static NSString *const buttonCell = @"buttonCell";
 @synthesize viewCenter;
 @synthesize facePlaceHolder;
 @synthesize contrast;
-@synthesize userPassword;
+
 #pragma mark AutoSize Keyboard
 
 - (void)registerForKeyboardNotifications
@@ -176,7 +174,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
     
     [self.view addSubview:viewList];
     [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -353,7 +351,11 @@ static NSString *const buttonCell = @"buttonCell";
     [super viewDidLoad];
     
     MAIN_NAV
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.view.backgroundColor =[UIColor whiteColor];
+    self.title = @"添加密码";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     contrast = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     
     contrast.backgroundColor = [UIColor blackColor];
@@ -362,11 +364,6 @@ static NSString *const buttonCell = @"buttonCell";
     
     countDown = 60;
     
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    self.view.backgroundColor =[UIColor whiteColor];
-    self.title = @"登录";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self registerForKeyboardNotifications];
     [self initViewList];
@@ -375,12 +372,12 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-     self.navigationController.navigationBarHidden=YES;
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
-     self.navigationController.navigationBarHidden=NO;
+    
     
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -420,11 +417,10 @@ static NSString *const buttonCell = @"buttonCell";
     if ([firstPassWord isEqualToString:secondPassWord]) {
         if ([requestManager verificationPassword:firstPassWord]) {
             
-            [requestManager registerWithUsername:userPassword AndPassword:firstPassWord];
+            [requestManager registerWithUsername:_userPassword AndPassword:firstPassWord];
             
-                [self.navigationController popToRootViewControllerAnimated:YES];
-            
-            
+            [self.navigationController popToRootViewControllerAnimated:YES];
+           
         }
     }else{
         [RWRequsetManager warningToViewController:self

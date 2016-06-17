@@ -11,7 +11,6 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "RWNewRegisterViewController.h"
 #import "RWForGotPWViewController.h"
-
 @interface RWPhoneVerificationController ()
 
 <
@@ -201,7 +200,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
     
     [self.view addSubview:viewList];
  
@@ -271,7 +270,7 @@ static NSString *const buttonCell = @"buttonCell";
             [button setTitle:@"忘记密码" forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:12];
             button.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.4];
-            [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+            [button addTarget:self action:@selector(buttonClickWithPW:) forControlEvents:UIControlEventTouchUpInside];
             button.layer.cornerRadius = 8;
             [cell addSubview:button];
 
@@ -287,7 +286,7 @@ static NSString *const buttonCell = @"buttonCell";
         _loginButtonCell = cell;
         
         cell.delegate = self;
-        //        cell.title = @"获取验证码";
+
         [cell.buttonLogin setTitle:@"登录" forState:(UIControlStateNormal)];
         [cell.registerButton setTitle:@"注册" forState:(UIControlStateNormal)];
         
@@ -298,9 +297,9 @@ static NSString *const buttonCell = @"buttonCell";
 /**
  *  点击忘记密码时跳转
  */
--(void)buttonClick:(UIButton *)button{
+-(void)buttonClickWithPW:(UIButton *)button{
     RWForGotPWViewController * FGVC=[[RWForGotPWViewController alloc]init];
-    [self presentViewController:FGVC animated:YES completion:nil];
+    [self.navigationController pushViewController:FGVC animated:YES];
 }
 
 
@@ -421,7 +420,8 @@ static NSString *const buttonCell = @"buttonCell";
  */
 -(void)buttonWithRegister{
     RWNewRegisterViewController * registerVC=[[RWNewRegisterViewController alloc]init];
-    [self.navigationController pushViewController:registerVC animated:YES];
+    [ self.navigationController pushViewController:registerVC animated:YES
+     ];
     
     
 }
@@ -533,12 +533,11 @@ static NSString *const buttonCell = @"buttonCell";
         
         if ([requestManager verificationPassword:userPassword]) {
             
-//             [SVProgressHUD dismiss];
-//            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//            
-//            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-//            
-//            [SVProgressHUD show];
+            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+            
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+            
+            [SVProgressHUD show];
             
             [requestManager userinfoWithUsername:phoneNumber AndPassword:userPassword];
             
@@ -550,7 +549,8 @@ static NSString *const buttonCell = @"buttonCell";
             
             [deployManager setDeployValue:userPassword forKey:PASSWORD];
             [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
-
+            
+            [SVProgressHUD dismiss];
             [self dismissViewControllerAnimated:YES completion:nil];
             
 
