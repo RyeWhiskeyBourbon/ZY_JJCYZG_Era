@@ -249,7 +249,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -257,7 +256,6 @@ static NSString *const buttonCell = @"buttonCell";
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入验证码";
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
             
             button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
@@ -342,13 +340,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
+        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:30];
         
-        titleLabel.textColor = [UIColor lightGrayColor];
+        titleLabel.textColor = [UIColor blackColor];
         
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = [UIColor blackColor];
+        titleLabel.shadowColor = [UIColor goldColor];
         
         [backView addSubview:titleLabel];
         

@@ -260,11 +260,9 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入密码";
@@ -353,7 +351,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = Wonderful_GrayColor4;
+        titleLabel.shadowColor = [UIColor goldColor];
         
         [backView addSubview:titleLabel];
         

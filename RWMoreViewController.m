@@ -21,7 +21,6 @@
 #import "UMComSession.h"
 #import "UMComUser.h"
 
-
 @interface RWMoreViewController ()
 
 <
@@ -293,6 +292,13 @@ static NSString *const viewListButton = @"viewListButton";
     
     [self initViewList];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [viewList reloadData];
 }
 
 -(void)exitLogin

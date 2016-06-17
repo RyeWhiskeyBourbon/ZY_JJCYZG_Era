@@ -10,14 +10,16 @@
 #import "RWLoginTableViewCell.h"
 #import "RWRequsetManager+UserLogin.h"
 #import "RWPhoneVerificationController.h"
+
 @interface RWUpdtePWViewController ()
+
 <
-UITableViewDelegate,
-UITableViewDataSource,
-RWRequsetDelegate,
-RWTextFiledCellDelegate,
-RWButtonCellDelegate,
-UITextFieldDelegate
+    UITableViewDelegate,
+    UITableViewDataSource,
+    RWRequsetDelegate,
+    RWTextFiledCellDelegate,
+    RWButtonCellDelegate,
+    UITextFieldDelegate
 >
 
 @property (strong, nonatomic)UITableView *viewList;
@@ -171,13 +173,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
+        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:30];
         
-        titleLabel.textColor = [UIColor lightGrayColor];
+        titleLabel.textColor = [UIColor blackColor];
         
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = [UIColor blackColor];
+        titleLabel.shadowColor = [UIColor goldColor];
         
         [backView addSubview:titleLabel];
         
@@ -271,8 +273,6 @@ static NSString *const buttonCell = @"buttonCell";
     {
         RWTextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFileCell forIndexPath:indexPath];
         
-        //        cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
-        
         cell.delegate = self;
         
         if (indexPath.row == 0)
@@ -280,8 +280,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入新的密码";
             cell.textFiled.secureTextEntry=YES;
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
-            
         }
         else
         {
@@ -289,8 +287,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请再次输入码";
             cell.textFiled.secureTextEntry=YES;
-            
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;

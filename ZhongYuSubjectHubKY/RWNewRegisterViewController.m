@@ -246,7 +246,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -262,8 +261,6 @@ static NSString *const buttonCell = @"buttonCell";
             [button addTarget:self action:@selector(buttonClickwithIdentify:) forControlEvents:UIControlEventTouchUpInside];
             button.layer.cornerRadius = 8;
             [cell addSubview:button];
-            
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;
@@ -341,13 +338,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
+        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:30];
         
-        titleLabel.textColor = [UIColor lightGrayColor];
+        titleLabel.textColor = [UIColor blackColor];
         
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = [UIColor blackColor];
+        titleLabel.shadowColor = [UIColor goldColor];
 
         [backView addSubview:titleLabel];
         

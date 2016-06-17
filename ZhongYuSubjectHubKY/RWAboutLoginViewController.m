@@ -237,7 +237,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请设置6~18位数密码";
             cell.textFiled.secureTextEntry=YES;
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -245,8 +244,6 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请确认密码";
             cell.textFiled.secureTextEntry=YES;
-            
-            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;
@@ -311,15 +308,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
+        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:30];
         
         titleLabel.textColor = [UIColor blackColor];
         
-        titleLabel.textColor = [UIColor lightGrayColor];
-        
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = [UIColor blackColor];
+        titleLabel.shadowColor = [UIColor goldColor];;
 
         [backView addSubview:titleLabel];
         

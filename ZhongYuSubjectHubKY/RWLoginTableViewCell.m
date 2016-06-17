@@ -59,7 +59,7 @@
     
     textFiled.textColor = [UIColor whiteColor];
     
-    textFiled.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:20];
+    textFiled.font = [UIFont fontWithName:@"Helvetica-Bold" size:20];
     
     textFiled.delegate = self;
     
@@ -87,8 +87,8 @@
     
     [header mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(backView.mas_left).offset(5);
-        make.top.equalTo(backView.mas_top).offset(5);
+        make.left.equalTo(backView.mas_left).offset(20);
+        make.centerY.equalTo(self.mas_centerY).offset(0);
         make.width.equalTo([NSNumber numberWithFloat:frame.size.height - 20]);
         make.height.equalTo([NSNumber numberWithFloat:frame.size.height - 20]);
     }];
