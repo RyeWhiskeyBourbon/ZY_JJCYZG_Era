@@ -24,13 +24,6 @@
 - (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task;
 
 @optional
-- (void)subjectHubDownLoadDidFinish:(NSArray *)subjectHubs;
-
-- (void)subjectBaseDeployDidFinish:(NSArray *)subjectHubs;
-
-- (void)classListDownloadDidFinish:(NSMutableArray *)classListSource;
-
-- (void)recommendListSourceDownloadFinish:(NSArray *)recommendListSource;
 /**
  *  注册返回信息
  *
@@ -52,6 +45,14 @@
  *  @param reason      失败原因
  */
 - (void)replacePasswordResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
+
+- (void)subjectHubDownLoadDidFinish:(NSArray *)subjectHubs;
+
+- (void)subjectBaseDeployDidFinish:(NSArray *)subjectHubs;
+
+- (void)classListDownloadDidFinish:(NSMutableArray *)classListSource;
+
+- (void)recommendListSourceDownloadFinish:(NSArray *)recommendListSource;
 
 - (void)latestInformationDownLoadFinish:(NSArray *)LatestInformations;
 

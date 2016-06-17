@@ -17,6 +17,7 @@
 #define APPOINTMENT @"appointment"
 
 @interface RWInformationViewController ()
+
 <
     UITableViewDelegate,
     UITableViewDataSource,
