@@ -57,6 +57,10 @@
     
     textFiled.backgroundColor=[UIColor clearColor];
     
+    textFiled.textColor = [UIColor whiteColor];
+    
+    textFiled.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:20];
+    
     textFiled.delegate = self;
     
     backView.backgroundColor=[UIColor colorWithWhite:0.f alpha:0.2];
@@ -91,7 +95,7 @@
     
     [textFiled mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(header.mas_right).offset(0);
+        make.left.equalTo(header.mas_right).offset(10);
         make.right.equalTo(backView.mas_right).offset(0);
         make.top.equalTo(backView.mas_top).offset(15);
         make.bottom.equalTo(backView.mas_bottom).offset(-15);

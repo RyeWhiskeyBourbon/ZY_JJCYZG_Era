@@ -48,9 +48,6 @@
 		125EC7DF1CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125EC7C91CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@2x.png */; };
 		125EC7E01CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 125EC7CA1CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@3x.png */; };
 		125EC7E21CFA9E9500F893BA /* admin_gg.png in Resources */ = {isa = PBXBuildFile; fileRef = 125EC7E11CFA9E9500F893BA /* admin_gg.png */; };
-		125EC82B1CFADDA300F893BA /* Welcomebannergg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 125EC8281CFADDA300F893BA /* Welcomebannergg3.jpg */; };
-		125EC82D1CFADDA300F893BA /* Welcomebannergg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 125EC82A1CFADDA300F893BA /* Welcomebannergg1.jpg */; };
-		125EC82F1CFADF2500F893BA /* Welcomebannergg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 125EC82E1CFADF2500F893BA /* Welcomebannergg2.jpg */; };
 		126168F81D10FAF70055438B /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1261675E1D10FAF70055438B /* libUMessage_Sdk_1.1.0.a */; };
 		126168F91D10FAF70055438B /* UMComUMengMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 126167611D10FAF70055438B /* UMComUMengMessageHandler.m */; };
 		126168FA1D10FAF70055438B /* UMComLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126167661D10FAF70055438B /* UMComLoginViewController.m */; };
@@ -242,8 +239,8 @@
 		12A2ADB91CDDEAC30027DD3B /* remind.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A2ADB21CDDEAC30027DD3B /* remind.png */; };
 		12A2ADBA1CDDEAC30027DD3B /* Updata.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A2ADB31CDDEAC30027DD3B /* Updata.png */; };
 		12A2ADBB1CDDEAC30027DD3B /* Usage.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A2ADB41CDDEAC30027DD3B /* Usage.png */; };
-		12A2ADBD1CDDEBDA0027DD3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12A2ADBC1CDDEBDA0027DD3B /* Assets.xcassets */; };
 		12A2ADBF1CDDF3B20027DD3B /* banner-lqzlbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A2ADBE1CDDF3B20027DD3B /* banner-lqzlbg.png */; };
+		12B78E1B1D1421B4005416E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B78E1A1D1421B4005416E1 /* Assets.xcassets */; };
 		12BA9EB71CE60FC7004B5C77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BA9EB61CE60FC7004B5C77 /* AudioToolbox.framework */; };
 		12BA9EB91CE614AA004B5C77 /* ClockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12BA9EB81CE614AA004B5C77 /* ClockSound.mp3 */; };
 		12BCD7E61D0E42A0008DA5DC /* communityHome.png in Resources */ = {isa = PBXBuildFile; fileRef = 12BCD7E51D0E42A0008DA5DC /* communityHome.png */; };
@@ -466,9 +463,6 @@
 		125EC7C91CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_Spotlight_iOS7-9_40pt@2x.png"; sourceTree = "<group>"; };
 		125EC7CA1CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_Spotlight_iOS7-9_40pt@3x.png"; sourceTree = "<group>"; };
 		125EC7E11CFA9E9500F893BA /* admin_gg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = admin_gg.png; sourceTree = "<group>"; };
-		125EC8281CFADDA300F893BA /* Welcomebannergg3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcomebannergg3.jpg; sourceTree = "<group>"; };
-		125EC82A1CFADDA300F893BA /* Welcomebannergg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcomebannergg1.jpg; sourceTree = "<group>"; };
-		125EC82E1CFADF2500F893BA /* Welcomebannergg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Welcomebannergg2.jpg; sourceTree = "<group>"; };
 		1261675E1D10FAF70055438B /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		126167601D10FAF70055438B /* UMComUMengMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUMengMessageHandler.h; sourceTree = "<group>"; };
 		126167611D10FAF70055438B /* UMComUMengMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComUMengMessageHandler.m; sourceTree = "<group>"; };
@@ -875,8 +869,8 @@
 		12A2ADB21CDDEAC30027DD3B /* remind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = remind.png; sourceTree = "<group>"; };
 		12A2ADB31CDDEAC30027DD3B /* Updata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Updata.png; sourceTree = "<group>"; };
 		12A2ADB41CDDEAC30027DD3B /* Usage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Usage.png; sourceTree = "<group>"; };
-		12A2ADBC1CDDEBDA0027DD3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12A2ADBE1CDDF3B20027DD3B /* banner-lqzlbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-lqzlbg.png"; path = "../banner-lqzlbg.png"; sourceTree = "<group>"; };
+		12B78E1A1D1421B4005416E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12BA9EB61CE60FC7004B5C77 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		12BA9EB81CE614AA004B5C77 /* ClockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ClockSound.mp3; sourceTree = "<group>"; };
 		12BCD7E51D0E42A0008DA5DC /* communityHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = communityHome.png; sourceTree = "<group>"; };
@@ -2295,6 +2289,11 @@
 		12EC885D1CF82BF30078E9FD /* AddImage */ = {
 			isa = PBXGroup;
 			children = (
+				12F446211D12AE4A00511336 /* edit_t.png */,
+				12F07DA81D10E48900EB3EA2 /* media_s.png */,
+				12F07DA91D10E48900EB3EA2 /* media.png */,
+				12BCD7E51D0E42A0008DA5DC /* communityHome.png */,
+				12DFC6461D138F3900C73FDF /* textBack.png */,
 				128F40C31CFBEAE70095F69B /* GGWelcome.png */,
 				125EC7E11CFA9E9500F893BA /* admin_gg.png */,
 				12EC88571CF825F40078E9FD /* Star1.png */,
@@ -2302,9 +2301,6 @@
 				12D1C9621CF6F7FA0082F638 /* exitButton.png */,
 				12D1C9601CF6F7F50082F638 /* countDownback.jpg */,
 				12F776741CF2FB1B00F3561A /* drawerView.png */,
-				125EC8281CFADDA300F893BA /* Welcomebannergg3.jpg */,
-				125EC82E1CFADF2500F893BA /* Welcomebannergg2.jpg */,
-				125EC82A1CFADDA300F893BA /* Welcomebannergg1.jpg */,
 			);
 			name = AddImage;
 			sourceTree = "<group>";
@@ -2444,14 +2440,9 @@
 		12FFF08F1CCF18FF003F58E2 = {
 			isa = PBXGroup;
 			children = (
-				125CB20C1D13E9F600AC730F /* Xingkai.ttc */,
-				12F446211D12AE4A00511336 /* edit_t.png */,
-				12F07DA81D10E48900EB3EA2 /* media_s.png */,
-				12F07DA91D10E48900EB3EA2 /* media.png */,
-				12BCD7E51D0E42A0008DA5DC /* communityHome.png */,
-				12DFC6461D138F3900C73FDF /* textBack.png */,
 				12BA9EB81CE614AA004B5C77 /* ClockSound.mp3 */,
 				125CB20D1D13EA2A00AC730F /* ClockSound2.mp3 */,
+				125CB20C1D13E9F600AC730F /* Xingkai.ttc */,
 				12EE61D11CE1E9C300ADCC51 /* LibWith3rd */,
 				12FFF09A1CCF18FF003F58E2 /* ZhongYuSubjectHubKY */,
 				12EEAE651CE853C50076BACB /* ZhongYuSubjectHubKYTests */,
@@ -2488,8 +2479,8 @@
 				12EB5EB71CEFF1A40081F46B /* AppDelegate+JPush.h */,
 				12EB5EB81CEFF1A40081F46B /* AppDelegate+JPush.m */,
 				12FFF0A41CCF18FF003F58E2 /* Main.storyboard */,
-				12A2ADBC1CDDEBDA0027DD3B /* Assets.xcassets */,
 				12FFF0A91CCF18FF003F58E2 /* LaunchScreen.storyboard */,
+				12B78E1A1D1421B4005416E1 /* Assets.xcassets */,
 				12FFF0AC1CCF18FF003F58E2 /* Info.plist */,
 				12EB5ECA1CEFF3C60081F46B /* PushConfig.plist */,
 				12FFF09B1CCF18FF003F58E2 /* Supporting Files */,
@@ -2857,7 +2848,6 @@
 				1261694C1D10FAF70055438B /* UMComUserInfoBar.xib in Resources */,
 				12A2ADB51CDDEAC30027DD3B /* AboutUs.png in Resources */,
 				12F07DAB1D10E48900EB3EA2 /* media.png in Resources */,
-				125EC82D1CFADDA300F893BA /* Welcomebannergg1.jpg in Resources */,
 				125EC7D91CFA98CD00F893BA /* iPhone_App_iOS5-6_57pt@2x.png in Resources */,
 				12D1C9631CF6F7FA0082F638 /* exitButton.png in Resources */,
 				12EFFD641CD8A0C00030C74F /* Previous.png in Resources */,
@@ -2896,7 +2886,6 @@
 				12A2ADB81CDDEAC30027DD3B /* News.png in Resources */,
 				125EC7D51CFA98CD00F893BA /* iPad_Spotlight_iOS5-6_50pt@2x.png in Resources */,
 				1263F6651CDB215E0089EC9F /* main.png in Resources */,
-				12A2ADBD1CDDEBDA0027DD3B /* Assets.xcassets in Resources */,
 				12F446161D129A1C00511336 /* Lv10.png in Resources */,
 				125EC7D81CFA98CD00F893BA /* iPhone_App_iOS5-6_57pt.png in Resources */,
 				1263F5C01CDAF9A80089EC9F /* zhongyuEDU.png in Resources */,
@@ -2939,13 +2928,13 @@
 				125EC7CD1CFA98CD00F893BA /* iPad_App_iOS5-6_72pt.png in Resources */,
 				125EC7D71CFA98CD00F893BA /* iPad_Spotlight_iOS7-9_40pt@2x.png in Resources */,
 				126169071D10FAF70055438B /* UMSnsAccountViewController.xib in Resources */,
+				12B78E1B1D1421B4005416E1 /* Assets.xcassets in Resources */,
 				12F446091D1299DC00511336 /* prefixfree.min.js in Resources */,
 				126169681D10FAF70055438B /* UMComCommentTableViewCell.xib in Resources */,
 				126169491D10FAF70055438B /* UMComFindTableViewCell.xib in Resources */,
 				12A2ADBF1CDDF3B20027DD3B /* banner-lqzlbg.png in Resources */,
 				12EFFD691CD8A0C00030C74F /* UnSelect.png in Resources */,
 				12DFC6471D138F3900C73FDF /* textBack.png in Resources */,
-				125EC82F1CFADF2500F893BA /* Welcomebannergg2.jpg in Resources */,
 				12A2ADB91CDDEAC30027DD3B /* remind.png in Resources */,
 				125EC7DE1CFA98CD00F893BA /* iPhone_Spotlight_iOS5-6_29pt.png in Resources */,
 				12F07DAA1D10E48900EB3EA2 /* media_s.png in Resources */,
@@ -2960,7 +2949,6 @@
 				1263F6A31CDB34090089EC9F /* disclosureIndicator.png in Resources */,
 				12EFFD6B1CD8A0C00030C74F /* Unshow.png in Resources */,
 				12EFFD6F1CD8AA6A0030C74F /* right.png in Resources */,
-				125EC82B1CFADDA300F893BA /* Welcomebannergg3.jpg in Resources */,
 				12EFFD661CD8A0C00030C74F /* Share.png in Resources */,
 				12A2ADB71CDDEAC30027DD3B /* MySave.png in Resources */,
 				126169091D10FAF70055438B /* UMSocialSDKResourcesNew.bundle in Resources */,
