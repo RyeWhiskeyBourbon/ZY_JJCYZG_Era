@@ -86,11 +86,6 @@ static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
     }];
     
-    NSURLRequest *requset = [NSURLRequest requestWithURL:
-                [NSURL URLWithString:mainIndex]];
-    
-    [_informationView loadRequest:requset];
-    
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
@@ -152,6 +147,11 @@ static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
         
         return;
     }
+    
+    NSURLRequest *requset = [NSURLRequest requestWithURL:
+                             [NSURL URLWithString:mainIndex]];
+    
+    [_informationView loadRequest:requset];
     
     if (_countDown)
     {

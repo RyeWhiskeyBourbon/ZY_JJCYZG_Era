@@ -154,6 +154,47 @@ static NSString *const buttonCell = @"buttonCell";
     [viewList addGestureRecognizer:tap];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    if (section == 0)
+    {
+        UIView *backView = [[UIView alloc]init];
+        
+        backView.backgroundColor = [UIColor clearColor];
+        
+        UILabel *titleLabel = [[UILabel alloc]init];
+        
+        titleLabel.text = @"ZHONGYU · 中域";
+        
+        titleLabel.numberOfLines = 0;
+        
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        
+        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        
+        titleLabel.textColor = [UIColor lightGrayColor];
+        
+        titleLabel.shadowOffset = CGSizeMake(1, 1);
+        
+        titleLabel.shadowColor = [UIColor blackColor];
+        
+        [backView addSubview:titleLabel];
+        
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(backView.mas_left).offset(40);
+            make.right.equalTo(backView.mas_right).offset(-40);
+            make.top.equalTo(backView.mas_top).offset(20);
+            make.bottom.equalTo(backView.mas_bottom).offset(-10);
+        }];
+        
+        return backView;
+    }
+    
+    return nil;
+}
+
 - (void)releaseFirstResponder
 {
     RWTextFiledCell *usernameFiled = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -236,7 +277,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         if (indexPath.row == 0)
         {
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入新的密码";
             cell.textFiled.secureTextEntry=YES;
             
@@ -244,7 +285,7 @@ static NSString *const buttonCell = @"buttonCell";
         else
         {
             
-            cell.headerImage = [UIImage imageNamed:@"PassWord"];
+            cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请再次输入码";
             cell.textFiled.secureTextEntry=YES;
             

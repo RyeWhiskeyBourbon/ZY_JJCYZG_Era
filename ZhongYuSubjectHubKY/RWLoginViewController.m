@@ -14,6 +14,7 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "UMComPushRequest.h"
 #import "UMComUserAccount.h"
+
 @interface RWLoginViewController ()
 
 <
@@ -64,9 +65,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败，请检查网络"
-                                        Click:^{
-                                            
-                                        }];
+                                        Click:nil];
 }
 
 - (void)obtainRequestManager
@@ -177,7 +176,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         if (indexPath.row == 0)
         {
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @"请输入账号";
             cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
         }

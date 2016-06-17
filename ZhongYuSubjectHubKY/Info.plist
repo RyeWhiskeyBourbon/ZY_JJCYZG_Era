@@ -26,6 +26,10 @@
 	<string>我们需要获取你的地理位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>我们需要获取你的地理位置</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Xingkai.ttc</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

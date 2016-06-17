@@ -234,7 +234,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         if (indexPath.row == 0)
         {
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请设置6~18位数密码";
             cell.textFiled.secureTextEntry=YES;
             
@@ -242,7 +242,7 @@ static NSString *const buttonCell = @"buttonCell";
         else
         {
             
-            cell.headerImage = [UIImage imageNamed:@"PassWord"];
+            cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请确认密码";
             cell.textFiled.secureTextEntry=YES;
             
@@ -315,6 +315,12 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textColor = [UIColor blackColor];
         
+        titleLabel.textColor = [UIColor lightGrayColor];
+        
+        titleLabel.shadowOffset = CGSizeMake(1, 1);
+        
+        titleLabel.shadowColor = [UIColor blackColor];
+
         [backView addSubview:titleLabel];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -246,7 +246,7 @@ static NSString *const buttonCell = @"buttonCell";
         if (indexPath.row == 0)
         {
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
             
         }
@@ -254,7 +254,7 @@ static NSString *const buttonCell = @"buttonCell";
         {
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            cell.headerImage = [UIImage imageNamed:@"PassWord"];
+            cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入验证码";
             
             button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
@@ -317,10 +317,10 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return self.view.frame.size.height *0.25;
+        return self.view.frame.size.height /2 - 55 * 2;
     }
     
-    return self.view.frame.size.height * 0.02;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -342,7 +342,11 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
         
-        titleLabel.textColor = [UIColor blackColor];
+        titleLabel.textColor = [UIColor lightGrayColor];
+        
+        titleLabel.shadowOffset = CGSizeMake(1, 1);
+        
+        titleLabel.shadowColor = [UIColor blackColor];
         
         [backView addSubview:titleLabel];
         

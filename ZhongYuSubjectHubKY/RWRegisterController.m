@@ -119,7 +119,7 @@ static NSString *const buttonCell = @"buttonCell";
     {
         RWTextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFileCell forIndexPath:indexPath];
         
-        cell.headerImage = [UIImage imageNamed:@"Login"];
+        cell.headerImage = [UIImage imageNamed:@"Loginw"];
         cell.placeholder = @"请输入您的手机号";
         cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
         

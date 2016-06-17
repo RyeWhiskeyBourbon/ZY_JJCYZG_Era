@@ -138,9 +138,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败，请检查网络"
-                                        Click:^{
-                                            
-                                        }];
+                                        Click:nil];
 }
 
 - (void)obtainRequestManager
@@ -250,14 +248,14 @@ static NSString *const buttonCell = @"buttonCell";
         if (indexPath.row == 0)
         {
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
             
         }
         else
         {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            cell.headerImage = [UIImage imageNamed:@"PassWord"];
+            cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入密码";
             cell.textFiled.secureTextEntry=YES;
             button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
@@ -337,9 +335,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
         
         titleLabel.textColor = [UIColor blackColor];
+        
+        titleLabel.shadowOffset = CGSizeMake(1, 1);
+        
+        titleLabel.shadowColor = Wonderful_GrayColor6;
         
         [backView addSubview:titleLabel];
         
@@ -368,36 +370,26 @@ static NSString *const buttonCell = @"buttonCell";
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
-    if(section==1){
+    if(section==1)
+    {
         UIView *backView = [[UIView alloc]init];
         
         backView.backgroundColor = [UIColor clearColor];
-        
-//        UILabel *titleLabel = [[UILabel alloc]init];
-//        
-//        titleLabel.text = @"ZHONGYU · 中域";
-//        
-//        titleLabel.numberOfLines = 0;
-//        
-//        titleLabel.textAlignment = NSTextAlignmentCenter;
-//        
-//        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
-//        
-//        titleLabel.textColor = [UIColor blackColor];
+
         UIButton * blockButton=[[UIButton alloc]init];
-        [blockButton setTitle:@"退出登陆" forState:(UIControlStateNormal)];
+        [blockButton setTitle:@"跳过登录进入试用" forState:(UIControlStateNormal)];
         
-        blockButton.titleLabel.font=[UIFont fontWithName:@"Helvetica-Bold" size:15];
+        blockButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
         [blockButton addTarget:self action:@selector(block:) forControlEvents:(UIControlEventTouchUpInside)];
         
         [backView addSubview:blockButton];
         
         [blockButton mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.left.equalTo(backView.mas_left).offset(100);
-            make.right.equalTo(backView.mas_right).offset(-100);
-            make.top.equalTo(backView.mas_top).offset(80);
-            make.bottom.equalTo(backView.mas_bottom).offset(-80);
+            make.width.equalTo(@(150));
+            make.height.equalTo(@(30));
+            make.centerX.equalTo(backView.mas_centerX).offset(0);
+            make.bottom.equalTo(backView.mas_bottom).offset(-30);
         }];
         
         return backView;

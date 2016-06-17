@@ -14,6 +14,9 @@
 		122385EF1CF42B26003F98FB /* RWCountDownController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122385EE1CF42B26003F98FB /* RWCountDownController.m */; };
 		122386311CF45136003F98FB /* RWPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 122386301CF45136003F98FB /* RWPickerViewCell.m */; };
 		122386341CF56144003F98FB /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 122386331CF56144003F98FB /* RWDeployManager+DateProcess.m */; };
+		125CB20E1D13EA2A00AC730F /* ClockSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 125CB20D1D13EA2A00AC730F /* ClockSound2.mp3 */; };
+		125CB2111D13F0DD00AC730F /* Loginw.png in Resources */ = {isa = PBXBuildFile; fileRef = 125CB20F1D13F0DD00AC730F /* Loginw.png */; };
+		125CB2121D13F0DD00AC730F /* PassWordw.png in Resources */ = {isa = PBXBuildFile; fileRef = 125CB2101D13F0DD00AC730F /* PassWordw.png */; };
 		125D99131CD0818A00871ED4 /* RWSubjectClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125D99121CD0818A00871ED4 /* RWSubjectClassModel.m */; };
 		125D991D1CD0825700871ED4 /* RWSubjectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125D991C1CD0825700871ED4 /* RWSubjectsModel.m */; };
 		125D99271CD0950700871ED4 /* RWSubjectHubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 125D99261CD0950700871ED4 /* RWSubjectHubModel.m */; };
@@ -218,8 +221,6 @@
 		1263F6AE1CDB34CD0089EC9F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1263F6AD1CDB34CD0089EC9F /* MessageUI.framework */; };
 		1263F6B01CDB34E00089EC9F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1263F6AF1CDB34E00089EC9F /* JavaScriptCore.framework */; };
 		1263F6B21CDB34F70089EC9F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1263F6B11CDB34F70089EC9F /* libstdc++.tbd */; };
-		1263F6BD1CDB4BF20089EC9F /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = 1263F6B51CDB4BF20089EC9F /* Login.png */; };
-		1263F6C01CDB4BF20089EC9F /* PassWord.png in Resources */ = {isa = PBXBuildFile; fileRef = 1263F6B81CDB4BF20089EC9F /* PassWord.png */; };
 		1268F1B61CE0388D0040AB2F /* RWClassListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1268F1B51CE0388D0040AB2F /* RWClassListCell.m */; };
 		1268F1B91CE0482D0040AB2F /* RWClassListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1268F1B81CE0482D0040AB2F /* RWClassListModel.m */; };
 		128F40C41CFBEAE70095F69B /* GGWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 128F40C31CFBEAE70095F69B /* GGWelcome.png */; };
@@ -422,6 +423,10 @@
 		122386301CF45136003F98FB /* RWPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWPickerViewCell.m; sourceTree = "<group>"; };
 		122386321CF56144003F98FB /* RWDeployManager+DateProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWDeployManager+DateProcess.h"; sourceTree = "<group>"; };
 		122386331CF56144003F98FB /* RWDeployManager+DateProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDeployManager+DateProcess.m"; sourceTree = "<group>"; };
+		125CB20C1D13E9F600AC730F /* Xingkai.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = Xingkai.ttc; path = ZhongYuSubjectHubKY/Xingkai.ttc; sourceTree = "<group>"; };
+		125CB20D1D13EA2A00AC730F /* ClockSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ClockSound2.mp3; sourceTree = "<group>"; };
+		125CB20F1D13F0DD00AC730F /* Loginw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loginw.png; sourceTree = "<group>"; };
+		125CB2101D13F0DD00AC730F /* PassWordw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PassWordw.png; sourceTree = "<group>"; };
 		125D99111CD0818A00871ED4 /* RWSubjectClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSubjectClassModel.h; sourceTree = "<group>"; };
 		125D99121CD0818A00871ED4 /* RWSubjectClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSubjectClassModel.m; sourceTree = "<group>"; };
 		125D991B1CD0825700871ED4 /* RWSubjectsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSubjectsModel.h; sourceTree = "<group>"; };
@@ -839,8 +844,6 @@
 		1263F6AD1CDB34CD0089EC9F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1263F6AF1CDB34E00089EC9F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		1263F6B11CDB34F70089EC9F /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		1263F6B51CDB4BF20089EC9F /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
-		1263F6B81CDB4BF20089EC9F /* PassWord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PassWord.png; sourceTree = "<group>"; };
 		1268F1B41CE0388D0040AB2F /* RWClassListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWClassListCell.h; sourceTree = "<group>"; };
 		1268F1B51CE0388D0040AB2F /* RWClassListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWClassListCell.m; sourceTree = "<group>"; };
 		1268F1B71CE0482D0040AB2F /* RWClassListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWClassListModel.h; sourceTree = "<group>"; };
@@ -2339,6 +2342,8 @@
 		12EFFD511CD8A0C00030C74F /* KYImages */ = {
 			isa = PBXGroup;
 			children = (
+				125CB20F1D13F0DD00AC730F /* Loginw.png */,
+				125CB2101D13F0DD00AC730F /* PassWordw.png */,
 				12F445A51D12359500511336 /* Um.png */,
 				12F23BC31CE977E40086A699 /* recommend.png */,
 				12A2ADBE1CDDF3B20027DD3B /* banner-lqzlbg.png */,
@@ -2351,8 +2356,6 @@
 				12A2ADB41CDDEAC30027DD3B /* Usage.png */,
 				12F0FB1A1CDCA4C600C315C6 /* background.jpg */,
 				1263F6A21CDB34090089EC9F /* disclosureIndicator.png */,
-				1263F6B51CDB4BF20089EC9F /* Login.png */,
-				1263F6B81CDB4BF20089EC9F /* PassWord.png */,
 				1263F65B1CDB215E0089EC9F /* noti.png */,
 				1263F65C1CDB215E0089EC9F /* set.png */,
 				1263F65D1CDB215E0089EC9F /* main.png */,
@@ -2440,12 +2443,14 @@
 		12FFF08F1CCF18FF003F58E2 = {
 			isa = PBXGroup;
 			children = (
+				125CB20C1D13E9F600AC730F /* Xingkai.ttc */,
 				12F446211D12AE4A00511336 /* edit_t.png */,
 				12F07DA81D10E48900EB3EA2 /* media_s.png */,
 				12F07DA91D10E48900EB3EA2 /* media.png */,
 				12BCD7E51D0E42A0008DA5DC /* communityHome.png */,
-				12BA9EB81CE614AA004B5C77 /* ClockSound.mp3 */,
 				12DFC6461D138F3900C73FDF /* textBack.png */,
+				12BA9EB81CE614AA004B5C77 /* ClockSound.mp3 */,
+				125CB20D1D13EA2A00AC730F /* ClockSound2.mp3 */,
 				12EE61D11CE1E9C300ADCC51 /* LibWith3rd */,
 				12FFF09A1CCF18FF003F58E2 /* ZhongYuSubjectHubKY */,
 				12EEAE651CE853C50076BACB /* ZhongYuSubjectHubKYTests */,
@@ -2846,7 +2851,6 @@
 				125EC7CC1CFA98CD00F893BA /* CarPlay_60pt@3x.png in Resources */,
 				12F446051D1299DC00511336 /* reset.css in Resources */,
 				12EC88591CF825F40078E9FD /* Star1.png in Resources */,
-				1263F6BD1CDB4BF20089EC9F /* Login.png in Resources */,
 				126169231D10FAF70055438B /* UMComCommentInput.xib in Resources */,
 				1261694C1D10FAF70055438B /* UMComUserInfoBar.xib in Resources */,
 				12A2ADB51CDDEAC30027DD3B /* AboutUs.png in Resources */,
@@ -2871,6 +2875,7 @@
 				12BCD7E61D0E42A0008DA5DC /* communityHome.png in Resources */,
 				12F446001D1299DC00511336 /* skyline.png in Resources */,
 				1263F6631CDB215E0089EC9F /* noti.png in Resources */,
+				125CB2121D13F0DD00AC730F /* PassWordw.png in Resources */,
 				12F776751CF2FB1B00F3561A /* drawerView.png in Resources */,
 				12F445FF1D1299DC00511336 /* mountains2.png in Resources */,
 				12F446031D1299DC00511336 /* fireworks.html in Resources */,
@@ -2909,6 +2914,7 @@
 				12EFFD6A1CD8A0C00030C74F /* UnShare.png in Resources */,
 				12EFFD611CD8A0C00030C74F /* Next.png in Resources */,
 				12F446151D129A1C00511336 /* Lv1.png in Resources */,
+				125CB2111D13F0DD00AC730F /* Loginw.png in Resources */,
 				125EC7E01CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@3x.png in Resources */,
 				12F23BC41CE977E40086A699 /* recommend.png in Resources */,
 				12EFFD5F1CD8A0C00030C74F /* Collect.png in Resources */,
@@ -2944,7 +2950,6 @@
 				12A2ADB61CDDEAC30027DD3B /* Advise.png in Resources */,
 				1261690A1D10FAF70055438B /* WeiboSDK.bundle in Resources */,
 				12F446181D129A1C00511336 /* Lv3.png in Resources */,
-				1263F6C01CDB4BF20089EC9F /* PassWord.png in Resources */,
 				12F446171D129A1C00511336 /* Lv2.png in Resources */,
 				12EFFD601CD8A0C00030C74F /* Navbar.png in Resources */,
 				125EC7DF1CFA98CD00F893BA /* iPhone_Spotlight_iOS7-9_40pt@2x.png in Resources */,
@@ -2959,6 +2964,7 @@
 				126169091D10FAF70055438B /* UMSocialSDKResourcesNew.bundle in Resources */,
 				125EC7D01CFA98CD00F893BA /* iPad_App_iOS7-9_76pt@2x.png in Resources */,
 				12EFFD6D1CD8AA620030C74F /* wrong.png in Resources */,
+				125CB20E1D13EA2A00AC730F /* ClockSound2.mp3 in Resources */,
 				126169121D10FAF70055438B /* UMComSDKResources.bundle in Resources */,
 				125EC7DD1CFA98CD00F893BA /* iPhone_Settings_iOS5-9_29pt@3x.png in Resources */,
 				126169021D10FAF70055438B /* UMSCommentInputController.xib in Resources */,
@@ -3581,7 +3587,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.ZhongYuSubjectHubGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e10a94b-91ba-4948-ba14-796d4f6baf89";
+				PROVISIONING_PROFILE = "5f37b534-f770-4601-beb4-a4348b75c1d9";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 				VALIDATE_PRODUCT = NO;
@@ -3665,7 +3671,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.ZhongYuSubjectHubGG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e10a94b-91ba-4948-ba14-796d4f6baf89";
+				PROVISIONING_PROFILE = "5f37b534-f770-4601-beb4-a4348b75c1d9";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
