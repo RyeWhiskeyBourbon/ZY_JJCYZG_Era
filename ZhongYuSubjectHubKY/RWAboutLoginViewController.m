@@ -1,25 +1,22 @@
 //
-//  RWPhoneVerificationController.m
+//  RWAboutLoginViewController.m
 //  ZhongYuSubjectHubKY
 //
-//  Created by zhongyu on 16/5/24.
+//  Created by 中域 on 16/6/14.
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
+#import "RWAboutLoginViewController.h"
 
 #import "RWPhoneVerificationController.h"
-#import "RWLoginTableViewCell.h"
-#import "RWRequsetManager+UserLogin.h"
-#import "RWNewRegisterViewController.h"
-#import "RWForGotPWViewController.h"
 
-@interface RWPhoneVerificationController ()
+@interface RWAboutLoginViewController ()
 
 <
     UITableViewDelegate,
     UITableViewDataSource,
     RWRequsetDelegate,
     RWTextFiledCellDelegate,
-    RWLoginCellDelegate,
+    RWButtonCellDelegate,
     UITextFieldDelegate
 >
 
@@ -29,30 +26,26 @@
 
 @property (weak, nonatomic)RWDeployManager *deployManager;
 
-@property (strong,nonatomic)RwLoginButtonsCell * loginButtonCell;
-
 @property (weak, nonatomic)UIButton *clickBtn;
 
 @property (assign ,nonatomic)NSInteger countDown;
 
 @property (nonatomic,assign)CGPoint viewCenter;
 
-@property (weak ,nonatomic)NSTimer *timer;
-
 @property (nonatomic ,strong)NSString *facePlaceHolder;
 
 @property (nonatomic,strong)UIView *contrast;
 
-@property (nonatomic,strong)NSString *username;
 
-@property(nonatomic,strong)NSString * password;
+
 @end
-
 static NSString *const textFileCell = @"textFileCell";
 
 static NSString *const buttonCell = @"buttonCell";
 
-@implementation RWPhoneVerificationController
+
+@implementation RWAboutLoginViewController
+
 
 @synthesize viewList;
 @synthesize requestManager;
@@ -62,24 +55,16 @@ static NSString *const buttonCell = @"buttonCell";
 @synthesize viewCenter;
 @synthesize facePlaceHolder;
 @synthesize contrast;
-@synthesize username;
-@synthesize password;
-
-
+@synthesize userPassword;
 #pragma mark AutoSize Keyboard
-/**
- *  获取键盘通知
- */
+
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(keyboardWasHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
-/**
- *  在键盘将要弹出来时，执行
- *
- */
+
 - (void)keyboardWasShown:(NSNotification *) notif
 {
     NSDictionary *info = [notif userInfo];
@@ -92,7 +77,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     NSInteger height;
     
-    if ([facePlaceHolder isEqualToString:@"请输入手机号"])
+    if ([facePlaceHolder isEqualToString:@"请输入密码"])
     {
         height = self.view.frame.size.height *0.3 + 50 * 4;
     }
@@ -118,9 +103,7 @@ static NSString *const buttonCell = @"buttonCell";
         }];
     }
 }
-/**
- *   在键盘将要隐藏时
- */
+
 - (void) keyboardWasHidden:(NSNotification *) notif
 {
     [UIView animateWithDuration:0.3 animations:^{
@@ -140,9 +123,7 @@ static NSString *const buttonCell = @"buttonCell";
         deployManager = [RWDeployManager defaultManager];
     }
 }
-/**
- *   检测网络错误
- */
+
 - (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
 {
     NSLog(@"%@",error.description);
@@ -164,9 +145,7 @@ static NSString *const buttonCell = @"buttonCell";
         requestManager.delegate = self;
     }
 }
-/**
- *  条件触摸手势
- */
+
 - (void)addTapGesture
 {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(releaseFirstResponder)];
@@ -175,9 +154,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     [viewList addGestureRecognizer:tap];
 }
-/**
- *  触摸时后的事件
- */
+
 - (void)releaseFirstResponder
 {
     RWTextFiledCell *usernameFiled = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -194,9 +171,7 @@ static NSString *const buttonCell = @"buttonCell";
         [passwordFiled.textFiled resignFirstResponder];
     }
 }
-/**
- *  创建整体的UI效果
- */
+
 - (void)initViewList
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
@@ -204,7 +179,6 @@ static NSString *const buttonCell = @"buttonCell";
     viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
     
     [self.view addSubview:viewList];
- 
     [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(self.view.mas_left).offset(0);
@@ -225,12 +199,19 @@ static NSString *const buttonCell = @"buttonCell";
     
     [viewList registerClass:[RWTextFiledCell class] forCellReuseIdentifier:textFileCell];
     
-    [viewList registerClass:[RwLoginButtonsCell class] forCellReuseIdentifier:buttonCell];
+    [viewList registerClass:[RWButtonCell class] forCellReuseIdentifier:buttonCell];
 }
-#pragma mark tableView的代理方法
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+
+{
+    
+    return 20;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -250,57 +231,47 @@ static NSString *const buttonCell = @"buttonCell";
     {
         RWTextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFileCell forIndexPath:indexPath];
         
-//        cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
         
         cell.delegate = self;
         
         if (indexPath.row == 0)
         {
-            cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Login"];
-            cell.placeholder = @" 请输入手机号";
+            cell.placeholder = @" 请设置6~18位数密码";
+            cell.textFiled.secureTextEntry=YES;
             
         }
         else
         {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            
             cell.headerImage = [UIImage imageNamed:@"PassWord"];
-            cell.placeholder = @" 请输入密码";
+            cell.placeholder = @" 请确认密码";
             cell.textFiled.secureTextEntry=YES;
-            button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
-            [button setTitle:@"忘记密码" forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:12];
-            button.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.4];
-            [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.layer.cornerRadius = 8;
-            [cell addSubview:button];
-
-           
+            
+            
         }
         
         return cell;
     }
     else
     {
-        RwLoginButtonsCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonCell forIndexPath:indexPath];
         
-        _loginButtonCell = cell;
+        RWButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:buttonCell forIndexPath:indexPath];
+        
         
         cell.delegate = self;
-        //        cell.title = @"获取验证码";
-        [cell.buttonLogin setTitle:@"登录" forState:(UIControlStateNormal)];
-        [cell.registerButton setTitle:@"注册" forState:(UIControlStateNormal)];
+        
+        
+        
+        cell.title = @"完成注册";
+        cell.button.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.4];
         
         return cell;
+        
     }
-}
-
-/**
- *  点击忘记密码时跳转
- */
--(void)buttonClick:(UIButton *)button{
-    RWForGotPWViewController * FGVC=[[RWForGotPWViewController alloc]init];
-    [self presentViewController:FGVC animated:YES completion:nil];
+    
+    
+    
 }
 
 
@@ -312,21 +283,19 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 45;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
     {
-        return self.view.frame.size.height *0.25;
+        return self.view.frame.size.height *0.3;
     }
     
     return self.view.frame.size.height * 0.02;
 }
-/**
- *  组透视图
- */
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
@@ -355,7 +324,7 @@ static NSString *const buttonCell = @"buttonCell";
             make.left.equalTo(backView.mas_left).offset(40);
             make.right.equalTo(backView.mas_right).offset(-40);
             make.top.equalTo(backView.mas_top).offset(20);
-            make.bottom.equalTo(backView.mas_bottom).offset(-20);
+            make.bottom.equalTo(backView.mas_bottom).offset(-12);
         }];
         
         return backView;
@@ -363,65 +332,13 @@ static NSString *const buttonCell = @"buttonCell";
     
     return nil;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
-    if(section==1){
-        UIView *backView = [[UIView alloc]init];
-        
-        backView.backgroundColor = [UIColor clearColor];
-        
-        UILabel *titleLabel = [[UILabel alloc]init];
-        
-        titleLabel.text = @"ZHONGYU · 中域";
-        
-        titleLabel.numberOfLines = 0;
-        
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
-        
-        titleLabel.textColor = [UIColor blackColor];
-        
-        [backView addSubview:titleLabel];
-        
-        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.left.equalTo(backView.mas_left).offset(40);
-            make.right.equalTo(backView.mas_right).offset(-40);
-            make.top.equalTo(backView.mas_top).offset(20);
-            make.bottom.equalTo(backView.mas_bottom).offset(-20);
-        }];
-        
-        return backView;
-    }
-    
-    
-    return nil;
-    
-}
-
-
 
 /**
- *   登录按钮
+ *  点击下一步按钮
  */
--(void)buttonWithLogin:(UIButton *)button{
+-(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
-    if ([self verificationAdministrator])
-    {
-        return;
-    }
-
-    [self userLogin];
-    
-}
-
-/**
- *  注册
- */
--(void)buttonWithRegister{
-    RWNewRegisterViewController * registerVC=[[RWNewRegisterViewController alloc]init];
-    [self.navigationController pushViewController:registerVC animated:YES];
+    [self userPassWord];
     
     
 }
@@ -444,31 +361,27 @@ static NSString *const buttonCell = @"buttonCell";
     viewCenter = self.navigationController.view.center;
     
     countDown = 60;
+    
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor =[UIColor whiteColor];
     self.title = @"登录";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-
-    
-
-    
-    // Do any additional setup after loading the view.
     
     [self registerForKeyboardNotifications];
     [self initViewList];
     [self addTapGesture];
-
     
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden=YES;
+     self.navigationController.navigationBarHidden=YES;
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden=NO;
+     self.navigationController.navigationBarHidden=NO;
+    
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -487,117 +400,60 @@ static NSString *const buttonCell = @"buttonCell";
     [super viewDidDisappear:animated];
     
     requestManager.delegate = nil;
-//     self.navigationController.navigationBarHidden=NO;
     [contrast removeFromSuperview];
-}
-
-- (BOOL)verificationAdministrator
-{
-    RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    NSString *AdministratorID = textCell.textFiled.text;
-    
-    RWTextFiledCell *verCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    
-    NSString *AdministratorPassword = verCell.textFiled.text;
-    
-    if ([AdministratorID isEqualToString:@"946"]&&
-        [AdministratorPassword isEqualToString:@"79"])
-    {
-        [self obtainDeployManager];
-        
-        [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
-        
-        [self dismissViewControllerAnimated:YES
-                                                      completion:nil];
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
--(void)userLogin{
-    [self obtainRequestManager];
-    __block RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    NSString *phoneNumber = textCell.textFiled.text;
-
-    __block RWTextFiledCell *verCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    
-    NSString *userPassword = verCell.textFiled.text;
-    
-    
-    if ([requestManager verificationPhoneNumber:phoneNumber]) {
-        
-        if ([requestManager verificationPassword:userPassword]) {
-            
-//             [SVProgressHUD dismiss];
-//            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//            
-//            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-//            
-//            [SVProgressHUD show];
-            
-            [requestManager userinfoWithUsername:phoneNumber AndPassword:userPassword];
-            
-            [self obtainDeployManager];
-            
-            
-            [deployManager setDeployValue:phoneNumber
-                                   forKey:USERNAME];
-            
-            [deployManager setDeployValue:userPassword forKey:PASSWORD];
-            [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
-
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
-
-        }else{
-            
-            [RWRequsetManager warningToViewController:self
-             
-                                                Title:@"密码输入错误"
-             
-                                                Click:^{
-                                                    
-                                                    textCell.textFiled.text = nil;
-                                                    
-                                                    [textCell.textFiled
-                                                     becomeFirstResponder];
-                                                }];
-        }
-
-    
-    
-        
-
-    }else{
-        
-        
-        [RWRequsetManager warningToViewController:self
-                                            Title:@"手机号输入有误,请重新输入"
-                                            Click:^{
-                                                
-                                                verCell.textFiled.text = nil;
-                                                
-                                                [verCell
-                                                 .textFiled becomeFirstResponder];
-                                            }];
-
-        
-        
-    }
 }
 - (void)dismissView
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+-(void)userPassWord{
+    [self obtainRequestManager];
+    
+    __block RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    NSString *firstPassWord = textCell.textFiled.text;
+    
+    __block RWTextFiledCell *verCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    NSString *secondPassWord=verCell.textFiled.text;
+    
+    if ([firstPassWord isEqualToString:secondPassWord]) {
+        if ([requestManager verificationPassword:firstPassWord]) {
+            
+            [requestManager registerWithUsername:userPassword AndPassword:firstPassWord];
+            
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            
+            
+        }
+    }else{
+        [RWRequsetManager warningToViewController:self
+         
+                                            Title:@"两次输入不一致"
+         
+                                            Click:^{
+                                                
+                                                textCell.textFiled.text = nil;
+                                                verCell.textFiled.text=nil;
+                                                [textCell.textFiled
+                                                 becomeFirstResponder];
+                                            }];
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];
     [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification name:nil object:self];
 }
+
+
 
 @end

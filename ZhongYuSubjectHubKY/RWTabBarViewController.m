@@ -31,15 +31,20 @@
 
 - (void)toRootViewController
 {
-    for (int i = 1; i <= 4; i++)
+    for (int i = 0; i < 5; i++)
     {
-        UIButton *btn = (UIButton *)[self.view viewWithTag:i+10];
+        if (i == 2)
+        {
+            continue;
+        }
         
-        btn.selected = NO;
+        UIImageView *imageItem = (UIImageView *)[self.view viewWithTag:(i + 1)*10];
         
-        UILabel *name = (UILabel *)[self.view viewWithTag:i+100];
+        imageItem.image = _images[i];
         
-        name.textColor = [UIColor grayColor];
+        UILabel *nameX = (UILabel *)[self.view viewWithTag:(i + 1)*100];
+        
+        nameX.textColor = [UIColor grayColor];
     }
     
     [self selectWithTag:1];
@@ -217,7 +222,6 @@
 
 - (void)toCommunityViewController
 {
-    NSLog(@"%s",__FUNCTION__);
     UIViewController *communityController = [UMCommunity getFeedsModalViewController];
     [self presentViewController:communityController animated:YES completion:nil];
 

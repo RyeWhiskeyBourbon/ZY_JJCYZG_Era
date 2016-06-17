@@ -151,7 +151,7 @@ static NSString *const progressCell = @"ProgressCell";
     
     header = @"登录";
     message=@"立即登录免费获取全部题库\n\n继续体验，请点击取消按钮";
-    responcedTitle = @"立即注册";
+    responcedTitle = @"立即登录";
     cancelTitle = @"取消";
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:header message:message preferredStyle:UIAlertControllerStyleAlert];
