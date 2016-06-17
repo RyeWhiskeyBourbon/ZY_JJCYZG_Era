@@ -9,8 +9,15 @@
 #import "RWRequsetManager.h"
 #import "FMDB.h"
 #import "RWDataBaseManager.h"
+#import "RWRequsetManager+UserLogin.h"
+#import "RWTabBarViewController.h"
+#import "RWRegisterViewController.h"
 
 @interface RWRequsetManager ()
+
+<
+    RWRequsetDelegate
+>
 
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
 
@@ -36,6 +43,89 @@
         [notificationCenter postNotificationName:REACHABILITY_STATUS_MESSAGE
                                           object:[NSNumber numberWithInteger:status]];
     }];
+}
+
+- (void)setReachabilityStatus:(AFNetworkReachabilityStatus)reachabilityStatus
+{
+    _reachabilityStatus = reachabilityStatus;
+    
+    RWDeployManager *deployManager = [RWDeployManager defaultManager];
+    
+    if (_reachabilityStatus == AFNetworkReachabilityStatusReachableViaWWAN ||
+        _reachabilityStatus == AFNetworkReachabilityStatusReachableViaWiFi)
+    {
+        if ([[deployManager deployValueForKey:LOGIN] isEqualToString:UNLINK_LOGIN])
+        {
+            NSString *username = [deployManager deployValueForKey:USERNAME];
+            NSString *password = [deployManager deployValueForKey:PASSWORD];
+            
+            _delegate = self;
+            
+            [self userinfoWithUsername:username AndPassword:password];
+        }
+    }
+    else
+    {
+        if ([[deployManager deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+        {
+            [deployManager setDeployValue:UNLINK_LOGIN forKey:LOGIN];
+            
+            RWTabBarViewController *tabBarController = (RWTabBarViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+            
+            [RWRequsetManager warningToViewController:tabBarController
+                                                Title:@"网络状态异常，请检查网络"
+                                                Click:nil];
+        }
+    }
+}
+
+- (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason
+{
+    if (!isSuccessed)
+    {
+        RWTabBarViewController *tabBarController = (RWTabBarViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+        
+        NSString *header, *message, *responcedTitle, *cancelTitle;
+        
+        header = @"友情提示";
+        message=@"自动登录失败\n\n点击确定进入登录界面\n继续请点击取消";
+        responcedTitle = @"登录";
+        cancelTitle = @"取消";
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:header message:message preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *registerAction = [UIAlertAction actionWithTitle:responcedTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            
+            [tabBarController toRootViewController];
+            
+            RWRegisterViewController *registerView =
+                                                [[RWRegisterViewController alloc]init];
+            
+            [tabBarController presentViewController:registerView
+                                           animated:YES
+                                         completion:nil];
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+        }];
+        
+        [alert addAction:registerAction];
+        
+        [alert addAction:cancelAction];
+        
+        [tabBarController presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
+{
+    RWTabBarViewController *tabBarController = (RWTabBarViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+    
+    [RWRequsetManager warningToViewController:tabBarController
+                                        Title:@"网络连接失败"
+                                        Click:nil];
 }
 
 #if 1

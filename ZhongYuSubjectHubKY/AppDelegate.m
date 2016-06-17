@@ -115,9 +115,9 @@ static NSString *const baseName = @"ZhongYuSubjuectHub";
     [self.deployInformation removeObserver:self forKeyPath:CLOCK];
     
     if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                    isEqualToString:EXPERIENCE_VIEW])
+                                                    isEqualToString:DID_LOGIN])
     {
-        [[RWDeployManager defaultManager] setDeployValue:NOT_LOGIN forKey:LOGIN];
+        [[RWDeployManager defaultManager] setDeployValue:UNLINK_LOGIN forKey:LOGIN];
     }
 }
 

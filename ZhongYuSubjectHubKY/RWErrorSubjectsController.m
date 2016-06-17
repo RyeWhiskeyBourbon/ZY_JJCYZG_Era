@@ -131,8 +131,8 @@ static NSString *const wrongListCell = @"wrongListCell";
 {
     [super viewDidAppear:animated];
     
-    if (![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-          isEqualToString:DID_LOGIN])
+    if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
+          isEqualToString:NOT_LOGIN])
     {
         [self notLogin];
         

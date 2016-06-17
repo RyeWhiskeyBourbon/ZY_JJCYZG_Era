@@ -6,16 +6,16 @@
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
 #import "RWAboutLoginViewController.h"
-
 #import "RWPhoneVerificationController.h"
+
 @interface RWAboutLoginViewController ()
 <
-UITableViewDelegate,
-UITableViewDataSource,
-RWRequsetDelegate,
-RWTextFiledCellDelegate,
-RWButtonCellDelegate,
-UITextFieldDelegate
+    UITableViewDelegate,
+    UITableViewDataSource,
+    RWRequsetDelegate,
+    RWTextFiledCellDelegate,
+    RWButtonCellDelegate,
+    UITextFieldDelegate
 >
 
 @property (strong, nonatomic)UITableView *viewList;
@@ -174,7 +174,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
     
     [self.view addSubview:viewList];
     [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -337,14 +337,14 @@ static NSString *const buttonCell = @"buttonCell";
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
     [self userPassWord];
-    
-    
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return YES;
 }
+
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
@@ -370,10 +370,12 @@ static NSString *const buttonCell = @"buttonCell";
     [self addTapGesture];
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     
     [super viewWillDisappear:animated];
@@ -399,11 +401,14 @@ static NSString *const buttonCell = @"buttonCell";
     requestManager.delegate = nil;
     [contrast removeFromSuperview];
 }
+
 - (void)dismissView
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
 -(void)userPassWord{
+    
     [self obtainRequestManager];
     
     __block RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -435,13 +440,6 @@ static NSString *const buttonCell = @"buttonCell";
                                                  becomeFirstResponder];
                                             }];
     }
-    
-    
-    
-    
-    
-    
-    
 }
 
 - (void)dealloc {

@@ -82,8 +82,7 @@ static UMComLoginManager *_instance = nil;
         if (completion) {
             completion([UMComSession sharedInstance].loginUser,nil);
         }
-    }else if ([self shareInstance].loginHandler || ![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                     isEqualToString:DID_LOGIN]) {
+    }else if ([self shareInstance].loginHandler || [[[RWDeployManager defaultManager] deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN]) {
         
         
         [self shareInstance].currentViewController = viewController;

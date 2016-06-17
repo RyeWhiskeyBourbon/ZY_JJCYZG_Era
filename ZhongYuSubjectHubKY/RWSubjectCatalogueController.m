@@ -358,7 +358,7 @@ static NSString *const progressCell = @"ProgressCell";
     
     _requestManager.delegate = self;
     
-    if (![[deployManager deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+    if ([[deployManager deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
     {
         [self notRegister];
         

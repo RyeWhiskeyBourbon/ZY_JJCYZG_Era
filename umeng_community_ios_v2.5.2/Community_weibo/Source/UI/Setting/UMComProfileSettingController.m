@@ -320,6 +320,9 @@
     
     self.userAccount.name = self.nameField.text;
     self.userAccount.gender = [NSNumber numberWithInteger:[self.genderPicker selectedRowInComponent:0]];
+    
+    [[RWDeployManager defaultManager] setDeployValue:self.nameField.text forKey:NAME];
+    
     __weak typeof(self) weakSelf = self;
     //如果从登录页面因为用户名错误，直接跳转到设置页面，先进行登录注册
     if (self.settingCompletion) {

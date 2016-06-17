@@ -162,8 +162,8 @@ static NSString *const viewListButton = @"viewListButton";
         cell.delegate = self;
         
         
-        if ([[[RWDeployManager defaultManager]
-                                deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+        if (![[[RWDeployManager defaultManager]
+                                deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
         {
             cell.title = @"退出登录";
         }
@@ -264,7 +264,7 @@ static NSString *const viewListButton = @"viewListButton";
         
     [imageView addSubview:username];
     
-    if (section == 0 && [[deploy deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+    if (section == 0 && ![[deploy deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
     {
         username.text = [self phoneNumber:[deploy deployValueForKey:USERNAME]];
     }
@@ -313,8 +313,8 @@ static NSString *const viewListButton = @"viewListButton";
 {
     NSString *header, *message, *responcedTitle, *cancelTitle;
     
-    if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                            isEqualToString:DID_LOGIN])
+    if (![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
+                                                            isEqualToString:NOT_LOGIN])
     {
         header = @"确认退出";
         message=@"退出登录将无法继续使用题库\n\n确定退出，请单击退出登录\n继续使用，请点击取消按钮";

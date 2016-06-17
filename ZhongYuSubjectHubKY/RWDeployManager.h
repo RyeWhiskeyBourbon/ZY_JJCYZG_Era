@@ -37,6 +37,15 @@
  *  @return
  */
 - (BOOL)removeDeployValueForKey:(NSString *)key;
+/**
+ *  变更登录状态
+ *
+ *  @param status   登录状态
+ *  @param username 用户名
+ *  @param password 密码
+ *  @param name     昵称
+ */
+- (void)changeLoginStatusWithStatus:(NSString *)status Username:(NSString *)username Password:(NSString *)password termOfEndearment:(NSString *)name;
 
 - (NSString *)encryptionString:(NSString *)string;
 

@@ -61,8 +61,8 @@
     switch (row) {
         case 0:
             
-            if ([[[RWDeployManager defaultManager]
-                                   deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+            if (![[[RWDeployManager defaultManager]
+                                   deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
             {
                 return @"更新数据库";
             }
@@ -94,8 +94,8 @@
     switch (row) {
         case 0:
             
-            if ([[[RWDeployManager defaultManager]
-                  deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+            if (![[[RWDeployManager defaultManager]
+                  deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
             {
                 [self updateDatabase];
             }

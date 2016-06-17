@@ -326,24 +326,24 @@ static NSString *const buttonCell = @"buttonCell";
     
     password = passCell.textFiled.text;
     
-    
-    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
-    userAccount.usid = userCell.textFiled.text;
-    userAccount.name = userCell.textFiled.text;
-    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
-    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
-        
-        NSLog(@"res = %@",responseObject);
-        
-        if(!error){
-            //登录成功
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-            
-        }else{
-            //登录失败
-            NSLog(@"登录失败");
-        }
-    }];
+//    
+//    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
+//    userAccount.usid = userCell.textFiled.text;
+//    userAccount.name = userCell.textFiled.text;
+//    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
+//    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
+//        
+//        NSLog(@"res = %@",responseObject);
+//        
+//        if(!error){
+//            //登录成功
+//            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//            
+//        }else{
+//            //登录失败
+//            NSLog(@"登录失败");
+//        }
+//    }];
 
     
     

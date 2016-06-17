@@ -115,6 +115,28 @@
     return [deploy writeToFile:DEPLOY_PLIST atomically:YES];
 }
 
+- (void)changeLoginStatusWithStatus:(NSString *)status Username:(NSString *)username Password:(NSString *)password termOfEndearment:(NSString *)name
+{
+    if ([status isEqualToString:DID_LOGIN])
+    {
+        [self setDeployValue:DID_LOGIN forKey:LOGIN];
+        [self setDeployValue:username forKey:USERNAME];
+        [self setDeployValue:password forKey:PASSWORD];
+        [self setDeployValue:name forKey:NAME];
+    }
+    else if ([status isEqualToString:UNLINK_LOGIN])
+    {
+        [self setDeployValue:UNLINK_LOGIN forKey:LOGIN];
+    }
+    else if ([status isEqualToString:NOT_LOGIN])
+    {
+        [self setDeployValue:nil forKey:USERNAME];
+        [self setDeployValue:nil forKey:PASSWORD];
+        [self setDeployValue:nil forKey:NAME];
+        [self setDeployValue:NOT_LOGIN forKey:LOGIN];
+    }
+}
+
 - (NSMutableDictionary *)obtainDeployInformation
 {
     BOOL isDerectory = NO;

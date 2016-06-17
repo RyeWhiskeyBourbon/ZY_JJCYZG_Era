@@ -200,7 +200,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     
-    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"lALORlhLV80IoM0E2g_1242_2208.png"]];
+    viewList.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"textBack"]];
     
     [self.view addSubview:viewList];
  
@@ -404,7 +404,8 @@ static NSString *const buttonCell = @"buttonCell";
 /**
  *   登录按钮
  */
--(void)buttonWithLogin:(UIButton *)button{
+-(void)buttonWithLogin:(UIButton *)button
+{
     
     if ([self verificationAdministrator])
     {
@@ -418,7 +419,8 @@ static NSString *const buttonCell = @"buttonCell";
 /**
  *  注册
  */
--(void)buttonWithRegister{
+-(void)buttonWithRegister
+{
     RWNewRegisterViewController * registerVC=[[RWNewRegisterViewController alloc]init];
     [ self.navigationController pushViewController:registerVC animated:YES
      ];
@@ -426,13 +428,15 @@ static NSString *const buttonCell = @"buttonCell";
     
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return YES;
 }
 #pragma mark - Life Cycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     MAIN_NAV
@@ -444,14 +448,12 @@ static NSString *const buttonCell = @"buttonCell";
     viewCenter = self.navigationController.view.center;
     
     countDown = 60;
+    
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor =[UIColor whiteColor];
     self.title = @"登录";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-
-    
-
     
     // Do any additional setup after loading the view.
     
@@ -461,15 +463,20 @@ static NSString *const buttonCell = @"buttonCell";
 
     
 }
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    
     self.navigationController.navigationBarHidden=YES;
 }
--(void)viewWillDisappear:(BOOL)animated{
-    
+
+-(void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
+    
     self.navigationController.navigationBarHidden=NO;
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -506,7 +513,7 @@ static NSString *const buttonCell = @"buttonCell";
     {
         [self obtainDeployManager];
         
-        [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
+        [deployManager setDeployValue:UNLINK_LOGIN forKey:LOGIN];
         
         [self dismissViewControllerAnimated:YES
                                                       completion:nil];
@@ -518,8 +525,10 @@ static NSString *const buttonCell = @"buttonCell";
     }
 }
 
--(void)userLogin{
+-(void)userLogin
+{
     [self obtainRequestManager];
+    
     __block RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     NSString *phoneNumber = textCell.textFiled.text;
@@ -541,16 +550,6 @@ static NSString *const buttonCell = @"buttonCell";
             
             [requestManager userinfoWithUsername:phoneNumber AndPassword:userPassword];
             
-            [self obtainDeployManager];
-            
-            
-            [deployManager setDeployValue:phoneNumber
-                                   forKey:USERNAME];
-            
-            [deployManager setDeployValue:userPassword forKey:PASSWORD];
-            [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
-            
-            [SVProgressHUD dismiss];
             [self dismissViewControllerAnimated:YES completion:nil];
             
 
@@ -590,14 +589,32 @@ static NSString *const buttonCell = @"buttonCell";
         
     }
 }
+
 - (void)dismissView
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];
     [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification name:nil object:self];
+}
+
+- (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason
+{
+    if (isSuccessed)
+    {
+//        [self obtainDeployManager];
+//        
+////        [deployManager setDeployValue:phoneNumber
+////                               forKey:USERNAME];
+////        
+////        [deployManager setDeployValue:userPassword forKey:PASSWORD];
+////        [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
+        
+        [SVProgressHUD dismiss];
+    }
 }
 
 @end

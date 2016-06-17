@@ -8,6 +8,8 @@
 
 #import "RWRequsetManager+UserLogin.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "UMComPushRequest.h"
+#import "UMComUserAccount.h"
 
 static NSString *const userinfoURL = @"http://www.zhongyuedu.com/api/tk_jin_login.php";
 
@@ -21,49 +23,107 @@ static NSString *const replacePasswordURL =
 
 - (void)registerWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
-    NSDictionary *body = @{@"username":username,@"password":password};
     
-    [self.manager POST:registerURL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
+    
+    userAccount.usid = username;
+    userAccount.name = username;
+    
+    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
+    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
         
-        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        
-        if ([[Json objectForKey:@"resultCode"] integerValue] == 0)
+        if(!error)
         {
-            [self.delegate registerResponds:YES ErrorReason:nil];
+            NSDictionary *body = @{@"username":username,@"password":password};
+            
+            [self.manager POST:registerURL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                
+                if ([[Json objectForKey:@"resultCode"] integerValue] == 0)
+                {
+                    [[RWDeployManager defaultManager]
+                                        changeLoginStatusWithStatus:DID_LOGIN
+                                                           Username:username
+                                                           Password:password
+                                                   termOfEndearment:username];
+                    
+                    [self.delegate registerResponds:YES
+                                        ErrorReason:nil];
+                }
+                else
+                {
+                    [self.delegate registerResponds:NO
+                                        ErrorReason:[Json objectForKey:@"result"]];
+                }
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+                [self.delegate requestError:error
+                                       Task:task];
+            }];
         }
         else
         {
-            [self.delegate registerResponds:NO ErrorReason:[Json objectForKey:@"result"]];
+            
+            [self.delegate registerResponds:NO
+                                ErrorReason:error.description];
         }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [self.delegate requestError:error Task:task];
     }];
 }
 
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
-    NSDictionary *body = @{@"username":username,@"password":password};
+    RWDeployManager *deploy = [RWDeployManager defaultManager];
     
-    [self.manager POST:userinfoURL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
-        nil;
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
+    
+    userAccount.usid = username;
+    userAccount.name = [deploy deployValueForKey:NAME];
+    
+    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
+    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
         
-        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSLog(@"res = %@",responseObject);
         
-        if ([[Json objectForKey:@"resultCode"] integerValue] == 0)
+        if(!error)
         {
-            [self.delegate userLoginResponds:YES ErrorReason:nil];
+            NSDictionary *body = @{@"username":username,@"password":password};
+            
+            [self.manager POST:userinfoURL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
+                nil;
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                
+                if ([[Json objectForKey:@"resultCode"] integerValue] == 0)
+                {
+                    
+                    
+                    [deploy changeLoginStatusWithStatus:DID_LOGIN
+                                               Username:username
+                                               Password:password
+                                       termOfEndearment:userAccount.name];
+                    
+                    [self.delegate userLoginResponds:YES ErrorReason:nil];
+                }
+                else
+                {
+                    [self.delegate userLoginResponds:NO
+                                         ErrorReason:[Json objectForKey:@"result"]];
+                }
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+             {
+                
+                [self.delegate requestError:error Task:task];
+            }];
         }
         else
         {
-            [self.delegate userLoginResponds:NO ErrorReason:[Json objectForKey:@"result"]];
+            [self.delegate userLoginResponds:NO
+                                 ErrorReason:error.description];
         }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-     
-        [self.delegate requestError:error Task:task];
     }];
 }
 
