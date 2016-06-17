@@ -79,7 +79,7 @@ static NSString *const replacePasswordURL =
     UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
     
     userAccount.usid = username;
-    userAccount.name = [deploy deployValueForKey:NAME];
+    userAccount.name = username;
     
     ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
     [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {

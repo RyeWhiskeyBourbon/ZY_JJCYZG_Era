@@ -295,7 +295,8 @@ static NSString *const buttonCell = @"buttonCell";
            }
     
 }
--(void)buttonClickwithIdentify:(UIButton *)button{
+-(void)buttonClickwithIdentify:(UIButton *)button
+{
     if ([button.titleLabel.text isEqualToString:@"获取验证码"]) {
         clickBtn=button;
         [self userRegisterWithButton];
@@ -310,17 +311,17 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return 55;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
     {
-        return self.view.frame.size.height *0.25;
+        return self.view.frame.size.height /2 - 55 * 2;
     }
     
-    return self.view.frame.size.height * 0.02;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

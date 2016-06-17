@@ -281,17 +281,17 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return 55;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
     {
-        return self.view.frame.size.height *0.3;
+        return self.view.frame.size.height /2 - 55 * 2;
     }
     
-    return self.view.frame.size.height * 0.02;
+    return 1;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -353,7 +353,7 @@ static NSString *const buttonCell = @"buttonCell";
     MAIN_NAV
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor =[UIColor whiteColor];
-    self.title = @"添加密码";
+    self.title = @"设置";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     contrast = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
@@ -423,14 +423,12 @@ static NSString *const buttonCell = @"buttonCell";
         if ([requestManager verificationPassword:firstPassWord]) {
             
             [requestManager registerWithUsername:_userPassword AndPassword:firstPassWord];
-            
-            [self.navigationController popToRootViewControllerAnimated:YES];
            
         }
     }else{
         [RWRequsetManager warningToViewController:self
          
-                                            Title:@"两次输入不一致"
+                                            Title:@"两次输入不一致，请重新输入"
          
                                             Click:^{
                                                 
@@ -441,7 +439,17 @@ static NSString *const buttonCell = @"buttonCell";
                                             }];
     }
 }
-
+- (void)registerResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason{
+    
+    if (isSuccessed) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        
+        [RWRequsetManager warningToViewController:self Title:reason Click:^{
+            
+        }];
+    }
+}
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];

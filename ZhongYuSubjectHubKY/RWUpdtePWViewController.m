@@ -381,7 +381,7 @@ static NSString *const buttonCell = @"buttonCell";
         [requestManager replacePasswordWithUsername:_userPassword AndPassword:firstPassWord];
 
 
-        [self.navigationController popToRootViewControllerAnimated:YES];
+       
         
             
             
@@ -426,7 +426,18 @@ static NSString *const buttonCell = @"buttonCell";
     
     
 }
-
+- (void)replacePasswordResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason{
+    
+    if (isSuccessed) {
+         [self.navigationController popToRootViewControllerAnimated:YES];
+    }else{
+        [RWRequsetManager warningToViewController:self Title:reason Click:^{
+            
+        }];
+    }
+    
+    
+}
 - (void)dealloc {
     
     [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];

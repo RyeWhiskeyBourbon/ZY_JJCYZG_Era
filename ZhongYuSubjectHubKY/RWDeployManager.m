@@ -130,9 +130,9 @@
     }
     else if ([status isEqualToString:NOT_LOGIN])
     {
-        [self setDeployValue:nil forKey:USERNAME];
-        [self setDeployValue:nil forKey:PASSWORD];
-        [self setDeployValue:nil forKey:NAME];
+        [self setDeployValue:[NSNull null] forKey:USERNAME];
+        [self setDeployValue:[NSNull null] forKey:PASSWORD];
+        [self setDeployValue:[NSNull null] forKey:NAME];
         [self setDeployValue:NOT_LOGIN forKey:LOGIN];
     }
 }

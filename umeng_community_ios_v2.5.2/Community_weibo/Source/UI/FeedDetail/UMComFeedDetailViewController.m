@@ -194,7 +194,7 @@ typedef void(^LoadFinishBlock)(NSError *error);
     self.doNotShowNodataNote = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"UMComFeedsTableViewCell" bundle:nil] forCellReuseIdentifier:@"UMComFeedsTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UMComCommentTableViewCell" bundle:nil] forCellReuseIdentifier:@"UMComCommentTableViewCell"];
-    [self setTitleViewWithTitle:UMComLocalizedString(@"um_com_feedDetailTitle", @"正文内容")];
+//    [self setTitleViewWithTitle:UMComLocalizedString(@"um_com_feedDetailTitle", @"")];
     if (self.navigationController.viewControllers.count <= 1) {
         [self setLeftButtonWithImageName:@"Backx" action:@selector(goBack)];
     }

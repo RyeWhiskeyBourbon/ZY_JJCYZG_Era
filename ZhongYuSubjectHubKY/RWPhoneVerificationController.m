@@ -26,8 +26,6 @@
 
 @property (strong, nonatomic)RWRequsetManager *requestManager;
 
-@property (weak, nonatomic)RWDeployManager *deployManager;
-
 @property (strong,nonatomic)RwLoginButtonsCell * loginButtonCell;
 
 @property (weak, nonatomic)UIButton *clickBtn;
@@ -55,7 +53,6 @@ static NSString *const buttonCell = @"buttonCell";
 
 @synthesize viewList;
 @synthesize requestManager;
-@synthesize deployManager;
 @synthesize countDown;
 @synthesize clickBtn;
 @synthesize viewCenter;
@@ -132,13 +129,6 @@ static NSString *const buttonCell = @"buttonCell";
 
 #pragma mark - views
 
-- (void)obtainDeployManager
-{
-    if (!deployManager)
-    {
-        deployManager = [RWDeployManager defaultManager];
-    }
-}
 /**
  *   检测网络错误
  */
@@ -226,6 +216,12 @@ static NSString *const buttonCell = @"buttonCell";
     
     [viewList registerClass:[RwLoginButtonsCell class] forCellReuseIdentifier:buttonCell];
 }
+
+-(void)buttonWithLogin:(UIButton *)button
+{
+    [self userLogin];
+}
+
 #pragma mark tableView的代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -248,8 +244,6 @@ static NSString *const buttonCell = @"buttonCell";
     if (indexPath.section == 0)
     {
         RWTextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFileCell forIndexPath:indexPath];
-        
-//        cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
         
         cell.delegate = self;
         
@@ -318,10 +312,10 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return self.view.frame.size.height *0.25;
+        return self.view.frame.size.height / 2 - 55 * 2;
     }
     
-    return self.view.frame.size.height * 0.02;
+    return  1; //self.view.frame.size.height * 0.02;
 }
 /**
  *  组透视图
@@ -362,33 +356,48 @@ static NSString *const buttonCell = @"buttonCell";
     
     return nil;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section==1) {
+    
+        
+        return  self.view.frame.size.height*0.35;
+    }
+    
+    return 0;
+    
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     if(section==1){
         UIView *backView = [[UIView alloc]init];
         
         backView.backgroundColor = [UIColor clearColor];
         
-        UILabel *titleLabel = [[UILabel alloc]init];
+//        UILabel *titleLabel = [[UILabel alloc]init];
+//        
+//        titleLabel.text = @"ZHONGYU · 中域";
+//        
+//        titleLabel.numberOfLines = 0;
+//        
+//        titleLabel.textAlignment = NSTextAlignmentCenter;
+//        
+//        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+//        
+//        titleLabel.textColor = [UIColor blackColor];
+        UIButton * blockButton=[[UIButton alloc]init];
+        [blockButton setTitle:@"退出登陆" forState:(UIControlStateNormal)];
         
-        titleLabel.text = @"ZHONGYU · 中域";
+        blockButton.titleLabel.font=[UIFont fontWithName:@"Helvetica-Bold" size:15];
+        [blockButton addTarget:self action:@selector(block:) forControlEvents:(UIControlEventTouchUpInside)];
         
-        titleLabel.numberOfLines = 0;
+        [backView addSubview:blockButton];
         
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
-        
-        titleLabel.textColor = [UIColor blackColor];
-        
-        [backView addSubview:titleLabel];
-        
-        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [blockButton mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.left.equalTo(backView.mas_left).offset(40);
-            make.right.equalTo(backView.mas_right).offset(-40);
-            make.top.equalTo(backView.mas_top).offset(20);
-            make.bottom.equalTo(backView.mas_bottom).offset(-20);
+            make.left.equalTo(backView.mas_left).offset(100);
+            make.right.equalTo(backView.mas_right).offset(-100);
+            make.top.equalTo(backView.mas_top).offset(80);
+            make.bottom.equalTo(backView.mas_bottom).offset(-80);
         }];
         
         return backView;
@@ -398,24 +407,10 @@ static NSString *const buttonCell = @"buttonCell";
     return nil;
     
 }
-
-
-
-/**
- *   登录按钮
- */
--(void)buttonWithLogin:(UIButton *)button
-{
-    
-    if ([self verificationAdministrator])
-    {
-        return;
-    }
-
-    [self userLogin];
+-(void)block:(UIButton *)Button{
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
-
 /**
  *  注册
  */
@@ -494,35 +489,8 @@ static NSString *const buttonCell = @"buttonCell";
     [super viewDidDisappear:animated];
     
     requestManager.delegate = nil;
-//     self.navigationController.navigationBarHidden=NO;
-    [contrast removeFromSuperview];
-}
 
-- (BOOL)verificationAdministrator
-{
-    RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    NSString *AdministratorID = textCell.textFiled.text;
-    
-    RWTextFiledCell *verCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    
-    NSString *AdministratorPassword = verCell.textFiled.text;
-    
-    if ([AdministratorID isEqualToString:@"946"]&&
-        [AdministratorPassword isEqualToString:@"79"])
-    {
-        [self obtainDeployManager];
-        
-        [deployManager setDeployValue:UNLINK_LOGIN forKey:LOGIN];
-        
-        [self dismissViewControllerAnimated:YES
-                                                      completion:nil];
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
+    [contrast removeFromSuperview];
 }
 
 -(void)userLogin
@@ -538,9 +506,11 @@ static NSString *const buttonCell = @"buttonCell";
     NSString *userPassword = verCell.textFiled.text;
     
     
-    if ([requestManager verificationPhoneNumber:phoneNumber]) {
+    if ([requestManager verificationPhoneNumber:phoneNumber])
+    {
         
-        if ([requestManager verificationPassword:userPassword]) {
+        if ([requestManager verificationPassword:userPassword])
+        {
             
             [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
             
@@ -549,23 +519,21 @@ static NSString *const buttonCell = @"buttonCell";
             [SVProgressHUD show];
             
             [requestManager userinfoWithUsername:phoneNumber AndPassword:userPassword];
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
-
-        }else{
+        }
+        else
+        {
             
             [RWRequsetManager warningToViewController:self
              
                                                 Title:@"密码输入错误"
              
-                                                Click:^{
+                                                Click:^
+            {
                                                     
-                                                    textCell.textFiled.text = nil;
-                                                    
-                                                    [textCell.textFiled
-                                                     becomeFirstResponder];
-                                                }];
+                textCell.textFiled.text = nil;
+                
+                [textCell.textFiled becomeFirstResponder];
+            }];
         }
 
     
@@ -603,18 +571,33 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason
 {
+    [SVProgressHUD dismiss];
+    
     if (isSuccessed)
     {
-//        [self obtainDeployManager];
-//        
-////        [deployManager setDeployValue:phoneNumber
-////                               forKey:USERNAME];
-////        
-////        [deployManager setDeployValue:userPassword forKey:PASSWORD];
-////        [deployManager setDeployValue:DID_LOGIN forKey:LOGIN];
-        
-        [SVProgressHUD dismiss];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
+    else
+    {
+        [RWRequsetManager warningToViewController:self
+                                            Title:reason
+                                            Click:nil];
+    }
+}
+
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    CATransition *transition = [CATransition animation];
+    
+    transition.type = @"rippleEffect";
+    
+    transition.subtype = @"fromLeft";
+    
+    transition.duration = 1;
+    
+    [self.view.layer addAnimation:transition forKey:nil];
+    
+    [super dismissViewControllerAnimated:flag completion:completion];
 }
 
 @end

@@ -18,7 +18,9 @@
 #import "RWWebViewController.h"
 #import "RWFeedbackViewController.h"
 #import "RWRecommendController.h"
-#import "UMComLoginManager.h"
+#import "UMComSession.h"
+#import "UMComUser.h"
+
 
 @interface RWMoreViewController ()
 
@@ -266,7 +268,9 @@ static NSString *const viewListButton = @"viewListButton";
     
     if (section == 0 && ![[deploy deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
     {
-        username.text = [self phoneNumber:[deploy deployValueForKey:USERNAME]];
+        UMComUser *loginUser = [UMComSession sharedInstance].loginUser;
+        
+        username.text = loginUser.name;
     }
     else
     {
@@ -274,24 +278,6 @@ static NSString *const viewListButton = @"viewListButton";
     }
  
     return view;
-}
-
-- (NSString *)phoneNumber:(NSString *)number
-{
-    if (!number)
-    {
-        return @"管理员账号";
-    }
-    
-    NSMutableString *mStr = [[NSMutableString alloc]initWithString:number];
-    
-    for (int i = 0; i < 4; i++)
-    {
-        [mStr deleteCharactersInRange:NSMakeRange(3 + i, 1)];
-        [mStr insertString:@"*" atIndex:3+i];
-    }
-    
-    return mStr;
 }
 
 #pragma mark - Life Cycle
@@ -342,13 +328,12 @@ static NSString *const viewListButton = @"viewListButton";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
                            
-                           
-                           [UMComLoginManager userLogout];
-                           [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
-                           
                            RWDeployManager *deploy = [RWDeployManager defaultManager];
-                           
-                           [deploy setDeployValue:NOT_LOGIN forKey:LOGIN];
+
+                           [deploy changeLoginStatusWithStatus:NOT_LOGIN
+                                                      Username:nil
+                                                      Password:nil
+                                              termOfEndearment:nil];
         });
     }];
     
@@ -455,8 +440,7 @@ static NSString *const viewListButton = @"viewListButton";
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败,请检查网络"
-                                        Click:^{
-                                        }];
+                                        Click:nil];
 }
 
 @end

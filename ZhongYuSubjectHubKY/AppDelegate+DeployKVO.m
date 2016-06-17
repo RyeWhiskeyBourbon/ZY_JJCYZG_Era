@@ -8,6 +8,7 @@
 
 #import "AppDelegate+DeployKVO.h"
 #import "RWRegisterViewController.h"
+#import "UMComLoginManager.h"
 
 @implementation AppDelegate (DeployKVO)
 
@@ -80,6 +81,9 @@
                       postNotificationName:LOGIN
                                     object:[change objectForKey:NSKeyValueChangeNewKey]
                                   userInfo:nil];
+        
+        [UMComLoginManager userLogout];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
         
         RWTabBarViewController *tabBarController =
                         (RWTabBarViewController *)self.window.rootViewController;

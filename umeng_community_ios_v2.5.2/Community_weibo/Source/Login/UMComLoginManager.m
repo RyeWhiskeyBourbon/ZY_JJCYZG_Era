@@ -72,6 +72,7 @@ static UMComLoginManager *_instance = nil;
         self.loginHandler = [[delegateClass alloc] init];
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginWhenReceivedLoginError) name:kUMComUserDidNotLoginErrorNotification object:nil];
+    
     }
     return self;
 }

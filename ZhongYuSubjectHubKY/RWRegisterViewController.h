@@ -10,5 +10,4 @@
 
 @interface RWRegisterViewController : UINavigationController
 
-
 @end
