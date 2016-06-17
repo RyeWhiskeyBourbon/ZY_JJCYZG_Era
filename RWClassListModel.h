@@ -22,4 +22,10 @@
 
 @property (nonatomic,strong)NSNumber *yid;
 
+@property (nonatomic,strong)NSString *wechat;
+
+@property (nonatomic,strong)NSString *phonenumber;
+
+@property (nonatomic,strong)NSString *name;
+
 @end

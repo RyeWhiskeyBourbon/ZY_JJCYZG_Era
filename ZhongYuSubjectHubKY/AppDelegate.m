@@ -58,9 +58,9 @@ static NSString *const baseName = @"ZhongYuSubjuectHub";
     //UMCommunity
     
     [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];
-    //MobSMS
-    [SMSSDK registerApp:@"1341ca2111fcc"
-             withSecret:@"6a4f67f79a43f2ddc6e573e4d540e6dd"];
+    //MobSMS jj = @"1341ca2111fcc" @"6a4f67f79a43f2ddc6e573e4d540e6dd"
+    [SMSSDK registerApp:@"13fe87761d3cc"
+             withSecret:@"d7cdc87af31c6fba8e3f6b2b834a51bc"];
     [SMSSDK enableAppContactFriends:NO];
     
     //MobClick

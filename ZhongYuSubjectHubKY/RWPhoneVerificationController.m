@@ -78,6 +78,8 @@ static NSString *const buttonCell = @"buttonCell";
  */
 - (void)keyboardWasShown:(NSNotification *) notif
 {
+    
+    
     NSDictionary *info = [notif userInfo];
     
     NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
@@ -113,6 +115,8 @@ static NSString *const buttonCell = @"buttonCell";
             self.navigationController.view.center = viewPt;
         }];
     }
+    RwLoginButtonsCell * buttonsCell=[viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    buttonsCell.userInteractionEnabled=NO;
 }
 /**
  *   在键盘将要隐藏时
@@ -124,6 +128,8 @@ static NSString *const buttonCell = @"buttonCell";
         
         self.navigationController.view.center = viewCenter;
     }];
+    RwLoginButtonsCell * buttonsCell=[viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    buttonsCell.userInteractionEnabled=YES;
     
 }
 
@@ -135,6 +141,8 @@ static NSString *const buttonCell = @"buttonCell";
 - (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
 {
     NSLog(@"%@",error.description);
+    
+    [SVProgressHUD dismiss];
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败，请检查网络"
@@ -168,10 +176,11 @@ static NSString *const buttonCell = @"buttonCell";
 - (void)releaseFirstResponder
 {
     RWTextFiledCell *usernameFiled = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
+  
     if (usernameFiled.textFiled.isFirstResponder)
     {
         [usernameFiled.textFiled resignFirstResponder];
+        
     }
     
     RWTextFiledCell *passwordFiled = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
@@ -205,7 +214,6 @@ static NSString *const buttonCell = @"buttonCell";
     
     viewList.allowsSelection = NO;
     viewList.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     viewList.delegate = self;
     viewList.dataSource = self;
     
@@ -243,6 +251,8 @@ static NSString *const buttonCell = @"buttonCell";
     {
         RWTextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFileCell forIndexPath:indexPath];
         
+        
+        
         cell.delegate = self;
         
         if (indexPath.row == 0)
@@ -250,10 +260,11 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入密码";
@@ -310,16 +321,17 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return self.view.frame.size.height / 2 - 55 * 2;
+        return self.view.frame.size.height / 2.5 - 55 * 2;
     }
     
-    return  1; //self.view.frame.size.height * 0.02;
+    return  40; //self.view.frame.size.height * 0.02;
 }
 /**
  *  组透视图
  */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
     
     if (section == 0)
     {
@@ -335,13 +347,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
+        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:30];
         
         titleLabel.textColor = [UIColor blackColor];
         
         titleLabel.shadowOffset = CGSizeMake(1, 1);
         
-        titleLabel.shadowColor = Wonderful_GrayColor6;
+        titleLabel.shadowColor = Wonderful_GrayColor4;
         
         [backView addSubview:titleLabel];
         
@@ -411,8 +423,6 @@ static NSString *const buttonCell = @"buttonCell";
     RWNewRegisterViewController * registerVC=[[RWNewRegisterViewController alloc]init];
     [ self.navigationController pushViewController:registerVC animated:YES
      ];
-    
-    
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

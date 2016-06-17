@@ -14,6 +14,7 @@
 		122385EF1CF42B26003F98FB /* RWCountDownController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122385EE1CF42B26003F98FB /* RWCountDownController.m */; };
 		122386311CF45136003F98FB /* RWPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 122386301CF45136003F98FB /* RWPickerViewCell.m */; };
 		122386341CF56144003F98FB /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 122386331CF56144003F98FB /* RWDeployManager+DateProcess.m */; };
+		125B61751D14032C00318CCD /* Xingkai.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 125CB20C1D13E9F600AC730F /* Xingkai.ttc */; };
 		125CB20E1D13EA2A00AC730F /* ClockSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 125CB20D1D13EA2A00AC730F /* ClockSound2.mp3 */; };
 		125CB2111D13F0DD00AC730F /* Loginw.png in Resources */ = {isa = PBXBuildFile; fileRef = 125CB20F1D13F0DD00AC730F /* Loginw.png */; };
 		125CB2121D13F0DD00AC730F /* PassWordw.png in Resources */ = {isa = PBXBuildFile; fileRef = 125CB2101D13F0DD00AC730F /* PassWordw.png */; };
@@ -2836,6 +2837,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				125B61751D14032C00318CCD /* Xingkai.ttc in Resources */,
 				12F4461C1D129A1C00511336 /* Lv7.png in Resources */,
 				12F446191D129A1C00511336 /* Lv4.png in Resources */,
 				12A2ADBA1CDDEAC30027DD3B /* Updata.png in Resources */,

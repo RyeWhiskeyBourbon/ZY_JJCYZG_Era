@@ -12,13 +12,13 @@
 #import "UMComUserAccount.h"
 
 static NSString *const userinfoURL =
-                                @"hhttp://www.zhongyuedu.com/api/tk_jin_new_login.php";
+                                @"http://www.zhongyuedu.com/api/tk_jin_new_login.php";
 
 static NSString *const registerURL =
                                 @"http://www.zhongyuedu.com/api/tk_jin_register.php";
 
 static NSString *const replacePasswordURL =
-                                @"http://www.zhongyuedu.com/api/jz_change_pwd.php";
+                                @"http://www.zhongyuedu.com/api/jin_change_pwd.php";
 
 @implementation RWRequsetManager (UserLogin)
 

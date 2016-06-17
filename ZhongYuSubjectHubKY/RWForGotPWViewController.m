@@ -87,7 +87,7 @@ static NSString *const buttonCell = @"buttonCell";
     }
     else
     {
-        height = self.view.frame.size.height *0.3 + 50 * 4;
+        height = self.view.frame.size.height *0.3 + 50 * 3;
     }
     
     if (self.navigationController.view.center.y == viewCenter.y + gap - height)
@@ -104,6 +104,7 @@ static NSString *const buttonCell = @"buttonCell";
             viewPt.y += gap - height;
             
             self.navigationController.view.center = viewPt;
+            
         }];
     }
 }
@@ -218,7 +219,7 @@ static NSString *const buttonCell = @"buttonCell";
 
 {
     
-    return 20;
+    return 10;
     
 }
 
@@ -248,7 +249,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -256,6 +257,7 @@ static NSString *const buttonCell = @"buttonCell";
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入验证码";
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
             
             button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
@@ -310,17 +312,17 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 45;
+    return 55;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
     {
-        return self.view.frame.size.height /2 - 55 * 2;
+        return self.view.frame.size.height /2.5 - 55 * 2;
     }
     
-    return 1;
+    return 40;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -340,7 +342,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
         
         titleLabel.textColor = [UIColor lightGrayColor];
         

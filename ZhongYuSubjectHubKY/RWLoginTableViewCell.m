@@ -77,8 +77,8 @@
        
         make.left.equalTo(self.mas_left).offset(0);
         make.right.equalTo(self.mas_right).offset(0);
-        make.top.equalTo(self.mas_top).offset(3);
-        make.bottom.equalTo(self.mas_bottom).offset(-3);
+        make.top.equalTo(self.mas_top).offset(0.5);
+        make.bottom.equalTo(self.mas_bottom).offset(0);
     }];
     
     [header mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,8 +93,8 @@
        
         make.left.equalTo(header.mas_right).offset(0);
         make.right.equalTo(backView.mas_right).offset(0);
-        make.top.equalTo(backView.mas_top).offset(10);
-        make.bottom.equalTo(backView.mas_bottom).offset(-10);
+        make.top.equalTo(backView.mas_top).offset(15);
+        make.bottom.equalTo(backView.mas_bottom).offset(-15);
     }];
 }
 

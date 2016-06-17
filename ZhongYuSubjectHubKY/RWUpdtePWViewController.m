@@ -171,7 +171,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
         
         titleLabel.textColor = [UIColor lightGrayColor];
         
@@ -280,6 +280,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入新的密码";
             cell.textFiled.secureTextEntry=YES;
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
             
         }
         else
@@ -289,7 +290,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.placeholder = @" 请再次输入码";
             cell.textFiled.secureTextEntry=YES;
             
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;

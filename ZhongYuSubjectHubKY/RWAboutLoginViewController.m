@@ -208,7 +208,7 @@ static NSString *const buttonCell = @"buttonCell";
 
 {
     
-    return 20;
+    return 10;
     
 }
 
@@ -237,7 +237,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请设置6~18位数密码";
             cell.textFiled.secureTextEntry=YES;
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -246,7 +246,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.placeholder = @" 请确认密码";
             cell.textFiled.secureTextEntry=YES;
             
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;
@@ -288,10 +288,10 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return self.view.frame.size.height /2 - 55 * 2;
+        return self.view.frame.size.height / 3 - 55 * 2;
     }
     
-    return 1;
+    return 20;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -311,7 +311,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
         
         titleLabel.textColor = [UIColor blackColor];
         

@@ -246,7 +246,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textFiled.keyboardType=UIKeyboardTypeDecimalPad;
             cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @" 请输入手机号";
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         else
         {
@@ -263,7 +263,7 @@ static NSString *const buttonCell = @"buttonCell";
             button.layer.cornerRadius = 8;
             [cell addSubview:button];
             
-            
+            cell.textFiled.font=[UIFont systemFontOfSize:20];
         }
         
         return cell;
@@ -318,10 +318,10 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return self.view.frame.size.height /2 - 55 * 2;
+        return self.view.frame.size.height /2.5 - 55 * 2;
     }
     
-    return 1;
+    return 20;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -341,7 +341,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold"size:23];
+        titleLabel.font = [UIFont fontWithName:@"Xingkai SC"size:25];
         
         titleLabel.textColor = [UIColor lightGrayColor];
         
@@ -370,11 +370,14 @@ static NSString *const buttonCell = @"buttonCell";
  */
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
-    if (button.tag==101) {
+    if (button.tag == 101)
+    {
         
         [self.navigationController popViewControllerAnimated:YES];
         
-    }else{
+    }
+    else
+    {
         [self verificationCodeWithCode];
     }
 }
@@ -402,6 +405,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     countDown = 60;
     
+    requestManager = [[RWRequsetManager alloc] init];
     
     [self registerForKeyboardNotifications];
     [self initViewList];
@@ -447,7 +451,9 @@ static NSString *const buttonCell = @"buttonCell";
  *  注册验证
  */
 #pragma mark  注册验证
--(void)userRegisterWithButton {
+
+-(void)userRegisterWithButton
+{
     [self obtainRequestManager];
     
     __block RWTextFiledCell *textCell = [viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -468,32 +474,38 @@ static NSString *const buttonCell = @"buttonCell";
         [SVProgressHUD show];
         
         [requestManager obtainVerificationCodeWithPhoneNumber:phoneNumber
-                                                     Complate:^(BOOL isSuccessed) {
-                    [SVProgressHUD dismiss];
-                                                         if (isSuccessed) {
-                                                             	[self timerStart];
-                                                             [textCell.textFiled
-                                                              becomeFirstResponder];
-                                                         }else{
-                                                             
-                                                             [RWRequsetManager warningToViewController:self
-                                                              
-                                                                                                 Title:@"验证码获取失败"
-                                                              
-                                                                                                 Click:^{
-                                                                                                     
-                                                                                                     textCell.textFiled.text = nil;
-                                                                                                     
-                                                                                                     [textCell.textFiled
-                                                                                                      becomeFirstResponder];
-                                                                                                 }];
-                                                         }
-                                                         
-                                                         
-                                                     }];
+                                                     Complate:^(BOOL isSuccessed)
+        {
+            [SVProgressHUD dismiss];
+            
+            if (isSuccessed)
+            {
+                [self timerStart];
+                
+                [textCell.textFiled becomeFirstResponder];
+            }
+            else
+            {
+                
+                [RWRequsetManager warningToViewController:self
+                                                    Title:@"验证码获取失败"
+                                                    Click:^
+                {
+                    textCell.textFiled.text = nil;
+                    
+                    [textCell.textFiled  becomeFirstResponder];
+                    
+                 }];
+            }
+            
+            
+
+        }];
     
     
-    }else{
+    }
+    else
+    {
         [RWRequsetManager warningToViewController:self
                                             Title:@"手机号输入有误,请重新输入"
                                             Click:^{
@@ -532,11 +544,9 @@ static NSString *const buttonCell = @"buttonCell";
     [clickBtn setTitle:[NSString stringWithFormat:@"%dS",(int)countDown] forState:UIControlStateNormal];
     
 }
--(void)verificationCodeWithCode{
-    
-    
 
-    
+-(void)verificationCodeWithCode{
+
     [_timer setFireDate:[NSDate distantFuture]];
     
     RWTextFiledCell *phoneNumberCell = [viewList cellForRowAtIndexPath:
@@ -544,45 +554,51 @@ static NSString *const buttonCell = @"buttonCell";
     
     RWTextFiledCell *verificationCell = [viewList cellForRowAtIndexPath:
                                          [NSIndexPath indexPathForRow:1 inSection:0]];
+    
     if ([requestManager verificationPhoneNumber:phoneNumberCell.textFiled.text])
     {
-    [requestManager verificationWithVerificationCode:verificationCell.textFiled.text
-                                         PhoneNumber:phoneNumberCell.textFiled.text
-                                            Complate:^(BOOL isSuccessed) {
-                                                
-//                                                [SVProgressHUD dismiss];
-                                                
-                                                if (isSuccessed)
-                                                {
-                                        
-                                                    
-                                                    RWAboutLoginViewController *ALVC=[[RWAboutLoginViewController alloc]init];
-                                                    ALVC.userPassword=phoneNumberCell.textFiled.text;
-                                                    [self.navigationController pushViewController:ALVC animated:YES];
-                                                    
-                                                }
-                                                else
-                                                {
-                                                    
-                                                    [RWRequsetManager warningToViewController:self
-                                                                                        Title:@"验证失败"
-                                                                                        Click:^{
-                                                                                            
-                                                                                        }];
-                                                }
-                                            }];
+        if (!verificationCell.textFiled.text)
+        {
+            [RWRequsetManager warningToViewController:self
+                                                Title:@"请输入验证码"
+                                                Click:nil];
+        }
+        
+        [requestManager verificationWithVerificationCode:verificationCell.textFiled.text
+                                             PhoneNumber:phoneNumberCell.textFiled.text
+                                                Complate:^(BOOL isSuccessed)
+         {
+             [SVProgressHUD dismiss];
+             
+             if (isSuccessed)
+             {
+                 
+                 
+                 RWAboutLoginViewController *ALVC=[[RWAboutLoginViewController alloc]init];
+                 ALVC.userPassword=phoneNumberCell.textFiled.text;
+                 [self.navigationController pushViewController:ALVC animated:YES];
+                 
+             }
+             else
+             {
+                 
+                 [RWRequsetManager warningToViewController:self
+                                                     Title:@"验证失败"
+                                                     Click:^{
+                                                         
+                                                     }];
+             }
+
+        }];
     
     }
-else{
+    else
+    {
     
         [RWRequsetManager warningToViewController:self
-                                            Title:@"手机号码错误"
-                                            Click:^{
-                                                
-                                            }];
- 
-    
-}
+                                            Title:@"手机号码输入错误"
+                                            Click:nil];
+    }
 }
 - (void)dealloc {
     
