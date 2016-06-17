@@ -76,7 +76,7 @@
             return @"考试提醒";
         case 2:
             
-            return @"最新资讯";
+            return @"使用说明";
         case 3:
             
             return @"关于我们";
@@ -119,7 +119,7 @@
             break;
         case 2:
             
-            [self toInformationView];
+            [self toInstructions];
             
             break;
         case 3:
@@ -166,7 +166,6 @@
     [self animateOfDrawer:drawerPt];
     
     [self animateOfView:viewPt];
-    
 }
 
 - (void)closeDrawer
@@ -314,11 +313,15 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
-- (void)toInformationView
+-(void)toInstructions
 {
-    RWInformationController *information = [[RWInformationController alloc] init];
+    RWWebViewController *webViewController = [[RWWebViewController alloc] init];
     
-    [self.navigationController pushViewController:information animated:YES];
+    webViewController.url = @"http://www.zhongyuedu.com/app/tk_jz/tk_ios_usage.htm";
+    
+    webViewController.title = @"使用说明";
+    
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (void)countDownView

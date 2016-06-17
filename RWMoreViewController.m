@@ -86,8 +86,6 @@ static NSString *const viewListButton = @"viewListButton";
                      @"icon" : @"Updata"},
                    @{@"title"     :@"每日答题提醒",
                      @"icon" : @"remind"},
-                   @{@"title"     :@"使用说明",
-                     @"icon" : @"Usage"},
                    @{@"title"     :@"题库推荐",
                      @"icon" : @"recommend"},
                    @{@"title"     :@"意见建议",
@@ -216,20 +214,15 @@ static NSString *const viewListButton = @"viewListButton";
             break;
         case 3:
         {
-            [self toInstructions];
+            [self toRecommendViewController];
         }
             break;
         case 4:
         {
-            [self toRecommendViewController];
-        }
-            break;
-        case 5:
-        {
             [self toCommentsAndSuggestionsView];
         }
             break;
-        case 6:
+        case 5:
         {
             [self toAboutUsViewController];
         }
@@ -391,17 +384,6 @@ static NSString *const viewListButton = @"viewListButton";
     RWAlarmClockController *alarmClock = [[RWAlarmClockController alloc] init];
     
     [self.navigationController pushViewController:alarmClock animated:YES];
-}
-
--(void)toInstructions
-{
-    RWWebViewController *webViewController = [[RWWebViewController alloc] init];
-    
-    webViewController.url = @"http://www.zhongyuedu.com/app/tk_jz/tk_ios_usage.htm";
-    
-    webViewController.title = @"使用说明";
-    
-    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 -(void)toCommentsAndSuggestionsView
