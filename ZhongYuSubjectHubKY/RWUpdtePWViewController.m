@@ -412,37 +412,31 @@ static NSString *const buttonCell = @"buttonCell";
 
         }
     }else{
+        
         [RWRequsetManager warningToViewController:self
          
                                             Title:@"密码格式不正确"
          
-                                            Click:^{
+                                            Click:^
+        {
                                                 
-                                                textCell.textFiled.text = nil;
-                                                verCell.textFiled.text=nil;
-                                                [textCell.textFiled
-                                                 becomeFirstResponder];
-                                            }];
-        
-           }
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-    
-    
+                textCell.textFiled.text = nil;
+                verCell.textFiled.text=nil;
+                [textCell.textFiled becomeFirstResponder];
+        }];
+    }
+ 
 }
 
 - (void)dealloc {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification name:nil object:self];
-    [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification name:nil object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillShowNotification
+                                                    name:nil
+                                                  object:self];
+    
+    [[NSNotificationCenter defaultCenter ] removeObserver:UIKeyboardWillHideNotification
+                                                     name:nil
+                                                   object:self];
 }
 
 @end
