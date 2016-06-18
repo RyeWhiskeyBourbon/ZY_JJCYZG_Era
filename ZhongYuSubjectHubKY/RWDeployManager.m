@@ -320,7 +320,7 @@
         
         notification.userInfo = @{CLOCK_NAMES:name};
         
-        notification.soundName = @"ClockSound.mp3";
+        notification.soundName = @"ClockSound2.mp3";
         
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
