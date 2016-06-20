@@ -709,14 +709,23 @@
             UMComReplyEditViewController* tempReplyController =  [[UMComReplyEditViewController alloc] init];
             
             tempReplyController.commentcreator =  comment.creator.name;
+            
             tempReplyController.commitBlock = ^(NSString *content, NSArray *imageList) {
                 [weakself replyContent:content toPost:feed fromComment:comment imageList:imageList];
-                [weakself dismissViewControllerAnimated:YES completion:nil];
+                
+                [self.navigationController popViewControllerAnimated:YES];
             };
-            tempReplyController.cancelBlock = ^{                
-                [weakself dismissViewControllerAnimated:YES completion:nil];
+            
+            tempReplyController.cancelBlock = ^{
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                
             };
-            [self presentViewController:tempReplyController animated:YES completion:nil];
+            
+            [self.navigationController pushViewController:tempReplyController animated:YES];
+            
+            
         }
     }];
     

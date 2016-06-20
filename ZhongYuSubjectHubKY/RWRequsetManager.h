@@ -13,9 +13,38 @@
 
 @protocol RWRequsetDelegate <NSObject>
 
-@optional
+@required
 
+/**
+ *  一般网络连接失败会回调此方法
+ *
+ *  @param error 错误信息
+ *  @param task  会话信息
+ */
 - (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task;
+
+@optional
+/**
+ *  注册返回信息
+ *
+ *  @param isSuccessed 是否注册成功
+ *  @param reason      失败原因
+ */
+- (void)registerResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
+/**
+ *  登录返回信息
+ *
+ *  @param isSuccessed 是否注册成功
+ *  @param reason      失败原因
+ */
+- (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
+/**
+ *  重置密码返回信息
+ *
+ *  @param isSuccessed 是否重置成功
+ *  @param reason      失败原因
+ */
+- (void)replacePasswordResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
 
 - (void)subjectHubDownLoadDidFinish:(NSArray *)subjectHubs;
 
@@ -24,12 +53,6 @@
 - (void)classListDownloadDidFinish:(NSMutableArray *)classListSource;
 
 - (void)recommendListSourceDownloadFinish:(NSArray *)recommendListSource;
-
-- (void)registerResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
-
-- (void)userLoginResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
-
-- (void)replacePasswordResponds:(BOOL)isSuccessed ErrorReason:(NSString *)reason;
 
 - (void)latestInformationDownLoadFinish:(NSArray *)LatestInformations;
 

@@ -57,7 +57,15 @@
 
 - (void)initViews
 {
-    __weak typeof(self) ws = self;
+//    __weak typeof(self) ws = self;
+    
+    self.backgroundColor = [UIColor whiteColor];
+    
+    for (UIView *view in self.subviews)
+    {
+        view.backgroundColor = [UIColor whiteColor];
+    }
+    
     _textCountMarker.text = [NSString stringWithFormat:@"0/%lu", _maxLength];
     self.pickedImageList = [NSMutableArray array];
 }

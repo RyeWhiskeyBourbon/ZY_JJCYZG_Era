@@ -39,9 +39,11 @@ static NSString *const welcomeCell = @"welcomeCell";
 
 - (void)initDataSource
 {
-    imageSource = @[[UIImage imageNamed:@"Welcomebannergg1.jpg"],
-                    [UIImage imageNamed:@"Welcomebannergg2.jpg"],
-                    [UIImage imageNamed:@"Welcomebannergg3.jpg"]];
+    imageSource = @[[UIImage imageNamed:@"welcome1ggcy"],
+                    [UIImage imageNamed:@"welcome2ggcy"],
+                    [UIImage imageNamed:@"welcome3ggcy"],
+                    [UIImage imageNamed:@"welcome4ggcy"],
+                    [UIImage imageNamed:@"welcome5ggcy"]];
 }
 
 - (void)initLoginButton
@@ -99,9 +101,9 @@ static NSString *const welcomeCell = @"welcomeCell";
     [imagePage mas_makeConstraints:^(MASConstraintMaker *make) {
        
         make.width.equalTo([NSNumber numberWithInteger:30 * imageSource.count]);
-        make.height.equalTo(@(30));
+        make.height.equalTo(@(20));
         make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-30);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-10);
     }];
     
     imagePage.currentPage = 0;
@@ -170,10 +172,10 @@ static NSString *const welcomeCell = @"welcomeCell";
         
         [toLogin mas_makeConstraints:^(MASConstraintMaker *make) {
            
-            make.width.equalTo(@(120));
-            make.height.equalTo(@(50));
+            make.width.equalTo(@(90));
+            make.height.equalTo(@(35));
             make.centerX.equalTo(self.view.mas_centerX).offset(0);
-            make.bottom.equalTo(imagePage.mas_top).offset(-50);
+            make.bottom.equalTo(imagePage.mas_top).offset(0);
         }];
     }
     else

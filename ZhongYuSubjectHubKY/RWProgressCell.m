@@ -68,6 +68,7 @@
     [self addSubview:value];
     
     imageLogo = [[UIImageView alloc] init];
+    imageLogo.image = [UIImage imageNamed:@"edit_t"];
     
     [self addSubview:imageLogo];
 }
@@ -76,15 +77,15 @@
 {
     [imageLogo mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.width.equalTo(@(30));
-        make.height.equalTo(@(30));
-        make.right.equalTo(self.mas_right).offset(-20);
+        make.width.equalTo(@(20));
+        make.height.equalTo(@(23));
+        make.right.equalTo(self.contentView.mas_right).offset(-10);
         make.centerY.equalTo(self.mas_centerY).offset(0);
     }];
     
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(self.mas_left).offset(20);
+        make.left.equalTo(self.mas_left).offset(30);
         make.right.equalTo(imageLogo.mas_left).offset(-10);
         make.top.equalTo(self.mas_top).offset(5);
         make.bottom.equalTo(self.mas_bottom).offset(-self.frame.size.height/2);
@@ -92,7 +93,7 @@
     
     [progressView mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.left.equalTo(self.mas_left).offset(20);
+        make.left.equalTo(self.mas_left).offset(30);
         make.right.equalTo(imageLogo.mas_left).offset(-80);
         make.height.equalTo(@(4));
         make.centerY.equalTo(nameLabel.mas_centerY).offset(self.frame.size.height/2);

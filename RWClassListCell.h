@@ -32,4 +32,6 @@
 
 @property (nonatomic,assign)BOOL didAppointment;
 
+@property (nonatomic,weak)NSDictionary *userInfo;
+
 @end

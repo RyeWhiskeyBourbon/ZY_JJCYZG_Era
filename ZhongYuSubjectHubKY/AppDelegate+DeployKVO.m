@@ -8,6 +8,7 @@
 
 #import "AppDelegate+DeployKVO.h"
 #import "RWRegisterViewController.h"
+#import "UMComLoginManager.h"
 
 @implementation AppDelegate (DeployKVO)
 
@@ -21,7 +22,7 @@
     {
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         
-        [deployManager setDeployValue:CLOCK_ON forKey:CLOCK];
+        [deployManager setDeployValue:CLOCK_OFF forKey:CLOCK];
         
         [deployManager setDeployValue:@[@"提醒1"] forKey:CLOCK_NAMES];
         
@@ -80,6 +81,9 @@
                       postNotificationName:LOGIN
                                     object:[change objectForKey:NSKeyValueChangeNewKey]
                                   userInfo:nil];
+        
+        [UMComLoginManager userLogout];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
         
         RWTabBarViewController *tabBarController =
                         (RWTabBarViewController *)self.window.rootViewController;

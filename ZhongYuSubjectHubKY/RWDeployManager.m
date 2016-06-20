@@ -115,6 +115,28 @@
     return [deploy writeToFile:DEPLOY_PLIST atomically:YES];
 }
 
+- (void)changeLoginStatusWithStatus:(NSString *)status Username:(NSString *)username Password:(NSString *)password termOfEndearment:(NSString *)name
+{
+    if ([status isEqualToString:DID_LOGIN])
+    {
+        [self setDeployValue:DID_LOGIN forKey:LOGIN];
+        [self setDeployValue:username forKey:USERNAME];
+        [self setDeployValue:password forKey:PASSWORD];
+        [self setDeployValue:name forKey:NAME];
+    }
+    else if ([status isEqualToString:UNLINK_LOGIN])
+    {
+        [self setDeployValue:UNLINK_LOGIN forKey:LOGIN];
+    }
+    else if ([status isEqualToString:NOT_LOGIN])
+    {
+        [self setDeployValue:[NSNull null] forKey:USERNAME];
+        [self setDeployValue:[NSNull null] forKey:PASSWORD];
+        [self setDeployValue:[NSNull null] forKey:NAME];
+        [self setDeployValue:NOT_LOGIN forKey:LOGIN];
+    }
+}
+
 - (NSMutableDictionary *)obtainDeployInformation
 {
     BOOL isDerectory = NO;
@@ -298,7 +320,7 @@
         
         notification.userInfo = @{CLOCK_NAMES:name};
         
-        notification.soundName = @"ClockSound.mp3";
+        notification.soundName = @"ClockSound2.mp3";
         
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }

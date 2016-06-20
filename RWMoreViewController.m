@@ -18,7 +18,9 @@
 #import "RWWebViewController.h"
 #import "RWFeedbackViewController.h"
 #import "RWRecommendController.h"
-#import "UMComLoginManager.h"
+#import "UMComSession.h"
+#import "UMComUser.h"
+
 @interface RWMoreViewController ()
 
 <
@@ -79,16 +81,12 @@ static NSString *const viewListButton = @"viewListButton";
 
 - (void)initDatas
 {
-    dataSource = @[@{@"title" :@"最新资讯",
-                     @"icon" : @"News"},
-                   @{@"title"     :@"我的收藏",
+    dataSource = @[@{@"title"     :@"我的收藏",
                      @"icon" : @"MySave"},
                    @{@"title"     :@"更新数据库",
                      @"icon" : @"Updata"},
                    @{@"title"     :@"每日答题提醒",
                      @"icon" : @"remind"},
-                   @{@"title"     :@"使用说明",
-                     @"icon" : @"Usage"},
                    @{@"title"     :@"题库推荐",
                      @"icon" : @"recommend"},
                    @{@"title"     :@"意见建议",
@@ -165,8 +163,8 @@ static NSString *const viewListButton = @"viewListButton";
         cell.delegate = self;
         
         
-        if ([[[RWDeployManager defaultManager]
-                                deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+        if (![[[RWDeployManager defaultManager]
+                                deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
         {
             cell.title = @"退出登录";
         }
@@ -198,43 +196,34 @@ static NSString *const viewListButton = @"viewListButton";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
-        {
-            [self toInformationView];
-        }
-            break;
-        case 1:
         {
             [self toCollectView];
         }
             break;
-        case 2:
+        case 1:
         {
             [self updateDatabase];
         }
             break;
-        case 3:
+        case 2:
         {
             [self toAlarmClockView];
         }
             break;
-        case 4:
-        {
-            [self toInstructions];
-        }
-            break;
-        case 5:
+        case 3:
         {
             [self toRecommendViewController];
         }
             break;
-        case 6:
+        case 4:
         {
             [self toCommentsAndSuggestionsView];
         }
             break;
-        case 7:
+        case 5:
         {
             [self toAboutUsViewController];
         }
@@ -276,9 +265,11 @@ static NSString *const viewListButton = @"viewListButton";
         
     [imageView addSubview:username];
     
-    if (section == 0 && [[deploy deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+    if (section == 0 && ![[deploy deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
     {
-        username.text = [self phoneNumber:[deploy deployValueForKey:USERNAME]];
+        UMComUser *loginUser = [UMComSession sharedInstance].loginUser;
+        
+        username.text = loginUser.name;
     }
     else
     {
@@ -286,24 +277,6 @@ static NSString *const viewListButton = @"viewListButton";
     }
  
     return view;
-}
-
-- (NSString *)phoneNumber:(NSString *)number
-{
-    if (!number)
-    {
-        return @"管理员账号";
-    }
-    
-    NSMutableString *mStr = [[NSMutableString alloc]initWithString:number];
-    
-    for (int i = 0; i < 4; i++)
-    {
-        [mStr deleteCharactersInRange:NSMakeRange(3 + i, 1)];
-        [mStr insertString:@"*" atIndex:3+i];
-    }
-    
-    return mStr;
 }
 
 #pragma mark - Life Cycle
@@ -321,17 +294,19 @@ static NSString *const viewListButton = @"viewListButton";
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [viewList reloadData];
 }
 
 -(void)exitLogin
 {
     NSString *header, *message, *responcedTitle, *cancelTitle;
     
-    if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                            isEqualToString:DID_LOGIN])
+    if (![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
+                                                            isEqualToString:NOT_LOGIN])
     {
         header = @"确认退出";
         message=@"退出登录将无法继续使用题库\n\n确定退出，请单击退出登录\n继续使用，请点击取消按钮";
@@ -359,13 +334,12 @@ static NSString *const viewListButton = @"viewListButton";
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
                            
-                           
-                           [UMComLoginManager userLogout];
-                           [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
-                           
                            RWDeployManager *deploy = [RWDeployManager defaultManager];
-                           
-                           [deploy setDeployValue:NOT_LOGIN forKey:LOGIN];
+
+                           [deploy changeLoginStatusWithStatus:NOT_LOGIN
+                                                      Username:nil
+                                                      Password:nil
+                                              termOfEndearment:nil];
         });
     }];
     
@@ -380,14 +354,6 @@ static NSString *const viewListButton = @"viewListButton";
     
     [self presentViewController:alert animated:YES completion:nil];
 
-}
-
-
--(void)toInformationView
-{
-    RWInformationController *information = [[RWInformationController alloc] init];
-    
-    [self.navigationController pushViewController:information animated:YES];
 }
 
 -(void)toCollectView
@@ -409,17 +375,6 @@ static NSString *const viewListButton = @"viewListButton";
     RWAlarmClockController *alarmClock = [[RWAlarmClockController alloc] init];
     
     [self.navigationController pushViewController:alarmClock animated:YES];
-}
-
--(void)toInstructions
-{
-    RWWebViewController *webViewController = [[RWWebViewController alloc] init];
-    
-    webViewController.url = @"http://www.zhongyuedu.com/app/tk_jz/tk_ios_usage.htm";
-    
-    webViewController.title = @"使用说明";
-    
-    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 -(void)toCommentsAndSuggestionsView
@@ -491,8 +446,7 @@ static NSString *const viewListButton = @"viewListButton";
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败,请检查网络"
-                                        Click:^{
-                                        }];
+                                        Click:nil];
 }
 
 @end

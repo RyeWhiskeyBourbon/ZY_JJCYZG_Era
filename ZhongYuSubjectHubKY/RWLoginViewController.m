@@ -14,6 +14,7 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "UMComPushRequest.h"
 #import "UMComUserAccount.h"
+
 @interface RWLoginViewController ()
 
 <
@@ -64,9 +65,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     [RWRequsetManager warningToViewController:self
                                         Title:@"网络连接失败，请检查网络"
-                                        Click:^{
-                                            
-                                        }];
+                                        Click:nil];
 }
 
 - (void)obtainRequestManager
@@ -177,7 +176,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         if (indexPath.row == 0)
         {
-            cell.headerImage = [UIImage imageNamed:@"Login"];
+            cell.headerImage = [UIImage imageNamed:@"Loginw"];
             cell.placeholder = @"请输入账号";
             cell.textFiled.keyboardType = UIKeyboardTypeNumberPad;
         }
@@ -326,24 +325,24 @@ static NSString *const buttonCell = @"buttonCell";
     
     password = passCell.textFiled.text;
     
-    
-    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
-    userAccount.usid = userCell.textFiled.text;
-    userAccount.name = userCell.textFiled.text;
-    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
-    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
-        
-        NSLog(@"res = %@",responseObject);
-        
-        if(!error){
-            //登录成功
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-            
-        }else{
-            //登录失败
-            NSLog(@"登录失败");
-        }
-    }];
+//    
+//    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
+//    userAccount.usid = userCell.textFiled.text;
+//    userAccount.name = userCell.textFiled.text;
+//    ////登录之前先设置登录前的viewController，方便登录逻辑完成之后，跳转回来
+//    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
+//        
+//        NSLog(@"res = %@",responseObject);
+//        
+//        if(!error){
+//            //登录成功
+//            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//            
+//        }else{
+//            //登录失败
+//            NSLog(@"登录失败");
+//        }
+//    }];
 
     
     

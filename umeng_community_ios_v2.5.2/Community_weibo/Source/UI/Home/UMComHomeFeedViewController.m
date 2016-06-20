@@ -325,7 +325,7 @@
     rightButton.frame = CGRectMake(self.view.frame.size.width-27, self.navigationController.navigationBar.frame.size.height/2-22, 44, 44);
     CGFloat delta = 9;
     rightButton.imageEdgeInsets =  UIEdgeInsetsMake(delta, delta, delta, delta);
-    [rightButton setImage:UMComImageWithImageName(@"find+") forState:UIControlStateNormal];
+    [rightButton setImage:[UIImage imageNamed:@"Um"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(onClickFind:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:rightButton];
     self.findButton = rightButton;

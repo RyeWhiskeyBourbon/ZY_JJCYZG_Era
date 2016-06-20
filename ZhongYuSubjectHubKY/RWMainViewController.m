@@ -13,6 +13,7 @@
 #import "RWWelcomeController.h"
 #import "RWMainViewController+Drawer.h"
 #import "RWMainViewController+CountDownView.h"
+
 @interface RWMainViewController ()
 
 <
@@ -24,6 +25,8 @@
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 @end
+
+static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
 
 @implementation RWMainViewController
 
@@ -83,10 +86,6 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
     }];
     
-    NSURLRequest *requset = [NSURLRequest requestWithURL:
-                [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test4/"]];
-    
-    [_informationView loadRequest:requset];
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
@@ -149,6 +148,11 @@
         return;
     }
     
+    NSURLRequest *requset = [NSURLRequest requestWithURL:
+                             [NSURL URLWithString:mainIndex]];
+    
+    [_informationView loadRequest:requset];
+    
     if (_countDown)
     {
         [_countDown rollTestNameAndDays];
@@ -161,19 +165,7 @@
     
     [SVProgressHUD dismiss];
     
-    if (_requestManager.reachabilityStatus == AFNetworkReachabilityStatusUnknown)
-    {
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-        
-        [SVProgressHUD setFont:[UIFont systemFontOfSize:14]];
-        
-        [SVProgressHUD setMinimumDismissTimeInterval:0.1];
-    
-        [SVProgressHUD showInfoWithStatus:@"当前无网络，请检查网络设置"];
-                
-    }
+    [RWRequsetManager warningToViewController:self Title:@"失败" Click:nil];
 }
 
 #pragma mark +CountDown

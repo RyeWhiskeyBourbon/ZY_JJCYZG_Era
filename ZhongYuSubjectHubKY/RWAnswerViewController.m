@@ -9,6 +9,28 @@
 #import "RWAnswerViewController.h"
 #import "RWCustomizeToolBar.h"
 #import "RWDataBaseManager.h"
+#import "RWAnimations.h"
+
+static unsigned int const no_event = 0x11ffee;
+
+RWAnimationLevel get_event(NSInteger count)
+{
+    switch (count)
+    {
+        case 10: return RWAnimationLv1;
+        case 20: return RWAnimationLv2;
+        case 30: return RWAnimationLv3;
+        case 40: return RWAnimationLv4;
+        case 50: return RWAnimationLv5;
+        case 60: return RWAnimationLv6;
+        case 70: return RWAnimationLv7;
+        case 80: return RWAnimationLv8;
+        case 90: return RWAnimationLv9;
+        case 100:return RWAnimationLv10;
+            
+        default:return no_event;
+    }
+}
 
 @interface RWAnswerViewController ()
 
@@ -28,6 +50,8 @@
 
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
 
+@property (nonatomic,assign)NSUInteger correctCounts;
+
 @end
 
 static NSString *const answerViewCell = @"answerViewCell";
@@ -39,6 +63,22 @@ static NSString *const answerViewCell = @"answerViewCell";
 @synthesize faceIndexPath;
 @synthesize displayType;
 @synthesize baseManager;
+
+- (void)setCorrectCounts:(NSUInteger)correctCounts
+{
+    _correctCounts = correctCounts;
+
+    if (get_event(_correctCounts) != no_event)
+    {
+        CGRect frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,
+                                        [UIScreen mainScreen].bounds.size.height);
+        
+        [self.tabBarController.view addSubview:
+                            [RWAnimations animation:fireworksAnimation
+                                              Level:get_event(_correctCounts)
+                                              Frame:frame]];
+    }
+}
 
 - (void)initToolBar
 {
@@ -138,6 +178,8 @@ static NSString *const answerViewCell = @"answerViewCell";
     // Do any additional setup after loading the view.
     
     [self initNavgationBar];
+    
+    _correctCounts = 0;
     
     baseManager = [RWDataBaseManager defaultManager];
     
@@ -376,6 +418,8 @@ static NSString *const answerViewCell = @"answerViewCell";
         
         [SVProgressHUD showInfoWithStatus:@"已是最后一题"];
     }
+    
+    [self setCorrectCounts:_correctCounts+1];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

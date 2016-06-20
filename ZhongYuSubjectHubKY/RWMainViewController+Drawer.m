@@ -61,8 +61,8 @@
     switch (row) {
         case 0:
             
-            if ([[[RWDeployManager defaultManager]
-                                   deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+            if (![[[RWDeployManager defaultManager]
+                                   deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
             {
                 return @"更新数据库";
             }
@@ -76,7 +76,7 @@
             return @"考试提醒";
         case 2:
             
-            return @"最新资讯";
+            return @"使用说明";
         case 3:
             
             return @"关于我们";
@@ -94,8 +94,8 @@
     switch (row) {
         case 0:
             
-            if ([[[RWDeployManager defaultManager]
-                  deployValueForKey:LOGIN] isEqualToString:DID_LOGIN])
+            if (![[[RWDeployManager defaultManager]
+                  deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
             {
                 [self updateDatabase];
             }
@@ -119,7 +119,7 @@
             break;
         case 2:
             
-            [self toInformationView];
+            [self toInstructions];
             
             break;
         case 3:
@@ -166,7 +166,6 @@
     [self animateOfDrawer:drawerPt];
     
     [self animateOfView:viewPt];
-    
 }
 
 - (void)closeDrawer
@@ -296,13 +295,11 @@
     
 }
 
-- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
+- (void)subjectHubDownLoadDidFinish:(NSArray *)subjectHubs
 {
     [SVProgressHUD dismiss];
     
-    [RWRequsetManager warningToViewController:self
-                                        Title:@"网络连接失败,请检查网络"
-                                        Click:^{}];
+    [RWRequsetManager warningToViewController:self Title:@"更新成功" Click:nil];
 }
 
 - (void)toAboutUsViewController
@@ -316,11 +313,15 @@
     [self.navigationController pushViewController:webViewController animated:YES];
 }
 
-- (void)toInformationView
+-(void)toInstructions
 {
-    RWInformationController *information = [[RWInformationController alloc] init];
+    RWWebViewController *webViewController = [[RWWebViewController alloc] init];
     
-    [self.navigationController pushViewController:information animated:YES];
+    webViewController.url = @"http://www.zhongyuedu.com/app/tk_jz/tk_ios_usage.htm";
+    
+    webViewController.title = @"使用说明";
+    
+    [self.navigationController pushViewController:webViewController animated:YES];
 }
 
 - (void)countDownView

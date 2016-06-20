@@ -17,6 +17,7 @@
 #define APPOINTMENT @"appointment"
 
 @interface RWInformationViewController ()
+
 <
     UITableViewDelegate,
     UITableViewDataSource,
@@ -117,8 +118,8 @@ static NSString *const classListCell = @"classListCell";
 {
     [super viewDidAppear:animated];
     
-    if (![[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                    isEqualToString:DID_LOGIN])
+    if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
+                                                    isEqualToString:NOT_LOGIN])
     {
         [self notLogin];
         
@@ -203,6 +204,8 @@ static NSString *const classListCell = @"classListCell";
     
     cell.date = [classSource[indexPath.row] valueForKey:@"date"];
     
+    cell.userInfo = classSource[indexPath.row];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
        
         NSURL *imageURL = [NSURL URLWithString:[classSource[indexPath.row] valueForKey:@"pic"]];
@@ -282,13 +285,21 @@ static NSString *const classListCell = @"classListCell";
                 
                 classListCell.didAppointment = YES;
                 
+                NSString *wechat = [classListCell.userInfo valueForKey:@"wechat"];
+                NSString *name = [classListCell.userInfo valueForKey:@"name"];
+                NSString *phonenumber =
+                            [classListCell.userInfo valueForKey:@"phonenumber"];
+                
+                NSString *noti = [NSString stringWithFormat:@"%@\n\n电话：%@\n微信：%@",name,phonenumber,wechat];
+                
                 UIAlertController *alert =
                     [UIAlertController alertControllerWithTitle:@"友情提示"
-                                                        message:@"微信：\n电话："
+                                                        message:noti
                                                  preferredStyle:UIAlertControllerStyleAlert];
                 
                 UIAlertAction *call = [UIAlertAction actionWithTitle:@"立即拨打" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phonenumber]]];
                 }];
                 
                 UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
