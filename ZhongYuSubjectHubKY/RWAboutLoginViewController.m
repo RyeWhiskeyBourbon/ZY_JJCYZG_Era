@@ -255,9 +255,6 @@ static NSString *const buttonCell = @"buttonCell";
         
         
         cell.delegate = self;
-        
-        
-        
         cell.title = @"完成注册";
         cell.button.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.4];
         
@@ -365,15 +362,9 @@ static NSString *const buttonCell = @"buttonCell";
     
     countDown = 60;
     
-    
     [self registerForKeyboardNotifications];
     [self initViewList];
     [self addTapGesture];
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
 }
 
@@ -381,11 +372,13 @@ static NSString *const buttonCell = @"buttonCell";
     
     [super viewWillDisappear:animated];
     
-    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     if (requestManager && requestManager.delegate == nil)
     {

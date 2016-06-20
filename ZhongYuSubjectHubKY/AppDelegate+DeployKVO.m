@@ -31,6 +31,9 @@
         [deployManager addLocalNotificationWithClockString:DEFAULT_CLOCK
                                                    AndName:@"提醒1"];
         
+        [deployManager setDeployValue:@(100) forKey:EXPERIENCE_TIMES];
+        [deployManager setDeployValue:@(100) forKey:TIMES_BUFFER];
+        
         self.deployInformation = [deployManager obtainDeployInformation];
     }
     
@@ -38,6 +41,11 @@
     {
         [deployManager setDeployValue:NOT_LOGIN forKey:LOGIN];
     }
+    
+    [self.deployInformation addObserver:self
+                             forKeyPath:TIMES_BUFFER
+                                options:NSKeyValueObservingOptionNew
+                                context:nil];
     
     [self.deployInformation addObserver:self
                              forKeyPath:LOGIN
@@ -95,6 +103,8 @@
         [tabBarController presentViewController:registerView
                                        animated:YES
                                      completion:nil];
+        
+        [self addExperienceTimes];
     }
     else if ([keyPath isEqualToString:CLOCK_NAMES])
     {
@@ -145,6 +155,23 @@
             [self addTestNotificationWithTestInformation:testClock];
         }
     }
+    else if ([keyPath isEqualToString:TIMES_BUFFER])
+    {
+        if ([[self.deployInformation objectForKey:LOGIN] isEqualToString:NOT_LOGIN])
+        {
+            [self addExperienceTimes];
+        }
+    }
+}
+
+- (void)addExperienceTimes
+{
+    NSNumber *times = [NSNumber numberWithInteger:[[self.deployInformation objectForKey:TIMES_BUFFER] integerValue]];
+    
+    RWDeployManager *deployManager = [RWDeployManager defaultManager];
+    
+    [deployManager setDeployValue:times
+                           forKey:EXPERIENCE_TIMES];
 }
 
 - (void)addClockWithNewsNames:(NSArray *)newNames AndOldNames:(NSArray *)oldNames

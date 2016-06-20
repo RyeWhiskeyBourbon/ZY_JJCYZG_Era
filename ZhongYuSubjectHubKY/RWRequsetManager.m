@@ -699,4 +699,30 @@
     [viewController presentViewController:alert animated:YES completion:nil];
 }
 
++ (void)obtainExperienceTimes
+{
+    static NSString *const experienceTimesURL =
+                            @"http://www.zhongyuedu.com/api/jin_limit.php";
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [session POST:experienceTimesURL parameters:@{@"yz":@(2802)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([[Json objectForKey:@"resultcode"] integerValue] == 0)
+        {
+            NSString *limit = [NSString stringWithFormat:@"%@",
+                                                    [Json objectForKey:@"limit"]];
+            
+            [[RWDeployManager defaultManager] setDeployValue:limit
+                                                      forKey:TIMES_BUFFER];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 @end

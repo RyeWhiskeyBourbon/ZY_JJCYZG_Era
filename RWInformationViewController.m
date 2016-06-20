@@ -118,12 +118,16 @@ static NSString *const classListCell = @"classListCell";
 {
     [super viewDidAppear:animated];
     
-    if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
-                                                    isEqualToString:NOT_LOGIN])
+    RWDeployManager *deploy = [RWDeployManager defaultManager];
+
+    if ([[deploy deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
     {
-        [self notLogin];
-        
-        return;
+        if ([[deploy deployValueForKey:TIMES_BUFFER] integerValue] < 100)
+        {
+            [self notLogin];
+            
+            return;
+        }
     }
     
     if (registerView)
