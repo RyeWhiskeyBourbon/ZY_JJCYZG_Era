@@ -254,7 +254,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.headerImage = [UIImage imageNamed:@"PassWordw"];
             cell.placeholder = @" 请输入验证码";
             
-            button.frame = CGRectMake(self.view.bounds.size.width - 75 , 12.5, 60, 25);
+            button.frame = CGRectMake(self.view.bounds.size.width - 95 , 12.5, 80, 30);
             [button setTitle:@"获取验证码" forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:12];
             button.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.4];

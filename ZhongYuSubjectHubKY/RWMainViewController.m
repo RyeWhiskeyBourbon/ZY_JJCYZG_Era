@@ -122,6 +122,8 @@ static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
     
     MAIN_NAV
     
+    [RWRequsetManager obtainExperienceTimes];
+    
     [self initManagersAndDatas];
     
     [self initBar];

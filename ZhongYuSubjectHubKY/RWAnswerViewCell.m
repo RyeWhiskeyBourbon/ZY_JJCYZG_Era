@@ -453,6 +453,19 @@ static NSString *const answerList = @"answerList";
         
         subjectLines = 2;
         
+        RWDeployManager *deployManager = [RWDeployManager defaultManager];
+        
+        if ([[deployManager deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
+        {
+            NSNumber *times = [deployManager deployValueForKey:EXPERIENCE_TIMES];
+            
+            if (times)
+            {
+                [deployManager setDeployValue:@(times.integerValue - 1)
+                                       forKey:EXPERIENCE_TIMES];
+            }
+        }
+        
         [self chooseResponseWithIndexPath:indexPath];
         
         [tableView reloadData];

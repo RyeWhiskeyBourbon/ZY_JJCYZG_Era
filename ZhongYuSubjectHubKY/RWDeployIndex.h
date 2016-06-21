@@ -12,6 +12,10 @@
 
 #define FIRST_OPEN_APPILCATION @"$m@#$a#$%!UW!r@$$k33894"
 
+#define EXPERIENCE_TIMES @"iwidjkqwjinnnnbhhwwwdddwqwqexpqkmkwekk"
+
+#define TIMES_BUFFER @"timwuidqwdcd"
+
 #define USERNAME @"zyccxovvexqoisdaxawek"
 
 #define PASSWORD @"acxwefsdsdkllwxdfweiq"
