@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "RWClassListModel.h"
 #import "RWInformationModel.h"
+#import "RWRequestIndex.h"
 
 @protocol RWRequsetDelegate <NSObject>
 
@@ -54,8 +55,6 @@
 
 - (void)recommendListSourceDownloadFinish:(NSArray *)recommendListSource;
 
-- (void)latestInformationDownLoadFinish:(NSArray *)LatestInformations;
-
 @end
 
 @interface RWRequsetManager : NSObject
@@ -74,11 +73,7 @@
 
 - (void)obtainBaseWith:(NSString *)url AndHub:(NSString *)hub DownLoadFinish:(void(^)(BOOL declassify))finish;
 
-- (void)obtainBanners:(void(^)(NSArray *banners))response;
-
 - (void)obtainClassList;
-
-- (void)obtainLatestInformation;
 
 - (void)obtainRecommendListSource;
 

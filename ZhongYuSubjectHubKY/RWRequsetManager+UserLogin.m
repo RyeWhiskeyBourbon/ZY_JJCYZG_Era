@@ -11,15 +11,6 @@
 #import "UMComPushRequest.h"
 #import "UMComUserAccount.h"
 
-static NSString *const userinfoURL =
-                                @"http://www.zhongyuedu.com/api/tk_jin_new_login.php";
-
-static NSString *const registerURL =
-                                @"http://www.zhongyuedu.com/api/tk_jin_register.php";
-
-static NSString *const replacePasswordURL =
-                                @"http://www.zhongyuedu.com/api/jin_change_pwd.php";
-
 @implementation RWRequsetManager (UserLogin)
 
 - (void)registerWithUsername:(NSString *)username AndPassword:(NSString *)password
@@ -37,7 +28,7 @@ static NSString *const replacePasswordURL =
         {
             NSDictionary *body = @{@"username":username,@"password":password};
             
-            [self.manager POST:registerURL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [self.manager POST:REGISTER_URL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                 
@@ -91,7 +82,7 @@ static NSString *const replacePasswordURL =
         {
             NSDictionary *body = @{@"username":username,@"password":password};
             
-            [self.manager POST:userinfoURL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
+            [self.manager POST:LOGIN_URL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
                 nil;
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
@@ -132,7 +123,7 @@ static NSString *const replacePasswordURL =
 {
     NSDictionary *body = @{@"username":username,@"password":password};
     
-    [self.manager POST:replacePasswordURL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
+    [self.manager POST:REPLACE_PASSWORD_URL parameters:body progress:^(NSProgress * _Nonnull uploadProgress) {
         nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
