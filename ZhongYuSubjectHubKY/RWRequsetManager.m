@@ -12,6 +12,7 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "RWTabBarViewController.h"
 #import "RWRegisterViewController.h"
+#import "AppDelegate.h"
 
 @interface RWRequsetManager ()
 
@@ -619,6 +620,16 @@
         {
             NSString *limit = [NSString stringWithFormat:@"%@",
                                                     [Json objectForKey:@"limit"]];
+            
+            if (limit.integerValue >= 100)
+            {
+                AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+                
+                RWTabBarViewController *tabBarController =
+                        (RWTabBarViewController *)delegate.window.rootViewController;
+                
+                [tabBarController quack];
+            }
             
             [[RWDeployManager defaultManager] setDeployValue:limit
                                                       forKey:TIMES_BUFFER];

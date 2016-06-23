@@ -42,7 +42,6 @@ static NSString *const welcomeCell = @"welcomeCell";
     imageSource = @[[UIImage imageNamed:@"welcome1ggcy"],
                     [UIImage imageNamed:@"welcome2ggcy"],
                     [UIImage imageNamed:@"welcome3ggcy"],
-                    [UIImage imageNamed:@"welcome4ggcy"],
                     [UIImage imageNamed:@"welcome5ggcy"]];
 }
 

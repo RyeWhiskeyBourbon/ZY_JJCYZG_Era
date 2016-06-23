@@ -9,7 +9,7 @@
 #ifndef RWRequestIndex_h
 #define RWRequestIndex_h
 
-#define MAIN_INDEX [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test4/"]
+#define MAIN_INDEX [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test4/test.html"]
 //>> 资讯
 #define SERVERS_INDEX @"http://www.zhongyuedu.com/api/tk_jin_examtype.php"
 //>> 题库目录

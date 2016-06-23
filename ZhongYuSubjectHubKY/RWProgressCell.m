@@ -123,8 +123,10 @@
     
     [progressView setProgress:[self percentageWithString:_fraction] animated:YES];
     
-    progressView.progressTintColor = [UIColor greenColor];
-}
+    progressView.progressTintColor = [UIColor colorWithRed:84.0f/255.0f
+                                                     green:139.0f/255.0f
+                                                      blue:84.0f/255.0f
+                                                     alpha:1.0];}
 
 - (float)percentageWithString:(NSString *)string
 {
