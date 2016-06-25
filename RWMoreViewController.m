@@ -14,7 +14,6 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "RWRegisterViewController.h"
 #import "RWLoginTableViewCell.h"
-#import "RWInformationController.h"
 #import "RWWebViewController.h"
 #import "RWFeedbackViewController.h"
 #import "RWRecommendController.h"

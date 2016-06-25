@@ -26,8 +26,6 @@
 
 @end
 
-static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
-
 @implementation RWMainViewController
 
 @synthesize baseManager;
@@ -150,8 +148,9 @@ static NSString *const mainIndex = @"http://www.zhongyuedu.com/tgm/test/test4/";
         return;
     }
     
-    NSURLRequest *requset = [NSURLRequest requestWithURL:
-                             [NSURL URLWithString:mainIndex]];
+    
+    
+    NSURLRequest *requset = [NSURLRequest requestWithURL:MAIN_INDEX];
     
     [_informationView loadRequest:requset];
     

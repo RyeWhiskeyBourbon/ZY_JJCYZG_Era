@@ -15,7 +15,7 @@
 #import <SMS_SDK/Extend/SMSSDK+AddressBookMethods.h>
 #import "UMCommunity.h"
 
-#define UMengCommunityAppkey @"57528da2e0f55a1c91001ff0" //test
+#define UMengCommunityAppkey @"57528da2e0f55a1c91001ff0"
 #define UMengCommunityAppSecret @"17f067fc0fb758202ca2e50643c4429b"
 
 @interface AppDelegate ()
@@ -57,10 +57,12 @@ static NSString *const baseName = @"ZhongYuSubjuectHub";
 {
     //UMCommunity
     
-    [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];
-    //MobSMS jj = @"1341ca2111fcc" @"6a4f67f79a43f2ddc6e573e4d540e6dd"
+    [UMCommunity setAppKey:UMengCommunityAppkey
+             withAppSecret:UMengCommunityAppSecret];
+    //MobSMS
     [SMSSDK registerApp:@"1341ca2111fcc"
              withSecret:@"6a4f67f79a43f2ddc6e573e4d540e6dd"];
+    
     [SMSSDK enableAppContactFriends:NO];
     
     //MobClick
@@ -106,18 +108,23 @@ static NSString *const baseName = @"ZhongYuSubjuectHub";
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
-    [self.deployInformation removeObserver:self forKeyPath:LOGIN];
+    [self.deployInformation removeObserver:self
+                                forKeyPath:LOGIN];
     
-    [self.deployInformation removeObserver:self forKeyPath:CLOCK_TIMES];
+    [self.deployInformation removeObserver:self
+                                forKeyPath:CLOCK_TIMES];
     
-    [self.deployInformation removeObserver:self forKeyPath:CLOCK_NAMES];
+    [self.deployInformation removeObserver:self
+                                forKeyPath:CLOCK_NAMES];
     
-    [self.deployInformation removeObserver:self forKeyPath:CLOCK];
+    [self.deployInformation removeObserver:self
+                                forKeyPath:CLOCK];
     
     if ([[[RWDeployManager defaultManager] deployValueForKey:LOGIN]
                                                     isEqualToString:DID_LOGIN])
     {
-        [[RWDeployManager defaultManager] setDeployValue:UNLINK_LOGIN forKey:LOGIN];
+        [[RWDeployManager defaultManager] setDeployValue:UNLINK_LOGIN
+                                                  forKey:LOGIN];
     }
 }
 
