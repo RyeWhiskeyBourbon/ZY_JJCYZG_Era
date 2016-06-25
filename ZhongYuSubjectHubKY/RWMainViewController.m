@@ -34,7 +34,7 @@
 - (void)initBar
 {
     
-    self.navigationItem.title = @"基金从业资讯";
+    self.navigationItem.title = NAV_TITLE;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.tabBarController.tabBar.translucent = NO;
     self.navigationController.navigationBar.translucent = NO;

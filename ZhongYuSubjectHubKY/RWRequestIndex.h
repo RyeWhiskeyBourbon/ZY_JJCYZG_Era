@@ -9,6 +9,16 @@
 #ifndef RWRequestIndex_h
 #define RWRequestIndex_h
 
+#define UMengCommunityAppkey @"57528da2e0f55a1c91001ff0"
+#define UMengCommunityAppSecret @"17f067fc0fb758202ca2e50643c4429b"
+
+#define SMSSDK_APPKEY @"1341ca2111fcc"
+#define SMSSDK_SECRET @"6a4f67f79a43f2ddc6e573e4d540e6dd"
+
+#define MOB_CLICK @"5748176fe0f55aa66d00004e"
+
+#define NAV_TITLE @"基金从业资讯"
+
 #define MAIN_INDEX [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test4/test.html"]
 //>> 资讯
 #define SERVERS_INDEX @"http://www.zhongyuedu.com/api/tk_jin_examtype.php"
