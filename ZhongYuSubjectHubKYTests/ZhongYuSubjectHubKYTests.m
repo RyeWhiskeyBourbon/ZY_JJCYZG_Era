@@ -57,26 +57,26 @@
 
 - (void)testRequestIntoBase
 {
-    RWRequsetManager *requestManager = [[RWRequsetManager alloc] init];
-    
-    requestManager.delegate = self;
-    
-    [requestManager obtainBanners:^(NSArray *banners) {
-       
-        XCTAssertNotNil(banners);
-        
-        XCTAssertEqual(banners.count, 4);
-        
-        CFRunLoopRef runLoopRef = CFRunLoopGetCurrent();
-        CFRunLoopStop(runLoopRef);
-        
-    }];
-    
-    CFRunLoopRun();
-    
-    [requestManager obtainServersInformation];
-    
-    CFRunLoopRun();
+//    RWRequsetManager *requestManager = [[RWRequsetManager alloc] init];
+//    
+//    requestManager.delegate = self;
+//    
+//    [requestManager obtainBanners:^(NSArray *banners) {
+//       
+//        XCTAssertNotNil(banners);
+//        
+//        XCTAssertEqual(banners.count, 4);
+//        
+//        CFRunLoopRef runLoopRef = CFRunLoopGetCurrent();
+//        CFRunLoopStop(runLoopRef);
+//        
+//    }];
+//    
+//    CFRunLoopRun();
+//    
+//    [requestManager obtainServersInformation];
+//    
+//    CFRunLoopRun();
     
 }
 

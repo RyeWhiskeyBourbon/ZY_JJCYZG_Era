@@ -37,6 +37,7 @@
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
     return [RWDeployManager defaultManager];
+    
 }
 
 - (void)obtainAppDelegate
@@ -47,7 +48,7 @@
 - (BOOL)setDeployValue:(id)value forKey:(NSString *)key
 {
     [self obtainAppDelegate];
-    
+
     [sharedDelegate.deployInformation setValue:value forKey:key];
     
     BOOL isDerectory = NO;
