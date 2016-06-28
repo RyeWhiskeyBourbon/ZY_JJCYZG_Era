@@ -13,7 +13,7 @@
 #import "RWRequsetManager.h"
 #import "MJRefresh.h"
 #import "RWRegisterNowView.h"
-
+#import "DWCustomPlayerViewController.h"
 #define APPOINTMENT @"appointment"
 
 @interface RWInformationViewController ()
@@ -326,7 +326,14 @@ static NSString *const classListCell = @"classListCell";
 {
     return 100;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DWCustomPlayerViewController * play = [[DWCustomPlayerViewController alloc]init];
+    play.videoId = @"69CF4DF9F430E5379C33DC5901307461";
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:play animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

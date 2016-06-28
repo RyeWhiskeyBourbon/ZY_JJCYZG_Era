@@ -1,0 +1,694 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>CC视频iOS SDK使用文档</title>
+
+</head>
+<body>
+<h1>CC视频iOS SDK使用文档</h1>
+
+<p>版本：2.3.11<br/>
+日期：2015-11-06</p>
+
+<h2>1. SDK整体功能介绍</h2>
+
+<p>该SDK采用ARC(Automatic Reference Counting)、使用HTTP协议实现，提供移动端在线离线播放、上传、下载功能。<br/>
+SDK 压缩包：</p>
+
+<pre><code>- Demo - 使用SDK对接CC视频云服务的示例源码;
+- doc - SDK接口文档;
+- cc-sdk-document.html - CC视频iOS SDK2.2.0使用文档（本文档）;
+- include - SDK的头文件;
+- libCCSDK.a - SDK的静态库;
+</code></pre>
+
+<p>适用于iOS5.0+。</p>
+
+<h2>2. SDK能做什么</h2>
+
+<p>SDK实现了移动端在线离线播放、上传、下载的必要接口。使用这些接口时，需提供CC视频分配的userId和API KEY。你可以登陆<a href="http://admin.bokecc.com/">CC视频管理后台</a>获取。CC视频云使用userId和API KEY校验你的合法性，在使用SDK接口过程中，通常用它们作为模块初始化参数，填写错误或为空会造成失败。</p>
+
+<h3>2.1 如何使用SDK播放CC视频云上的视频</h3>
+
+<p><code>DWMoviePlayerController</code>模块继承于<a href="https://developer.apple.com/library/ios/documentation/MediaPlayer/Reference/MPMoviePlayerController_Class/Reference/Reference.html">MPMoviePlayerController</a>，提供使用userId、videoId、API KEY初始化方法，从CC视频云获取视频播放信息。</p>
+
+<h4>2.1.1 使用SDK播放CC视频云上视频的流程</h4>
+
+<h5>1. 初始化 DWMoviePlayerController</h5>
+
+<pre><code>DWMoviePlayerController *player = [[DWMoviePlayerController alloc] initWithUserId:userId
+        andVideoId:videoId 
+        key:apiKey];
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>DWMoviePlayerController *player = [[DWMoviePlayerController alloc] initWithUserId:userId key:apiKey];
+player.videoId = videoId;
+</code></pre>
+
+<h5>2. 设置请求播放信息HTTP通信超时时间</h5>
+
+<pre><code>player.timeoutSeconds = 20;
+</code></pre>
+
+<p>默认超时时间10秒。</p>
+
+<h5>3. 设置block</h5>
+
+<p><code>DWMoviePlayerController</code>有以下block：</p>
+
+<pre><code>typedef void(^DWMoivePlayerGetPlayUrlsBlock)(NSDictionary *playUrls);
+typedef void (^DWErrorBlock)(NSError *error);
+
+@property (copy, nonatomic)DWMoivePlayerGetPlayUrlsBlock getPlayUrlsBlock;
+
+/**
+ *  获取视频播放信息或播放过程中发生错误或失败时，回调该block。可以在该block内更新UI，如更改视频播放状态。
+ */
+@property (copy, nonatomic)DWErrorBlock failBlock;
+</code></pre>
+
+<p>其中</p>
+
+<ol>
+<li><p>getPlayUrlsBlock 获取视频播放信息</p>
+
+<pre><code> player.getPlayUrlsBlock = ^(NSDictionary *playUrls) {
+     // [必须]判断 status 的状态，不为"0"说明该视频不可播放，可能正处于转码、审核等状态。
+     NSNumber *status = [playUrls objectForKey:@"status"];
+     if (status == nil || [status integerValue] != 0) {
+         NSLog("playUrlsBlock invalid");
+     }
+     // 保存playUrls 或 选择某种清晰度进行播放。
+ };
+</code></pre>
+
+<p> 当SDK准备好视频播放信息时，会调用该block。你可以在该block中保存播放信息或实现播放逻辑。</p>
+
+<p> 获取的播放信息<code>NSDictionary *playUrls</code>为UTF-8编码，内容形如：</p>
+
+<pre><code> {
+    "status": 0,
+    "statusinfo": "正常",
+    "defaultquality": 10
+    "qualityDescription": [@"清晰", @"高清"]
+    "qualities": [{
+        "quality": 10,
+        "desp": "清晰",
+        "playurl": "http://xxx.play.bokecc.com/..."
+    }, {
+        "quality": 20,
+        "desp": "高清",
+        "playurl": "http://xxx.play.bokecc.com/..."
+    }]
+ }
+</code></pre>
+
+<ul>
+<li><p><code>status</code>（整数）和<code>statusinfo</code>（字符串）</p>
+
+<p>  <code>status</code>表示这个视频在CC视频云上的当前的状态值，<code>statusinfo</code>是状态值的文字描述，如正处于转码、正在审核等。只有当<code>status</code>为0时，该视频才可以播放。你在实现App播放逻辑时需特别注意。</p></li>
+<li><p><code>defaultquality</code>（整数） 默认清晰度值</p></li>
+<li><code>qualityDescription</code>（字符串数组） 清晰度文字描述</li>
+<li><code>qualities</code>（字典的列表） 不同清晰度播放url列表</li>
+<li><p><code>quality</code>（整数）和 <code>desp</code>（字符串）</p>
+
+<p>  清晰度数值和清晰度文字描述。</p></li>
+<li><p><code>playurl</code>（字符串）视频播放url</p></li>
+</ul>
+
+
+<p> <strong>注意：</strong>CC视频的播放url具有时效性，你需要在每次播放时请求视频播放信息，以取得最新的视频播放url。</p></li>
+</ol>
+
+
+<h5>4. 开始请求播放信息</h5>
+
+<pre><code>[player startRequestPlayInfo];
+</code></pre>
+
+<h4>2.1.2 视频播放流程控制</h4>
+
+<p>播放流程的控制和<a href="https://developer.apple.com/library/ios/documentation/MediaPlayer/Reference/MPMoviePlayerController_Class/Reference/Reference.html">MPMoviePlayerController</a>使用方法一致。这里以前文获取的播放信息做简单介绍。</p>
+
+<h5>1. 将 DWMoviePlayerController 的 view 添加到你的UIViewController中</h5>
+
+<p>在 - (void)viewDidLoad {} 中</p>
+
+<pre><code>CGRect frame = CGRectZero;
+// 设置合适的 frame
+UIView *videoBackgroundView = [[UIView alloc] initWithFrame:frame];
+[self.view addSubview:videoBackgroundView];
+
+player.view.frame = videoBackgroundView.frame;
+[videoBackgroundView addSubview:player.view];
+</code></pre>
+
+<h5>2. 开始播放</h5>
+
+<pre><code>[player prepareToPlay];
+[player play];
+</code></pre>
+
+<h5>3. 暂停播放</h5>
+
+<pre><code>[player pause];
+</code></pre>
+
+<h5>4. 继续播放</h5>
+
+<pre><code>[player play];
+</code></pre>
+
+<h5>5. 停止播放</h5>
+
+<pre><code>[player stop];
+</code></pre>
+
+<h5>6. 切换清晰度</h5>
+
+<pre><code>[player stop];
+NSString *playUrlString = @"..."; // 从视频播放信息 playUrls 中选择一种清晰度。
+player.contentURL = [NSURL URLWithString:playUrlString];
+[player prepareToPlay];
+[player play];
+</code></pre>
+
+<h3>2.3 如何使用SDK上传视频</h3>
+
+<p><code>DWUploader</code>模块提供将本地视频文件上传至CC视频云的功能。上传视频时需提供userId、API KEY、视频标题、标签和简介。 <code>DWUploader</code>采用多个block与App进行交互，上传视频时你需创建一个上传实例，设置上传超时时间，设置各个block，如<code>DWUploaderProgressBlock</code>、<code>DWUploaderFinishBlock</code>等，在这些block中实现App的业务逻辑。</p>
+
+<h4>2.3.1 视频上传流程</h4>
+
+<h5>1. 初始化 DWUploader</h5>
+
+<p>视频首次上传使用userId、API KEY、视频本地路径、视频标题、标签及简介初始化<code>DWUploader</code>。服务器根据这些信息为视频分配videoId、上传服务器等资源，通常把这些资源称为<strong>上传上下文</strong>。当视频上传被中断（如网络断开或用户暂停），可使用上传上文初始化<code>DWUploader</code>实现断点续传，若此时还未获取上传上下文，则使用首次上传初始化方式重新初始化上传。</p>
+
+<p>首次上传视频初始化<code>DWUploader</code></p>
+
+<pre><code>DWUploader *uploader = [[DWUploader alloc] initWithuserId:userId
+        andKey:apiKey
+        uploadVideoTitle:videoTitle
+        videoDescription:videoDescripton
+        videoTag:videoTag
+        videoPath:videoPath
+        notifyURL:nil];
+</code></pre>
+
+<p>断点续传初始化<code>DWUploader</code></p>
+
+<pre><code>DWUploader *uploader = [[DWUploader alloc] initWithVideoContext:self.uploadContext];
+</code></pre>
+
+<p><strong>注意：</strong>通常情况下，不可对同一视频多次使用第一种初始化方式初始化上传，这样会造成大量重复视频，增加你后期管理视频的同事的工作量，且CC视频会根据你的付费套餐对每天的上传次数有不同的限制，超过最大上传次数，当天便无法上传视频。</p>
+
+<p><strong>注意：</strong>视频标题不得为空，否则会导致上传失败。</p>
+
+<h5>2. 设置上传HTTP通信超时时间</h5>
+
+<pre><code>uploader.timeoutSeconds = 20;
+</code></pre>
+
+<p>默认超时时间为10秒。<br/>
+若上传过程中产生HTTP通信超时，则会调用<code>DWErrorBlock</code>，可以在该block设置错误处理逻辑。</p>
+
+<h5>3. 设置block</h5>
+
+<p><code>DWUploader</code>有如下block：</p>
+
+<pre><code>typedef void (^DWUploaderFinishBlock)();
+typedef void (^DWErrorBlock)(NSError *error);
+typedef void (^DWUploaderVideoContextForRetryBlock)(NSDictionary *videoContext);
+typedef void (^DWUploaderProgressBlock)(float progress, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite);
+
+/**
+ *  在该block获取上传进度，可以在block内更新UI，如更新上传进度条。
+ */
+@property (copy, nonatomic)DWUploaderProgressBlock progressBlock;
+
+/**
+ *  上传完成时回调该block，可以在block内更新UI，如将视频标记为上传完成。
+ */
+@property (copy, nonatomic)DWUploaderFinishBlock finishBlock;
+
+/**
+ *  上传失败时回调该block，可以在该block内更新UI，如将视频标记为上传失败。
+ */
+@property (copy, nonatomic)DWErrorBlock failBlock;
+
+/**
+ *  在该block内获取上传上下文，并保存上传上下文，用来实现断线续传。
+ */
+@property (copy, nonatomic)DWUploaderVideoContextForRetryBlock videoContextForRetryBlock;
+
+/**
+ *  当遇到网络问题或服务器原因时上传暂停，回调该block。
+ */
+@property (copy, nonatomic)DWErrorBlock pausedBlock;
+</code></pre>
+
+<h5>4. 开始上传</h5>
+
+<pre><code>[uploader start];
+</code></pre>
+
+<h4>2.3.2 视频上传控制</h4>
+
+<p>视频上传控制用来和UI进行交互，当用户点击开始上传、暂停、继续时，可以通过调用<code>DWUploader</code>的start、pause、resume方法实现对应的视频上传控制。</p>
+
+<h3>2.4 如何使用SDK下载视频</h3>
+
+<p><code>DWDownloader</code>模块提供从CC视频云下载视频的功能，下载时需提供userId、API KEY、videoId及用来保存下载视频的本地文件路径。</p>
+
+<p><strong>注意：</strong>CC视频的下载url具有时效性，你需要在每次下载时重新初始化<code>DWDownloader</code>，以取得正确的下载url。</p>
+
+<h4>2.4.1 下载视频流程一</h4>
+
+<h5>1. 初始化 DWDownloader</h5>
+
+<pre><code>DWDownloader *downloader = [[DWDownloader alloc] initWithUserId:userId
+    andVideoId:videoId
+    key:apiKey
+    destinationPath:videoPath];
+</code></pre>
+
+<h5>2. 设置下载HTTP通信超时时间</h5>
+
+<pre><code>downloader.timeoutSeconds = 20;
+</code></pre>
+
+<p>默认超时时间为10秒。<br/>
+下载过程中HTTP通信超时时，会调用<code>failBlock</code>下载失败的block。告知你下载超时。</p>
+
+<h5>3. 设置block</h5>
+
+<p><code>DWDownloader</code>有如下block：</p>
+
+<pre><code>typedef void (^DWErrorBlock)(NSError *error);
+typedef void (^DWDownladerFinishBlock)();
+typedef void (^DWDownloaderProgressBlock)(float progress, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite);
+
+/**
+ *  在该block获取下载进度，可以在block内更新UI，如更新下载进度条。
+ */
+@property (copy, nonatomic)DWDownloaderProgressBlock progressBlock;
+
+/**
+ *  下载完成时回调该block，可以在block内更新UI，如将视频标记为下载完成。
+ */
+@property (copy, nonatomic)DWDownladerFinishBlock finishBlock;
+
+/**
+ *  下载失败时回调该block，可以在该block内更新UI，如将视频标记为下载失败。
+ */
+@property (copy, nonatomic)DWErrorBlock failBlock;
+</code></pre>
+
+<h5>4. 开始下载</h5>
+
+<pre><code>[downloader start];
+</code></pre>
+
+<h4>2.4.2 下载视频流程二</h4>
+
+<h5>1. 初始化 DWDownloader</h5>
+
+<pre><code>DWDownloader *downloader = [[DWDownloader alloc] initWithUserId:userId
+    andVideoId:videoId
+    key:apiKey];
+</code></pre>
+
+<h5>2. 设置下载HTTP通信超时时间</h5>
+
+<pre><code>downloader.timeoutSeconds = 20;
+</code></pre>
+
+<p>默认超时时间为10秒。<br/>
+下载过程中HTTP通信超时时，会调用<code>failBlock</code>下载失败的block。告知你下载超时。</p>
+
+<h5>3. 设置getplayinfoblock</h5>
+
+<pre><code>typedef void(^DWDownloaderGetPlayUrlsBlock)(NSDictionary *playUrls);
+
+/**
+ * @brief 获取视频下载信息。
+ */
+@property (copy, nonatomic)DWDownloaderGetPlayUrlsBlock getPlayinfoBlock;
+</code></pre>
+
+<p>通过次block获取视频下载信息，NSDictionary *playUrls的结构为：</p>
+
+<pre><code>playinfo : {
+defaultdefinition = 10;
+definitionDescription =     (
+    "\U6e05\U6670",
+    "\U9ad8\U6e05"
+);
+definitions =     (
+            {
+        definition = 10;
+        desp = "\U6e05\U6670";
+        playurl = "http://bm2.33.play.bokecc.com/flvs/ca/Qxc52/uCrWqgNwgC-10.mp4?t=1411637615&amp;key=8C6363C34A41EF957134313BE5258FCA&amp;upid=3277991411630415299";
+    },
+            {
+        definition = 20;
+        desp = "\U9ad8\U6e05";
+        playurl = "http://cm22.c110.play.bokecc.com/flvs/ca/Qxc52/uCrWqgNwgC-20.mp4?t=1411637615&amp;key=E1253F7FB242E295D6F21BADF3BD88C2&amp;upid=3277991411630415299";
+    }
+);
+status = 0;
+statusinfo = "\U6b63\U5e38";
+</code></pre>
+
+<h5>4. 调用获取方法</h5>
+
+<pre><code>[downloader getPlayInfo];
+</code></pre>
+
+<h5>5. 初始化 DWDownloader</h5>
+
+<pre><code>DWDownloader *downloader = [[DWDownloader alloc] initWithUserId:userId
+    andVideoId:videoId
+    key:apiKey
+    destinationPath:videoPath];
+</code></pre>
+
+<h5>6. 设置下载HTTP通信超时时间</h5>
+
+<pre><code>downloader.timeoutSeconds = 20;
+</code></pre>
+
+<p>默认超时时间为10秒。<br/>
+下载过程中HTTP通信超时时，会调用<code>failBlock</code>下载失败的block。告知你下载超时。</p>
+
+<h5>7. 设置block</h5>
+
+<p>参考方法一中设置。</p>
+
+<h5>8. 调用下载方法</h5>
+
+<pre><code>[downloader startWithUrlString:(NSString *)urlString];
+</code></pre>
+
+<h4>2.4.3 下载视频控制</h4>
+
+<p>视频下载控制用来和UI进行交互，当用户点击开始下载、暂停、继续时，可以通过调用<code>DWDownloader</code>的start、pause、resume方法实现对应的视频下载控制。</p>
+
+<h3>2.5 如何使用SDK压缩视频</h3>
+
+<p><code>DWVideoCompressController</code>模块提供从CC视频云压缩视频的功能，压缩时需提供videoQuality、sourceType、mediaType。</p>
+
+<h4>2.5.1 压缩视频</h4>
+
+<h5>1. 初始化 DWVideoCompressController</h5>
+
+<pre><code>DWVideoCompressController *imagePicker = [[DWVideoCompressController alloc] initWithQuality:DWUIImagePickerControllerQualityTypeMediumandSourceType:DWUIImagePickerControllerSourceTypePhotoLibraryandMediaType:DWUIImagePickerControllerMediaTypeMovie];
+</code></pre>
+
+<h5>2. 设置delegate</h5>
+
+<pre><code>imagePicker.delegate = self;
+</code></pre>
+
+<p><strong>注意：</strong>CC视频的压缩是继承<code>UIImagePickerController</code>，你需要实现<code>UIImagePickerControllerDelegate</code>的回调来处理媒体压缩的后续功能。如果设置相关属性时可以直接用<code>DWVideoCompressController</code>对象修改。</p>
+
+<h5>3. 设置媒体压缩质量</h5>
+
+<pre><code>typedef NS_ENUM(NSInteger,  DWUIImagePickerControllerQualityType)     {
+DWUIImagePickerControllerQualityTypeHigh   = 0,     
+DWUIImagePickerControllerQualityTypeMedium = 1,     
+DWUIImagePickerControllerQualityTypeLow    = 2,    
+};
+</code></pre>
+
+<h5>4. 设置媒体来源</h5>
+
+<pre><code>typedef NS_ENUM(NSInteger, DWUIImagePickerControllerSourceType) {
+DWUIImagePickerControllerSourceTypePhotoLibrary,        DWUIImagePickerControllerSourceTypeCamera,              DWUIImagePickerControllerSourceTypeSavedPhotosAlbum 
+};
+</code></pre>
+
+<h5>5. 设置媒体类型</h5>
+
+<pre><code>typedef NS_ENUM(NSInteger, DWUIImagePickerControllerMediaType) {
+DWUIImagePickerControllerMediaTypeMovieAndImage,            DWUIImagePickerControllerMediaTypeMovie,                        DWUIImagePickerControllerMediaTypeImage             
+};
+</code></pre>
+
+<h2>3. 如何更好的使用Demo</h2>
+
+<p>SDK Demo是使用SDK对接CC视频云的示例源码，Demo的设计旨在展示SDK各项功能的使用方法，如果希望应用获得更好的使用体验，可根据需求自行更改。</p>
+
+<p>Demo采用代码绘制UI界面，这种方式利于精准控制，批量修改、多人协作。</p>
+
+<h3>3.1 准备</h3>
+
+<h4>1. 设置账户信息</h4>
+
+<p>首先将你userId和API KEY填写在Demo工程下的Demo-Prefix.pch 中:</p>
+
+<pre><code>#define DWACCOUNT_USERID @"****************"
+#define DWACCOUNT_APIKEY @"********************************"
+</code></pre>
+
+<p>并核对，确认填写无误。userId和API KEY信息会显示在 Demo app 的首页。</p>
+
+<h4>2. 设置下载使用的videoId</h4>
+
+<p>你需要在<code>DWDownloadViewController.m</code>中修改<code>generateTestData</code>函数：</p>
+
+<pre><code>- (void)generateTestData
+{
+    // 将@"..."替换成你要下载的videoId，可以添加多个。 
+    self.videoIds = @[];
+}
+</code></pre>
+
+<h4>3. 设置播放使用的videoId</h4>
+
+<p>你需要在<code>DWPlayerViewController.m</code>中修改<code>generateTestData</code>函数：</p>
+
+<pre><code>- (void)generateTestData
+{
+    // 将@"..."替换成你要播放的videoId，可以添加多个。 
+    self.videoIds = @[];
+}
+</code></pre>
+
+<p>到此Demo配置完毕，已可以使用Demo测试你的账号。</p>
+
+<h3>3.2 播放视频</h3>
+
+<p>播放器支持本地播放和网络播放，你可以使用<code>DWCustomPlayerViewController</code>播放CC视频云上的视频，也可以使用它播放本地文件，同时你也可以使用<code>MPMoviePlayerController</code>自带的播放器播放。与<code>MPMoviePlayerController</code>相比，<code>DWCustomPlayerViewController</code>提供了字幕、清晰度切换、画面尺寸调整、音量控制等功能；播放页面的UI元素全部是定制的、可修改的。</p>
+
+<!--TODO: 只叙述使用 DWMoviePlayerController 播放视频-->
+
+
+
+
+<!--TODO: 忽略 DWCostomPlayerViewController-->
+
+
+
+
+<!--TODO: DWCustomPlayerViewController 改为 DWCustomPlayerViewController-->
+
+
+<h4>1. 使用DWCustomPlayerViewController播放CC视频云上的视频</h4>
+
+<p>参见<code>2.1.1 使用SDK播放CC视频云上视频的流程</code>。</p>
+
+<h4>2. 使用DWCustomPlayerViewController播放从CC视频云下载的视频</h4>
+
+<pre><code>DWMoviePlayerController *player = [[DWMoviePlayerController alloc] init];
+
+// 设置屏幕高宽比例为：适应屏幕大小，保持宽高比
+player.scalingMode = MPMovieScalingModeAspectFit;
+
+player.view.backgroundColor = [UIColor clearColor];
+
+CGRect frame = CGRectZero;
+// 设置合适的 frame
+UIView *videoBackgroundView = [[UIView alloc] initWithFrame:frame];
+[self.view addSubview:videoBackgroundView];
+
+player.view.frame = videoBackgroundView.frame;
+[videoBackgroundView addSubview:player.view];
+
+// 设置本地播放NSURL
+player.contentURL = [[NSURL alloc] initFileURLWithPath:self.videoLocalPath];
+
+[player prepareToPlay];
+[player play];
+//[player pause];
+//[player stop];
+</code></pre>
+
+<h2>4. 如何调试和反馈问题</h2>
+
+<p>SDK提供了<code>DWLog</code>模块用来打印HTTP通信日志，可以在App的任意位置开启或关闭 打印HTTP通信日志等功能。下面是<code>DWLog</code>的使用方法：</p>
+
+<pre><code>// 开启 打印HTTP通信日志 功能
+[DWLog setIsDebugHttpLog:YES];
+
+// 关闭 打印HTTP通信日志 功能
+[DWLog setIsDebugHttpLog:NO];
+</code></pre>
+
+<p>当遇到无法播放、上传或下载时，首先要排除userId和API KEY是否有效，其次判断网络是否正常、是否已经连接。除此之外还可以通过 HTTP通信日志排查问题。</p>
+
+<p>更多信息请参考<a href="http://dev.bokecc.com/">CC视频开发者支持网站</a>，如果在使用SDK过程中遇到其他问题请联系CC客服进行反馈。</p>
+</body>
+</html>
