@@ -12,6 +12,7 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "RWTabBarViewController.h"
 #import "RWRegisterViewController.h"
+#import "AppDelegate.h"
 
 @interface RWRequsetManager ()
 
@@ -127,9 +128,7 @@
 
 - (void)obtainServersInformation {
     
-    static NSString *const serversIndex = @"http://www.zhongyuedu.com/api/tk_jin_examtype.php";
-    
-    [manager GET:serversIndex parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:SERVERS_INDEX parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [baseManager replaceDatabase];
         
@@ -191,11 +190,9 @@
 
 #pragma mark - array
 
-- (void)obtainServersInformation {
-    
-    static NSString *const serversIndex = @"http://www.zhongyuedu.com/api/tk_jin_examtype.php";
-    
-    [manager GET:serversIndex parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+- (void)obtainServersInformation
+{    
+    [manager GET:SERVERS_INDEX parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [baseManager replaceDatabase];
         
@@ -416,43 +413,6 @@
     }
 }
 
-- (void)obtainBanners:(void(^)(NSArray *banners))response
-{
-    static NSString *const bannersURL = @"http://www.zhongyuedu.com/api/tk_jin_hp.php";
-    
-    [manager GET:bannersURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-     {
-         NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-         
-         if ([[Json valueForKey:@"resultCode"] integerValue] == 0)
-         {
-             NSArray *bannersObject = [Json valueForKey:@"banners"];
-             
-             __block int imagesCount = 0;
-             
-             [baseManager removeBanners];
-             
-             for (int i = 0; i < bannersObject.count; i++)
-             {
-                 [self bannerObjectsProcessingWith:bannersObject[i] complete:^{
-                     
-                     imagesCount++;
-                     
-                     if (imagesCount == bannersObject.count)
-                     {
-                         response([baseManager obtainBanners]);
-                     }
-                     
-                 }];
-             }
-         }
-     }
-         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-     {
-         response([baseManager obtainBanners]);
-     }];
-}
-
 - (void)bannerObjectsProcessingWith:(NSDictionary *)object complete:(void(^)(void))complete
 {
     RWBannersModel *banners = [[RWBannersModel alloc] init];
@@ -480,9 +440,7 @@
 
 - (void)obtainClassList
 {
-    static NSString *url = @"http://www.zhongyuedu.com/api/yy_jin_list.php";
-    
-    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:YY_INDEX parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -522,58 +480,10 @@
     return mArr;
 }
 
-- (void)obtainLatestInformation
-{
-    static NSString *const url = @"http://www.zhongyuedu.com/api/tk_jin_newsList.php";
-    
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        
-        if ([[Json objectForKey:@"resultcode"] integerValue] == 0)
-        {
-            NSArray *contexts = [[Json valueForKey:@"result"] valueForKey:@"contents"];
-            
-            NSMutableArray *mArr = [[NSMutableArray alloc] init];
-            
-            for (int j = 0; j < contexts.count; j++)
-            {
-                RWInformationModel *information = [[RWInformationModel alloc] init];
-                
-                NSArray *keys = [baseManager obtainAllKeysWithModel:[information class]];
-                
-                for (int i = 0; i < keys.count; i++)
-                {
-                    if ([keys[i] rangeOfString:@"mark_"].location != NSNotFound)
-                    {
-                        [information setValue:
-                         [contexts[j] valueForKey:[baseManager clearMark:keys[i]]]
-                                       forKey:keys[i]];
-                    }
-                    else
-                    {
-                        [information setValue:[contexts[j] valueForKey:keys[i]]
-                                       forKey:keys[i]];
-                    }
-                }
-
-                [mArr addObject:information];
-            }
-            
-            [self.delegate latestInformationDownLoadFinish:mArr];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [self.delegate requestError:error Task:task];
-    }];
-}
-
 - (void)obtainRecommendListSource
 {
-    static NSString *url = @"http://www.zhongyuedu.com/api/tuijian.php";
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:RECOMMEND parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
@@ -587,9 +497,8 @@
 
 - (void)postUserName:(NSString *)userName Complete:(void(^)(BOOL isSucceed,NSString *reason,NSError *error))complete
 {
-    static NSString *postUserName = @"http://www.zhongyuedu.com/api/yy_jin_post.php";
     
-    [manager POST:postUserName parameters:userName progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:UPDATE_USERNAME parameters:userName progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
@@ -610,9 +519,8 @@
 
 - (void)receivePushMessageOfHTML:(void(^)(NSString *html,NSError *error))complete
 {
-    static NSString *url = @"http://www.zhongyuedu.com/api/jin_url.php";
     
-    [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:RECEIVE_PUSH parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
@@ -697,6 +605,39 @@
     [alert addAction:registerAction];
     
     [viewController presentViewController:alert animated:YES completion:nil];
+}
+
++ (void)obtainExperienceTimes
+{
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    session.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [session POST:EXPERIENCE_TIMES_URL parameters:@{@"yz":@(2802)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([[Json objectForKey:@"resultcode"] integerValue] == 0)
+        {
+            NSString *limit = [NSString stringWithFormat:@"%@",
+                                                    [Json objectForKey:@"limit"]];
+            
+            if (limit.integerValue >= 100)
+            {
+                AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+                
+                RWTabBarViewController *tabBarController =
+                        (RWTabBarViewController *)delegate.window.rootViewController;
+                
+                [tabBarController quack];
+            }
+            
+            [[RWDeployManager defaultManager] setDeployValue:limit
+                                                      forKey:TIMES_BUFFER];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 @end

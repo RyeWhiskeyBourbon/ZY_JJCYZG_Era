@@ -64,6 +64,46 @@ static NSString *const answerViewCell = @"answerViewCell";
 @synthesize displayType;
 @synthesize baseManager;
 
+- (void)notRegister
+{
+    NSString *header, *message, *responcedTitle, *cancelTitle;
+    
+    header = @"登录";
+    message = @"立即登录免费获取更多题目\n\n继续体验，请点击取消按钮";
+    responcedTitle = @"立即登录";
+    cancelTitle = @"取消";
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:header message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *registerAction = [UIAlertAction actionWithTitle:responcedTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+        
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+        
+        [SVProgressHUD show];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
+                       dispatch_get_main_queue(), ^{
+                           
+                           RWDeployManager *deploy = [RWDeployManager defaultManager];
+                           
+                           [deploy setDeployValue:NOT_LOGIN forKey:LOGIN];
+                       });
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+    }];
+    
+    [alert addAction:registerAction];
+    
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)setCorrectCounts:(NSUInteger)correctCounts
 {
     _correctCounts = correctCounts;
@@ -333,6 +373,20 @@ static NSString *const answerViewCell = @"answerViewCell";
 
 - (void)toNext
 {
+    RWDeployManager *deploy = [RWDeployManager defaultManager];
+    
+    if ([[deploy deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
+    {
+        NSNumber *times = [deploy deployValueForKey:EXPERIENCE_TIMES];
+        
+        if (times && times.integerValue <= 0)
+        {
+            [self notRegister];
+            
+            return;
+        }
+    }
+    
     if (faceIndexPath.row != _subjectSource.count - 1)
     {
         [answerView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:faceIndexPath.row + 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];

@@ -267,7 +267,6 @@
 		12EC88591CF825F40078E9FD /* Star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12EC88571CF825F40078E9FD /* Star1.png */; };
 		12EC885A1CF825F40078E9FD /* Star2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12EC88581CF825F40078E9FD /* Star2.png */; };
 		12EDD82F1CE2D8F000C9FBB8 /* AppDelegate+DeployKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EDD82E1CE2D8F000C9FBB8 /* AppDelegate+DeployKVO.m */; };
-		12EDD8321CE3015200C9FBB8 /* RWInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EDD8311CE3015200C9FBB8 /* RWInformationController.m */; };
 		12EDD8351CE309FA00C9FBB8 /* RWInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EDD8341CE309FA00C9FBB8 /* RWInformationModel.m */; };
 		12EDD8381CE3372600C9FBB8 /* RWAlarmClockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EDD8371CE3372600C9FBB8 /* RWAlarmClockController.m */; };
 		12EDD83C1CE368D300C9FBB8 /* RWClockSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EDD83B1CE368D300C9FBB8 /* RWClockSwitchCell.m */; };
@@ -279,6 +278,15 @@
 		12EE61D01CE1DAE200ADCC51 /* RWSetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EE61CF1CE1DAE200ADCC51 /* RWSetPasswordController.m */; };
 		12EEAE5F1CE811B40076BACB /* RWFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EEAE5E1CE811B40076BACB /* RWFeedbackViewController.m */; };
 		12EEAE671CE853C50076BACB /* ZhongYuSubjectHubKYTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EEAE661CE853C50076BACB /* ZhongYuSubjectHubKYTests.m */; };
+		12EF79061D1BBC8900436821 /* MarketBlockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79021D1BBC8900436821 /* MarketBlockModel.m */; };
+		12EF79071D1BBC8900436821 /* RWScrollHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79041D1BBC8900436821 /* RWScrollHeader.m */; };
+		12EF79181D1BBCBE00436821 /* MarketBlockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF790C1D1BBCBE00436821 /* MarketBlockTableViewCell.m */; };
+		12EF79191D1BBCBE00436821 /* MarketPlainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF790E1D1BBCBE00436821 /* MarketPlainTableViewCell.m */; };
+		12EF791A1D1BBCBE00436821 /* MarketScrollBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79101D1BBCBE00436821 /* MarketScrollBlockCell.m */; };
+		12EF791B1D1BBCBE00436821 /* MarketSrcollListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79121D1BBCBE00436821 /* MarketSrcollListCell.m */; };
+		12EF791C1D1BBCBE00436821 /* SrcollBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79141D1BBCBE00436821 /* SrcollBlockCell.m */; };
+		12EF791D1D1BBCBE00436821 /* SrcollBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79161D1BBCBE00436821 /* SrcollBoardCell.m */; };
+		12EF79231D1BD16000436821 /* RWQuackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF79221D1BD16000436821 /* RWQuackViewController.m */; };
 		12EFFD5F1CD8A0C00030C74F /* Collect.png in Resources */ = {isa = PBXBuildFile; fileRef = 12EFFD521CD8A0C00030C74F /* Collect.png */; };
 		12EFFD601CD8A0C00030C74F /* Navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 12EFFD531CD8A0C00030C74F /* Navbar.png */; };
 		12EFFD611CD8A0C00030C74F /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 12EFFD541CD8A0C00030C74F /* Next.png */; };
@@ -906,8 +914,6 @@
 		12EC88581CF825F40078E9FD /* Star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Star2.png; sourceTree = "<group>"; };
 		12EDD82D1CE2D8F000C9FBB8 /* AppDelegate+DeployKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DeployKVO.h"; sourceTree = "<group>"; };
 		12EDD82E1CE2D8F000C9FBB8 /* AppDelegate+DeployKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DeployKVO.m"; sourceTree = "<group>"; };
-		12EDD8301CE3015200C9FBB8 /* RWInformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWInformationController.h; sourceTree = "<group>"; };
-		12EDD8311CE3015200C9FBB8 /* RWInformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWInformationController.m; sourceTree = "<group>"; };
 		12EDD8331CE309FA00C9FBB8 /* RWInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWInformationModel.h; sourceTree = "<group>"; };
 		12EDD8341CE309FA00C9FBB8 /* RWInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWInformationModel.m; sourceTree = "<group>"; };
 		12EDD8361CE3372600C9FBB8 /* RWAlarmClockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWAlarmClockController.h; sourceTree = "<group>"; };
@@ -932,6 +938,24 @@
 		12EEAE641CE853C50076BACB /* ZhongYuSubjectHubKYTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhongYuSubjectHubKYTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12EEAE661CE853C50076BACB /* ZhongYuSubjectHubKYTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhongYuSubjectHubKYTests.m; sourceTree = "<group>"; };
 		12EEAE681CE853C50076BACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12EF79011D1BBC8900436821 /* MarketBlockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketBlockModel.h; sourceTree = "<group>"; };
+		12EF79021D1BBC8900436821 /* MarketBlockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketBlockModel.m; sourceTree = "<group>"; };
+		12EF79031D1BBC8900436821 /* RWScrollHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWScrollHeader.h; sourceTree = "<group>"; };
+		12EF79041D1BBC8900436821 /* RWScrollHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWScrollHeader.m; sourceTree = "<group>"; };
+		12EF790B1D1BBCBE00436821 /* MarketBlockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketBlockTableViewCell.h; sourceTree = "<group>"; };
+		12EF790C1D1BBCBE00436821 /* MarketBlockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketBlockTableViewCell.m; sourceTree = "<group>"; };
+		12EF790D1D1BBCBE00436821 /* MarketPlainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketPlainTableViewCell.h; sourceTree = "<group>"; };
+		12EF790E1D1BBCBE00436821 /* MarketPlainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketPlainTableViewCell.m; sourceTree = "<group>"; };
+		12EF790F1D1BBCBE00436821 /* MarketScrollBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketScrollBlockCell.h; sourceTree = "<group>"; };
+		12EF79101D1BBCBE00436821 /* MarketScrollBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketScrollBlockCell.m; sourceTree = "<group>"; };
+		12EF79111D1BBCBE00436821 /* MarketSrcollListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketSrcollListCell.h; sourceTree = "<group>"; };
+		12EF79121D1BBCBE00436821 /* MarketSrcollListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketSrcollListCell.m; sourceTree = "<group>"; };
+		12EF79131D1BBCBE00436821 /* SrcollBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SrcollBlockCell.h; sourceTree = "<group>"; };
+		12EF79141D1BBCBE00436821 /* SrcollBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SrcollBlockCell.m; sourceTree = "<group>"; };
+		12EF79151D1BBCBE00436821 /* SrcollBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SrcollBoardCell.h; sourceTree = "<group>"; };
+		12EF79161D1BBCBE00436821 /* SrcollBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SrcollBoardCell.m; sourceTree = "<group>"; };
+		12EF791E1D1BC25B00436821 /* RWQuackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWQuackViewController.h; sourceTree = "<group>"; };
+		12EF79221D1BD16000436821 /* RWQuackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWQuackViewController.m; sourceTree = "<group>"; };
 		12EFFD521CD8A0C00030C74F /* Collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Collect.png; sourceTree = "<group>"; };
 		12EFFD531CD8A0C00030C74F /* Navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navbar.png; sourceTree = "<group>"; };
 		12EFFD541CD8A0C00030C74F /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
@@ -981,6 +1005,7 @@
 		12F446211D12AE4A00511336 /* edit_t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit_t.png; sourceTree = "<group>"; };
 		12F5671C1D07D6E30059E20F /* RWSubjectCatalogueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSubjectCatalogueController.h; sourceTree = "<group>"; };
 		12F5671D1D07D6E30059E20F /* RWSubjectCatalogueController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSubjectCatalogueController.m; sourceTree = "<group>"; };
+		12F5E2911D19160B004A303A /* RWRequestIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWRequestIndex.h; sourceTree = "<group>"; };
 		12F6EB2F1CD9FA1900CBA632 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		12F6EB311CD9FA3E00CBA632 /* RWWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWebViewController.h; sourceTree = "<group>"; };
 		12F6EB321CD9FA3E00CBA632 /* RWWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWebViewController.m; sourceTree = "<group>"; };
@@ -1333,8 +1358,6 @@
 			children = (
 				1263F5CA1CDB12AD0089EC9F /* RWMoreViewController.h */,
 				1263F5CB1CDB12AD0089EC9F /* RWMoreViewController.m */,
-				12EDD8301CE3015200C9FBB8 /* RWInformationController.h */,
-				12EDD8311CE3015200C9FBB8 /* RWInformationController.m */,
 				12EDD8361CE3372600C9FBB8 /* RWAlarmClockController.h */,
 				12EDD8371CE3372600C9FBB8 /* RWAlarmClockController.m */,
 				12F814F31CE4214900D6DEE9 /* RWClockAttributeController.h */,
@@ -2336,6 +2359,47 @@
 			path = ZhongYuSubjectHubKYTests;
 			sourceTree = "<group>";
 		};
+		12EF78FE1D1BBC5A00436821 /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				12EF791E1D1BC25B00436821 /* RWQuackViewController.h */,
+				12EF79221D1BD16000436821 /* RWQuackViewController.m */,
+				12EF79081D1BBCAB00436821 /* MarAllCells */,
+				12EF79211D1BD11400436821 /* MarModels */,
+			);
+			name = Market;
+			sourceTree = "<group>";
+		};
+		12EF79081D1BBCAB00436821 /* MarAllCells */ = {
+			isa = PBXGroup;
+			children = (
+				12EF790B1D1BBCBE00436821 /* MarketBlockTableViewCell.h */,
+				12EF790C1D1BBCBE00436821 /* MarketBlockTableViewCell.m */,
+				12EF790D1D1BBCBE00436821 /* MarketPlainTableViewCell.h */,
+				12EF790E1D1BBCBE00436821 /* MarketPlainTableViewCell.m */,
+				12EF790F1D1BBCBE00436821 /* MarketScrollBlockCell.h */,
+				12EF79101D1BBCBE00436821 /* MarketScrollBlockCell.m */,
+				12EF79111D1BBCBE00436821 /* MarketSrcollListCell.h */,
+				12EF79121D1BBCBE00436821 /* MarketSrcollListCell.m */,
+				12EF79131D1BBCBE00436821 /* SrcollBlockCell.h */,
+				12EF79141D1BBCBE00436821 /* SrcollBlockCell.m */,
+				12EF79151D1BBCBE00436821 /* SrcollBoardCell.h */,
+				12EF79161D1BBCBE00436821 /* SrcollBoardCell.m */,
+			);
+			name = MarAllCells;
+			sourceTree = "<group>";
+		};
+		12EF79211D1BD11400436821 /* MarModels */ = {
+			isa = PBXGroup;
+			children = (
+				12EF79011D1BBC8900436821 /* MarketBlockModel.h */,
+				12EF79021D1BBC8900436821 /* MarketBlockModel.m */,
+				12EF79031D1BBC8900436821 /* RWScrollHeader.h */,
+				12EF79041D1BBC8900436821 /* RWScrollHeader.m */,
+			);
+			name = MarModels;
+			sourceTree = "<group>";
+		};
 		12EFFD511CD8A0C00030C74F /* KYImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -2500,6 +2564,7 @@
 			isa = PBXGroup;
 			children = (
 				125D99091CD0784700871ED4 /* RWDataBase */,
+				12F5E2911D19160B004A303A /* RWRequestIndex.h */,
 				12FFF1511CCF4056003F58E2 /* RWRequsetManager.h */,
 				12FFF1521CCF4056003F58E2 /* RWRequsetManager.m */,
 				12EE61B71CE1737E00ADCC51 /* RWRequsetManager+UserLogin.h */,
@@ -2516,6 +2581,7 @@
 		12FFF0D61CCF3410003F58E2 /* InformationView */ = {
 			isa = PBXGroup;
 			children = (
+				12EF78FE1D1BBC5A00436821 /* Market */,
 				125D99C91CD0B67E00871ED4 /* Controller */,
 			);
 			name = InformationView;
@@ -3047,6 +3113,7 @@
 				126169271D10FAF70055438B /* UMComGridView.m in Sources */,
 				12FFF0BA1CCF1A3A003F58E2 /* RWErrorSubjectsController.m in Sources */,
 				126169481D10FAF70055438B /* UMComFindTableViewCell.m in Sources */,
+				12EF791C1D1BBCBE00436821 /* SrcollBlockCell.m in Sources */,
 				126169311D10FAF70055438B /* UMComPageControlView.m in Sources */,
 				12FFF13E1CCF3C63003F58E2 /* MagicalRecordInternal.m in Sources */,
 				1261692B1D10FAF70055438B /* UMComHorizonCollectionView.m in Sources */,
@@ -3064,6 +3131,7 @@
 				126169281D10FAF70055438B /* UMComGridViewerController.m in Sources */,
 				12EEAE5F1CE811B40076BACB /* RWFeedbackViewController.m in Sources */,
 				1261695A1D10FAF70055438B /* UMComFavouratesViewController.m in Sources */,
+				12EF79181D1BBCBE00436821 /* MarketBlockTableViewCell.m in Sources */,
 				12EA05371CEAF9E2003FF30C /* RWRegisterNowView.m in Sources */,
 				126169191D10FAF70055438B /* UMComNavigationController.m in Sources */,
 				125D99761CD0B46800871ED4 /* RWMainViewController.m in Sources */,
@@ -3126,6 +3194,7 @@
 				12FFF1361CCF3C63003F58E2 /* NSPersistentStore+MagicalRecord.m in Sources */,
 				126169801D10FAF70055438B /* UMComMicroTopicSearchViewController.m in Sources */,
 				126169631D10FAF70055438B /* UMComNearbyFeedViewController.m in Sources */,
+				12EF79061D1BBC8900436821 /* MarketBlockModel.m in Sources */,
 				12FFF1351CCF3C63003F58E2 /* NSManagedObjectModel+MagicalRecord.m in Sources */,
 				1261693C1D10FAF70055438B /* UMComSegmentedControl.m in Sources */,
 				126169411D10FAF70055438B /* UMComShowToast.m in Sources */,
@@ -3199,7 +3268,6 @@
 				126169871D10FAF70055438B /* UMComUserTableViewController.m in Sources */,
 				BA8C56781CD0F1C900CB33B8 /* RWCarouselImageCell.m in Sources */,
 				126169551D10FAF70055438B /* UMComLocationListController.m in Sources */,
-				12EDD8321CE3015200C9FBB8 /* RWInformationController.m in Sources */,
 				1261698A1D10FAF70055438B /* UMComModel.xcdatamodeld in Sources */,
 				126169781D10FAF70055438B /* UMComRemoteNoticeViewController.m in Sources */,
 				126169401D10FAF70055438B /* UMComiToast.m in Sources */,
@@ -3210,9 +3278,11 @@
 				129B656E1CD9DF74007A7224 /* RWBannersModel.m in Sources */,
 				1261692F1D10FAF70055438B /* UMComMutiStyleTextView.m in Sources */,
 				12F6EB331CD9FA3E00CBA632 /* RWWebViewController.m in Sources */,
+				12EF791A1D1BBCBE00436821 /* MarketScrollBlockCell.m in Sources */,
 				129724491D139EA10095D209 /* RWNewRegisterViewController.m in Sources */,
 				126169611D10FAF70055438B /* UMComHorizontalTableView.m in Sources */,
 				1261695D1D10FAF70055438B /* UMComFeedStyle.m in Sources */,
+				12EF79231D1BD16000436821 /* RWQuackViewController.m in Sources */,
 				12EE61D01CE1DAE200ADCC51 /* RWSetPasswordController.m in Sources */,
 				12F446021D1299DC00511336 /* RWAnimations.m in Sources */,
 				129724481D139EA10095D209 /* RWForGotPWViewController.m in Sources */,
@@ -3221,6 +3291,7 @@
 				12FFF1331CCF3C63003F58E2 /* NSManagedObjectContext+MagicalSaves.m in Sources */,
 				12F814F81CE42E3400D6DEE9 /* RWClockPickView.m in Sources */,
 				BAF4EF681CD1B36900C3931B /* RWAnswerViewCell.m in Sources */,
+				12EF791B1D1BBCBE00436821 /* MarketSrcollListCell.m in Sources */,
 				BAF3C59B1CD49F4300D66B03 /* RWCollectsubject.m in Sources */,
 				126169171D10FAF70055438B /* UMComPhotoAlbumViewController.m in Sources */,
 				12F776641CF2B06100F3561A /* RWMainViewController+Drawer.m in Sources */,
@@ -3230,6 +3301,7 @@
 				126169601D10FAF70055438B /* UMComFocusFeedTableViewController.m in Sources */,
 				125D99131CD0818A00871ED4 /* RWSubjectClassModel.m in Sources */,
 				126169701D10FAF70055438B /* UMComHomeFeedViewController.m in Sources */,
+				12EF79071D1BBC8900436821 /* RWScrollHeader.m in Sources */,
 				1261696A1D10FAF70055438B /* UMComFeedDetailViewHtmlBodyCell.m in Sources */,
 				BA8C566F1CD0E8CF00CB33B8 /* RWSubjectCarouselCell.m in Sources */,
 				126169141D10FAF70055438B /* UMComLoginManager.m in Sources */,
@@ -3237,8 +3309,10 @@
 				126169851D10FAF70055438B /* UMComUserTableViewCell.m in Sources */,
 				12FFF12D1CCF3C63003F58E2 /* NSManagedObject+MagicalFinders.m in Sources */,
 				1261691E1D10FAF70055438B /* UMComAddedImageCellView.m in Sources */,
+				12EF79191D1BBCBE00436821 /* MarketPlainTableViewCell.m in Sources */,
 				12FFF1271CCF3C63003F58E2 /* NSNumber+MagicalDataImport.m in Sources */,
 				1261692D1D10FAF70055438B /* UMComMedalImageView.m in Sources */,
+				12EF791D1D1BBCBE00436821 /* SrcollBoardCell.m in Sources */,
 				1261691F1D10FAF70055438B /* UMComAddedImageView.m in Sources */,
 				122386311CF45136003F98FB /* RWPickerViewCell.m in Sources */,
 				12F814F51CE4214900D6DEE9 /* RWClockAttributeController.m in Sources */,

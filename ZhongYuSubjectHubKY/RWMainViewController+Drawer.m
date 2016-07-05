@@ -7,7 +7,6 @@
 //
 
 #import "RWMainViewController+Drawer.h"
-#import "RWInformationController.h"
 #import "RWCountDownController.h"
 
 @implementation RWMainViewController (Drawer)
@@ -306,7 +305,7 @@
 {
     RWWebViewController *webViewController = [[RWWebViewController alloc] init];
     
-    webViewController.url = @"http://www.zhongyuedu.com/api/tk_aboutUs.htm";
+    webViewController.url = ABOUT_US;
     
     webViewController.title = @"关于我们";
     
@@ -317,7 +316,7 @@
 {
     RWWebViewController *webViewController = [[RWWebViewController alloc] init];
     
-    webViewController.url = @"http://www.zhongyuedu.com/app/tk_jz/tk_ios_usage.htm";
+    webViewController.url = README;
     
     webViewController.title = @"使用说明";
     

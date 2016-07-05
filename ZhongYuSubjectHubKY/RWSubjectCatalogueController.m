@@ -145,46 +145,6 @@ static NSString *const progressCell = @"ProgressCell";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)notRegister
-{
-    NSString *header, *message, *responcedTitle, *cancelTitle;
-    
-    header = @"登录";
-    message=@"立即登录免费获取全部题库\n\n继续体验，请点击取消按钮";
-    responcedTitle = @"立即登录";
-    cancelTitle = @"取消";
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:header message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *registerAction = [UIAlertAction actionWithTitle:responcedTitle style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        
-        [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-        
-        [SVProgressHUD show];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)),
-                       dispatch_get_main_queue(), ^{
-                           
-                           RWDeployManager *deploy = [RWDeployManager defaultManager];
-                           
-                           [deploy setDeployValue:NOT_LOGIN forKey:LOGIN];
-                       });
-    }];
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-    }];
-    
-    [alert addAction:registerAction];
-    
-    [alert addAction:cancelAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
 - (void)initManagersAndDatas
 {
     _requestManager = [[RWRequsetManager alloc] init];
@@ -357,13 +317,6 @@ static NSString *const progressCell = @"ProgressCell";
     selectTitle = [subjectSource[indexPath.section][indexPath.row] valueForKey:@"title"];
     
     _requestManager.delegate = self;
-    
-    if ([[deployManager deployValueForKey:LOGIN] isEqualToString:NOT_LOGIN])
-    {
-        [self notRegister];
-        
-        return;
-    }
     
     NSArray *classSource = [baseManager obtainIndexNameWithHub:selectTitle];
     
