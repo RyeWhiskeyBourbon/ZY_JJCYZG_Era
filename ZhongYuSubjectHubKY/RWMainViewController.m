@@ -106,7 +106,8 @@
 {
     [SVProgressHUD dismiss];
     
-    [RWRequsetManager warningToViewController:self Title:@"网络连接失败，请检查网络" Click:^{
+    [RWRequsetManager warningToViewController:self Title:@"网络连接失败，请检查网络" Click:^
+    {
         
         [self.navigationController popViewControllerAnimated:YES];
     }];
