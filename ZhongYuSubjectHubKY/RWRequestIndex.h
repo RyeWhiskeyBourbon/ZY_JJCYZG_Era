@@ -19,7 +19,7 @@
 
 #define NAV_TITLE @"基金从业资讯"
 
-#define MAIN_INDEX [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test4/test.html"]
+#define MAIN_INDEX [NSURL URLWithString:@"http://jijincongyezigekaoshi.com/list.php?fid=92"]
 //>> 资讯
 #define SERVERS_INDEX @"http://www.zhongyuedu.com/api/tk_jin_examtype.php"
 //>> 题库目录

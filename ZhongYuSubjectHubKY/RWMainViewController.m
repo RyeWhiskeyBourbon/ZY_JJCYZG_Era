@@ -13,23 +13,20 @@
 #import "RWWelcomeController.h"
 #import "RWMainViewController+Drawer.h"
 #import "RWMainViewController+CountDownView.h"
+#import "RWCustomizeToolBar.h"
 
 @interface RWMainViewController ()
 
 <
     UIAlertViewDelegate,
     WKNavigationDelegate,
-    WKUIDelegate
+    WKUIDelegate,
+    RWCustomizeWebToolBarDelegate
 >
-
-@property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 @end
 
 @implementation RWMainViewController
-
-@synthesize baseManager;
-@synthesize deployManager;
 
 - (void)initBar
 {
@@ -62,9 +59,7 @@
 {
     _requestManager = [[RWRequsetManager alloc] init];
     
-    baseManager = [RWDataBaseManager defaultManager];
-    
-    deployManager = [RWDeployManager defaultManager];
+    _deployManager = [RWDeployManager defaultManager];
 }
 
 - (void)initInformationView
@@ -95,6 +90,23 @@
     [SVProgressHUD setFont:[UIFont systemFontOfSize:14]];
     
     [SVProgressHUD showWithStatus:@"正在加载..."];
+    
+    if ([webView.URL.absoluteString isEqualToString:MAIN_INDEX.absoluteString])
+    {
+        [self removeWebToolBar];
+    }
+    else
+    {
+        [self addWebToolBar];
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        if (_informationView.isLoading)
+        {
+            [SVProgressHUD dismiss];
+        }
+    });
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
@@ -110,6 +122,61 @@
         
         [self.navigationController popViewControllerAnimated:YES];
     }];
+}
+
+- (void)addWebToolBar
+{
+    if ([self.tabBarController.tabBar viewWithTag:160701])
+    {
+        return;
+    }
+    
+    CGFloat w = self.tabBarController.tabBar.frame.size.width;
+    CGFloat h = self.tabBarController.tabBar.frame.size.height;
+    CGRect frame = CGRectMake(0, 0, w, h);
+    
+    RWCustomizeWebToolBar *bar = [RWCustomizeWebToolBar webBarWithFrame:frame];
+    bar.delegate = self;
+    bar.tag = 160701;
+    
+    [self.tabBarController.tabBar addSubview:bar];
+}
+
+- (void)removeWebToolBar
+{
+    UIView *view = [self.tabBarController.tabBar viewWithTag:160701];
+    
+    if (view)
+    {
+        [view removeFromSuperview];
+    }
+}
+
+- (void)webToolBar:(RWCustomizeWebToolBar *)webToolBar didClickWithType:(RWWebToolBarType)type
+{
+    switch (type)
+    {
+        case RWWebToolBarTypeOfPrevious:
+        {
+            [_informationView goBack];
+            
+            break;
+        }
+        case RWWebToolBarTypeOfIndex:
+        {
+            NSURLRequest *requset = [NSURLRequest requestWithURL:MAIN_INDEX];
+            
+            [_informationView loadRequest:requset];
+            
+            break;
+        }
+        case RWWebToolBarTypeOfShared:
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
@@ -141,14 +208,12 @@
     
     _drawerCenter = _drawerView.center;
     
-    if ([[deployManager deployValueForKey:FIRST_OPEN_APPILCATION] boolValue])
+    if ([[_deployManager deployValueForKey:FIRST_OPEN_APPILCATION] boolValue])
     {
         [self toWelcomeView];
         
         return;
     }
-    
-    
     
     NSURLRequest *requset = [NSURLRequest requestWithURL:MAIN_INDEX];
     
@@ -166,7 +231,7 @@
     
     [SVProgressHUD dismiss];
     
-    [RWRequsetManager warningToViewController:self Title:@"失败" Click:nil];
+    [RWRequsetManager warningToViewController:self Title:@"服务器连接失败" Click:nil];
 }
 
 #pragma mark +CountDown
